@@ -93,6 +93,10 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="PilaPacientes.hpp"/>
+    <File Name="PilaPacientes.cpp"/>
+    <File Name="NodoPila.hpp"/>
+    <File Name="NodoPila.cpp"/>
     <File Name="paciente.cpp"/>
     <File Name="paciente.hpp"/>
     <File Name="main.cpp"/>
