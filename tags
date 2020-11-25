@@ -1,0 +1,9 @@
+PILAPACIENTES_HPP	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^#define PILAPACIENTES_HPP$/;"	macro	line:2
+PilaPacientes	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^class PilaPacientes$/;"	class	line:5
+PilaPacientes	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    PilaPacientes();$/;"	prototype	line:8	class:PilaPacientes	access:public	signature:()
+~PilaPacientes	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    ~PilaPacientes();$/;"	prototype	line:9	class:PilaPacientes	access:public	signature:()
+insertar	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    void insertar(Paciente v);$/;"	prototype	line:10	class:PilaPacientes	access:public	signature:(Paciente v)	returns:void 
+extraer	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    Paciente extraer();$/;"	prototype	line:11	class:PilaPacientes	access:public	signature:()	returns:Paciente 
+mostrar	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    void mostrar();$/;"	prototype	line:12	class:PilaPacientes	access:public	signature:()	returns:void 
+estaVacia	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    bool estaVacia();$/;"	prototype	line:13	class:PilaPacientes	access:public	signature:()	returns:bool 
+ultimo	C:\Users\marin\OneDrive\Documentos\EEDD-2020-master\PECL1\PilaPacientes.hpp	/^    pnodo ultimo;$/;"	member	line:16	class:PilaPacientes	access:private
