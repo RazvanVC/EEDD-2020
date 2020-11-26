@@ -93,6 +93,8 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="../../../../EEDD-2020-master/PECL1/ListaUrgencia.hpp"/>
+    <File Name="../../../../EEDD-2020-master/PECL1/ListaUrgencia.cpp"/>
     <File Name="PilaPacientes.hpp"/>
     <File Name="PilaPacientes.cpp"/>
     <File Name="NodoPila.hpp"/>
