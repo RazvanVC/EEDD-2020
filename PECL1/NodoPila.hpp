@@ -3,9 +3,6 @@
 
 #include "paciente.hpp"
 
-#include <iostream>
-using namespace std;
-
 class NodoPila
 {
 public:
