@@ -27,13 +27,11 @@ Paciente PilaPacientes::extraer() // Extraer un paciente de la cola
     return v;
 }
 
-void PilaPacientes::mostrar(Paciente paciente) // Imprimir por pantalla lo que hay en la cola
+void PilaPacientes::mostrar() // Imprimir por pantalla lo que hay en la cola
 {
     pnodo aux = ultimo;
     while(aux) {
-        cout << "Datos pacientes: " << paciente.getCodNumerico() << ", " << paciente.getDNI() << ", " << paciente.getNombre()
-             << ", " << paciente.getApell1() << ", " << paciente.getApell2() << ", " << paciente.getEdad() << ", "
-             << paciente.getSexo();
+        aux->paciente.imprimePila();
         aux = aux->siguiente;
     }
     cout << endl;
