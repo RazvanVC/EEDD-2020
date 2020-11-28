@@ -10,7 +10,7 @@ public:
 
     void insertar(Paciente p);
     void borrar(string dni); // Cambiar a borrar último
-    void mostrar();
+    void mostrar(Paciente p);
     lnodo getultimo();
     lnodo getprimero();
     int longitud;

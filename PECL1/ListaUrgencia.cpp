@@ -72,32 +72,33 @@ void ListaUrgencia::borrar(string dni)
     size = size - 1;
 }
 
-/*void ListaUrgencia::mostrar()
-{
-    lnodo nodo;
-    {
-        primero();
-        nodo = pLista;
-        while(nodo) {
-            cout << nodo->paciente << "-> ";
-            nodo = nodo->siguiente;
-        }
-    }
-    cout << endl;
-}*/
-
-Paciente ListaUrgencia::buscarCodNumerico(int CodNumerico)
+void ListaUrgencia::mostrar(Paciente paciente)
 {
     lnodo aux;
-    aux = primero;
-    while(aux->siguiente != NULL) {
-        if(aux->paciente.getCodNumerico() == CodNumerico) {
-            return aux->paciente;
-        } else {
+    {
+        aux = primero;
+        while(aux->siguiente != NULL) {
+            cout << "Codigo numerico: " << paciente.getCodNumerico() << "DNI: " << paciente.getDNI() << "Tiempo: " << paciente.getTiempo() << endl; //falta la fecha
             aux = aux->siguiente;
         }
     }
+    cout << endl;
 }
+
+Paciente ListaUrgencia::buscarCodNumerico(int CodNumerico){
+            lnodo aux;
+            aux = primero;
+            while(aux->siguiente != NULL or aux->paciente.getCodNumerico() == CodNumerico)
+                if (aux->paciente.getCodNumerico() == CodNumerico){
+                        return aux->paciente;
+                    }
+                else {
+                    aux = aux->siguiente;
+                } 
+                Paciente p0 = Paciente();
+                return p0; //Hay que comprobar que el código sea mayor que -1, si no el paciente no existe.
+            }
+    
 
 ListaUrgencia::~ListaUrgencia()
 {
