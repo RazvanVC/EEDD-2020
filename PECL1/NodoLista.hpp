@@ -8,11 +8,9 @@ class NodoLista
 public:
     NodoLista(Paciente p, NodoLista* sig = NULL, NodoLista* ant = NULL);
     ~NodoLista();
-
-    Paciente p;
+    Paciente paciente;
     NodoLista* siguiente;
     NodoLista* anterior;
-
     friend class ListaUrgencia;
 };
 

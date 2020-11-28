@@ -1,9 +1,13 @@
 #include "ListaUrgencia.hpp"
+#include <iostream>
+
+
+
 
 ListaUrgencia::ListaUrgencia()
 {  pnodo aux;
 
-    Primero();
+    primero();
     while(pLista) {
         aux = pLista;
         pLista = pLista->siguiente;
@@ -11,45 +15,45 @@ ListaUrgencia::ListaUrgencia()
     }
 }
 
-void ListaUrgencia::Insertar(int v)
+void ListaUrgencia::insertar(Paciente p)
 {
     pnodo nuevo;
 
-    Primero();
+    primero();
     // Si la Lista está vacía
-    if(ListaVacia() || pLista->valor > v) {
-        // Asignamos a Lista un nuevo nodo de valor v y
+    if(ListaVacia() || pLista->paciente > p) {
+        // Asignamos a Lista un nuevo nodo de valor p y
         // cuyo siguiente elemento es la Lista actual
-        nuevo = new nodo(v, pLista);
+        nuevo = new nodo(p, pLista);
         if(!pLista)
             pLista = nuevo;
         else
             pLista->anterior = nuevo;
     } else {
-        // Buscar el nodo de valor menor a v
+        // Buscar el nodo de paciente menor a p
         // Avanzamos hasta el último elemento o hasta que el siguiente tenga
-        // un valor mayor que v
-        while(pLista->siguiente && pLista->siguiente->valor <= v)
-            Siguiente();
+        // un paciente mayor que p
+        while(pLista->siguiente && pLista->siguiente->paciente <= p)
+            siguiente();
         // Creamos un nuevo nodo después del nodo actual
-        nuevo = new nodo(v, pLista->siguiente, pLista);
+        nuevo = new nodo(p, pLista->siguiente, pLista);
         pLista->siguiente = nuevo;
         if(nuevo->siguiente)
             nuevo->siguiente->anterior = nuevo;
     }
 }
 
-void ListaUrgencia::Borrar(int v)
+void ListaUrgencia::borrar(int p)
 {
     pnodo nodo;
 
     nodo = pLista;
-    while(nodo && nodo->valor < v)
+    while(nodo && nodo->paciente < p)
         nodo = nodo->siguiente;
-    while(nodo && nodo->valor > v)
+    while(nodo && nodo->paciente > p)
         nodo = nodo->anterior;
 
-    if(!nodo || nodo->valor != v)
+    if(!nodo || nodo->paciente != p)
         return;
     // Borrar el nodo
 
@@ -91,21 +95,19 @@ void ListaUrgencia::anterior()
     if(pLista)
         pLista = pLista->anterior;
 }
-void ListaUrgencia::Mostrar()
+void ListaUrgencia::mostrar()
 {
     pnodo nodo;
     {
         primero();
         nodo = pLista;
         while(nodo) {
-            cout << nodo->valor << "-> ";
+            cout << nodo->paciente << "-> ";
             nodo = nodo->siguiente;
         }
     }
     cout << endl;
 }
-}
-
 ListaUrgencia::~ListaUrgencia()
 {
 }
