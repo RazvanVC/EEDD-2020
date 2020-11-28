@@ -142,7 +142,7 @@ int main()
             
             //Comprobar si está en pila
             
-            /*pilaPacientesTemp = PilaPacientes();
+            pilaPacientesTemp = PilaPacientes();
             int iteracion;
             iteracion = 1;
             do {
@@ -197,7 +197,7 @@ int main()
                 cout << "El paciente aun no se ha encontrado"<<endl;
                 
                 iteracion++;
-            } while (!pilaPacientesTemp.estaVacia());*/
+            } while (!pilaPacientesTemp.estaVacia());
             
             break;
         case 2:
