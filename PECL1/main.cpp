@@ -1,5 +1,5 @@
-#include <iostream>
-#include <stdio.h>
+#include <iostream> 
+#include <string> 
 #include "PilaPacientes.hpp"
 #include "ListaUrgencia.hpp"
 
@@ -43,15 +43,16 @@ int main()
     int opcion;
 
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
+    cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
     cout << "1. Baja de paciente" << endl;
-    cout << "2. Modificación-Reasignación de paciente a tipo emergencia" << endl;
+    cout << "2. Modificacion-Reasignacion de paciente a tipo emergencia" << endl;
     cout << "3. Consultas de pacientes/emergencias" << endl;
     cout << "4. Reiniciar programa" << endl;
     cout << "5. Salir del programa" << endl;
     cout << "Seleccione un opcicion del menu: ";
     cin >> opcion;
-    cout << endl;
+    cout << endl << endl;
     
     
     PilaPacientes pilaPacientesTemp;
@@ -64,15 +65,16 @@ int main()
             pacienteActual = pilaEntrada.extraer();
             
             cout << "Para dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
-            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
             cout << "2 - Nivel Naranja - Emergencia" << endl;
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
             cout << "Inserte la prioridad del paciente: ";
             cin >> nEmergencia;
             
-            if (nEmergencia<0 || nEmergencia>4){
-                cout << "\nNumero de emergencia erroneo. Vuelva a intentarlo.";
+            if (nEmergencia<1 || nEmergencia>4){
+                cout << "\nERROR: Numero de emergencia erroneo."<< endl;
+                cout << "Regresando a menu principal..." << endl << endl;
                 pilaEntrada.insertar(pacienteActual);
                 break;
             }
@@ -129,18 +131,18 @@ int main()
             }
             break;
         case 1:
+            cout << "Indique el DNI del paciente que desea dar de baja: ";
+            cin >> DNI;
             
-            cout << "Indique el DNI del paciente que desea dar de baja: " << endl;
-            getline(cin, DNI);
             if (DNI.empty()){
-                cout << "El DNI no puede estar vacío" << endl;
+                cout << "El DNI no puede estar vacio" << endl;
             } else if (DNI.size()<9){
                 cout << "La longitud del DNI es incorrecta" << endl;
             }
             
             //Comprobar si está en pila
             
-            pilaPacientesTemp = PilaPacientes();
+            /*pilaPacientesTemp = PilaPacientes();
             int iteracion;
             iteracion = 1;
             do {
@@ -195,17 +197,19 @@ int main()
                 cout << "El paciente aun no se ha encontrado"<<endl;
                 
                 iteracion++;
-            } while (!pilaEntrada.estaVacia());
+            } while (!pilaPacientesTemp.estaVacia());*/
             
             break;
         case 2:
             // TODO Code Option 2
             int codPaciente, emergenciaA, emergenciaN;
+            bool continuar;
+            continuar = true;
             
             //Asignacion Codigo Paciente
             cout << "Inserte el codigo de paciente a modificar: ";
             cin >> codPaciente;
-            if (codPaciente<0 || codPaciente>10){
+            if (codPaciente<1 || codPaciente>10){
                 cout << "ERROR: Codigo de paciente incorrecto" << endl;
                 cout << "Regresando a menu principal..." << endl;
                 break;
@@ -213,49 +217,76 @@ int main()
             
             //Asignacion de Emergencia Antigua
             cout << "Indique la emergencia anterior a la que estaba asignado" << endl;
-            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
             cout << "2 - Nivel Naranja - Emergencia" << endl;
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
-            cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+            cout << "4 - Nivel Verde - Urgencia Menor" << endl;;
             cout << "Emergencia anterior: ";
             cin >> emergenciaA;
-            if (emergenciaA<0 || emergenciaA>4){
-                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl;
-                cout << "Regresando a menu principal..." << endl;
-                break;
-            }
             
-            //Asignacion de Nueva Emergencia
-            cout << "Indique la emergencia actual a la que se desea asignar" << endl;
-            cout << "1 - Nivel Rojo - Resucitación" << endl;
-            cout << "2 - Nivel Naranja - Emergencia" << endl;
-            cout << "3 - Nivel Amarillo - Urgencia" << endl;
-            cout << "4 - Nivel Verde - Urgencia Menor" << endl;
-            cout << "Emergencia nueva: ";
-            cin >> emergenciaN;
-            if (emergenciaN<0 || emergenciaN>4){
-                cout << "\nERROR: Numero de emergencia nueva erroneo.";
+            if (emergenciaA<1 || emergenciaA>4){
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl;
                 cout << "Regresando a menu principal..." << endl;
                 break;
             }
             
             switch (emergenciaA){
                 case 1:
+                    cout << "Entro en caso 1";
+                    if (listaRoja.longitud==0) {
+                        bool comparacion;
+                        comparacion = listaRoja.longitud==0;
+                        cout << comparacion << endl;
+                        continuar = false;
+                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                        break;
+                    }
+                    cout << "Hago el IF";
                     //pacienteActual = listaRoja.buscarCodNumerico(codPaciente);
                     listaRoja.borrar(pacienteActual.getDNI());
                     break;
                 case 2:
+                    if (listaNaranja.longitud==0) {
+                        continuar = false;
+                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                        break;
+                    }
                     //pacienteActual = listaNaranja.buscarCodNumerico(codPaciente);
                     listaNaranja.borrar(pacienteActual.getDNI());
                     break;
                 case 3:
-                    //pacienteActual = listaAmarilla.buscarCodNumerico(codPaciente);
+                    if (listaAmarilla.longitud==0) {
+                        continuar = false;
+                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                        break;
+                    }
+                    pacienteActual = listaAmarilla.buscarCodNumerico(codPaciente);
                     listaAmarilla.borrar(pacienteActual.getDNI());
                     break;
                 case 4:
-                    //pacienteActual = listaVerde.buscarCodNumerico(codPaciente);
+                    if (listaVerde.longitud==0) {
+                        continuar = false;
+                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                        break;
+                    }
+                    pacienteActual = listaVerde.buscarCodNumerico(codPaciente);
                     listaVerde.borrar(pacienteActual.getDNI());
                     break;
+            }
+            if (!continuar) break;
+            
+            //Asignacion de Nueva Emergencia
+            cout << "Indique la emergencia actual a la que se desea asignar" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
+            cout << "2 - Nivel Naranja - Emergencia" << endl;
+            cout << "3 - Nivel Amarillo - Urgencia" << endl;
+            cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+            cout << "Emergencia nueva: ";
+            cin >> emergenciaN;
+            if (emergenciaN<1 || emergenciaN>4){
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl;
+                cout << "Regresando a menu principal..." << endl;
+                break;
             }
             
             //asignacion Tiempo
@@ -287,8 +318,16 @@ int main()
             
             break;
         }
+        cout << endl;
+        cout << "0. Alta de paciente en emergencia" << endl;
+        cout << "1. Baja de paciente" << endl;
+        cout << "2. Modificacion-Reasignacion de paciente a tipo emergencia" << endl;
+        cout << "3. Consultas de pacientes/emergencias" << endl;
+        cout << "4. Reiniciar programa" << endl;
+        cout << "5. Salir del programa" << endl;
         cout << "Seleccione un opcicion del menu: ";
         cin >> opcion;
-    }
+        cout << endl << endl;
+        }
     return 0;
 }
