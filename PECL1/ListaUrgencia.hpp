@@ -18,16 +18,13 @@ public:
     void anterior();
     void primero();
     void ultimo();
-    pnodo actual()
-    {
-        return pLista;
-    }
     Paciente valorActual()
     {
         return pLista->paciente;
     }
+    int longitud;
 
 private:
-    pnodo pLista;
+    lnodo pLista;
 };
 #endif // LISTAURGENCIA_HPP

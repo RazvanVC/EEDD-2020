@@ -4,7 +4,7 @@
 ListaUrgencia::ListaUrgencia()
 {
     pLista = NULL;
-    pnodo aux;
+    lnodo aux;
 
     primero();
     while(pLista) {
@@ -12,20 +12,20 @@ ListaUrgencia::ListaUrgencia()
         pLista = pLista->siguiente;
         delete aux;
     }
+    longitud = 0;
     
 }
 
 void ListaUrgencia::insertar(Paciente p)
 {
-    pnodo nuevo;
-
+    lnodo nuevo;
     primero();
     // Si la Lista está vacía
     if(ListaVacia() || pLista->paciente.getTiempo() > p.getTiempo()) {
         // Asignamos a Lista un nuevo nodo de valor p y
         // cuyo siguiente elemento es la Lista actual
-        new pnodo(p);
-        nuevo = new pnodo(p, pLista);
+        new lnodo(p);
+        nuevo = new lnodo(p, pLista);
         if(!pLista)
             pLista = nuevo;
         else
@@ -42,11 +42,12 @@ void ListaUrgencia::insertar(Paciente p)
         if(nuevo->siguiente)
             nuevo->siguiente->anterior = nuevo;
     }
+    
 }
 
 void ListaUrgencia::borrar()
 {
-    pnodo nodo;
+    lnodo nodo;
     nodo = pLista;
     int valor = cin << "Introduce el número de la lista que quieras borrar" <<
     if (valor > ultimo()){
@@ -68,6 +69,7 @@ void ListaUrgencia::borrar()
     //    nodo->siguiente->anterior = nodo->anterior;
     //delete nodo;
     }
+
 ;}
 bool ListaUrgencia::ListaVacia() // Comprueba si la lista está vacía
 {
@@ -102,7 +104,7 @@ void ListaUrgencia::anterior()
 }
 void ListaUrgencia::mostrar()
 {
-    pnodo nodo;
+    lnodo nodo;
     {
         primero();
         nodo = pLista;

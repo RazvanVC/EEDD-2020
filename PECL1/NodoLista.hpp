@@ -14,5 +14,5 @@ public:
     friend class ListaUrgencia;
 };
 
-typedef NodoLista* pnodo;
+typedef NodoLista* lnodo;
 #endif // NODOLISTA_HPP
