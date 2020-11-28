@@ -9,7 +9,7 @@ public:
     ~PilaPacientes();
     void insertar(Paciente v);
     Paciente extraer();
-    void mostrar(Paciente paciente);
+    void mostrar();
     bool estaVacia();
 
 private:

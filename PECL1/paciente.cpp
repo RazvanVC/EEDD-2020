@@ -38,7 +38,13 @@ Paciente::Paciente(
     this->Prioridad = 0;
     this->Tiempo = 0;
 }
-
+void Paciente::imprimeLista()
+{ cout << "Codigo Numnerico: " << CodNumerico << "DNI: " << DNI << "Tiempo" << Tiempo << endl; //Sigue faltando fecha 
+    }
+void Paciente::imprimePila()
+{ cout << "Codigo Numnerico: " << CodNumerico << "DNI: " << DNI  << "Nombre: " << Nombre << "Primer apellido: "
+ << Apell1 <<"Segundo apellido: " << Apell2 <<"Edad: " << Edad << "Sexo: " << Sexo << endl;
+    }
 /* GETS */
 
 int Paciente::getCodNumerico()
@@ -132,6 +138,7 @@ void Paciente::setTiempo(int time)
 {
     Tiempo = time;
 }
+
 
 Paciente::~Paciente()
 {

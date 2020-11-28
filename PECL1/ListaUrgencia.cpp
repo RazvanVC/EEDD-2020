@@ -72,16 +72,15 @@ void ListaUrgencia::borrar(string dni)
     size = size - 1;
 }
 
-void ListaUrgencia::mostrar(Paciente paciente)
+void ListaUrgencia::mostrar()
 {
     lnodo aux;
-    {
         aux = primero;
         while(aux->siguiente != NULL) {
-            cout << "Codigo numerico: " << paciente.getCodNumerico() << "DNI: " << paciente.getDNI() << "Tiempo: " << paciente.getTiempo() << endl; //falta la fecha
+            aux->paciente.imprimeLista();
+            
             aux = aux->siguiente;
         }
-    }
     cout << endl;
 }
 

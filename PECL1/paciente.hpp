@@ -21,7 +21,8 @@ public:
         char Sexo
         );
     ~Paciente();
-
+    void imprimeLista();
+    void imprimePila();
     // Declaraciones de gets
     int getCodNumerico();
     string getDNI();
