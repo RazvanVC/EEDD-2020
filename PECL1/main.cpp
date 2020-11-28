@@ -57,13 +57,15 @@ int main()
         case 0:
             int nEmergencia;
             pacienteActual = pilaEntrada.extraer();
-            cout << "Para dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
+            
+            cout << "\nPara dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
             cout << "1 - Nivel Rojo - Resucitación" << endl;
             cout << "2 - Nivel Naranja - Emergencia" << endl;
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
             cout << "Inserte la prioridad del paciente: "; 
             cin >> nEmergencia;
+            
             if (nEmergencia<0 || nEmergencia>4){
                 cout << "\nNumero de emergencia erroneo. Vuelva a intentarlo.";
                 pilaEntrada.insertar(pacienteActual);
@@ -91,9 +93,87 @@ int main()
         case 1:
             // TODO Code Option 1
             
+            
+            
             break;
         case 2:
             // TODO Code Option 2
+            int codPaciente, emergenciaA, emergenciaN;
+            
+            //Asignacion Codigo Paciente
+            cout << "Inserte el codigo de paciente a modificar: ";
+            cin >> codPaciente;
+            if (codPaciente<0 || codPaciente>10){
+                cout << "ERROR: Codigo de paciente incorrecto" << endl;
+                cout << "Regresando a menu principal..." << endl;
+                break;
+            }
+            
+            //Asignacion de Emergencia Antigua
+            cout << "Indique la emergencia anterior a la que estaba asignado" << endl;
+            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "2 - Nivel Naranja - Emergencia" << endl;
+            cout << "3 - Nivel Amarillo - Urgencia" << endl;
+            cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+            cout << "Emergencia anterior: ";
+            cin >> emergenciaA;
+            if (emergenciaA<0 || emergenciaA>4){
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl;
+                cout << "Regresando a menu principal..." << endl;
+                break;
+            }
+            
+            //Asignacion de Nueva Emergencia
+            cout << "Indique la emergencia anterior a la que estaba asignado" << endl;
+            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "2 - Nivel Naranja - Emergencia" << endl;
+            cout << "3 - Nivel Amarillo - Urgencia" << endl;
+            cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+            cout << "Emergencia nueva: ";
+            cin >> emergenciaN;
+            if (emergenciaN<0 || emergenciaN>4){
+                cout << "\nERROR: Numero de emergencia nueva erroneo.";
+                cout << "Regresando a menu principal..." << endl;
+                break;
+            }
+            
+            switch (emergenciaA){
+                case 1:
+                    //pacienteActual = listaRoja.buscarCodNumerico(codPaciente);
+                    listaRoja.borrar(pacienteActual.getDNI());
+                    break;
+                case 2:
+                    //pacienteActual = listaNaranja.buscarCodNumerico(codPaciente);
+                    listaNaranja.borrar(pacienteActual.getDNI());
+                    break;
+                case 3:
+                    //pacienteActual = listaAmarilla.buscarCodNumerico(codPaciente);
+                    listaAmarilla.borrar(pacienteActual.getDNI());
+                    break;
+                case 4:
+                    //pacienteActual = listaVerde.buscarCodNumerico(codPaciente);
+                    listaVerde.borrar(pacienteActual.getDNI());
+                    break;
+            }
+            
+            //asignacion Tiempo
+            
+            pacienteActual.setPrioridad(emergenciaN);
+            
+            switch (pacienteActual.getPrioridad()){
+                case 1:
+                    listaRoja.insertar(pacienteActual);
+                    break;
+                case 2:
+                    listaNaranja.insertar(pacienteActual);
+                    break;
+                case 3:
+                    listaAmarilla.insertar(pacienteActual);
+                    break;
+                case 4:
+                    listaVerde.insertar(pacienteActual);
+                    break;
+            }
             
             break;
         case 3:
@@ -108,5 +188,7 @@ int main()
         cout << "Seleccione un opcicion del menu: ";
         cin >> opcion;
     }
+    
+    
     return 0;
 }
