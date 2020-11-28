@@ -24,71 +24,14 @@
 
 
 
-PACIENTE_HPP	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^#define PACIENTE_HPP$/;"	macro	line:2
-Paciente	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^class Paciente$/;"	class	line:11
-Paciente	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    Paciente();$/;"	prototype	line:14	class:Paciente	access:public	signature:()
-Paciente	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    Paciente(int CodNumerico,$/;"	prototype	line:15	class:Paciente	access:public	signature:(int CodNumerico, string DNI, string Nombre, string Apell1, string Apell2, int Edad, char Sexo )
-~Paciente	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    ~Paciente();$/;"	prototype	line:23	class:Paciente	access:public	signature:()
-imprimeLista	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void imprimeLista();$/;"	prototype	line:24	class:Paciente	access:public	signature:()	returns:void 
-imprimePila	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void imprimePila();$/;"	prototype	line:25	class:Paciente	access:public	signature:()	returns:void 
-getCodNumerico	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int getCodNumerico();$/;"	prototype	line:27	class:Paciente	access:public	signature:()	returns:int 
-getDNI	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string getDNI();$/;"	prototype	line:28	class:Paciente	access:public	signature:()	returns:string 
-getNombre	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string getNombre();$/;"	prototype	line:29	class:Paciente	access:public	signature:()	returns:string 
-getApell1	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string getApell1();$/;"	prototype	line:30	class:Paciente	access:public	signature:()	returns:string 
-getApell2	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string getApell2();$/;"	prototype	line:31	class:Paciente	access:public	signature:()	returns:string 
-getEdad	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int getEdad();$/;"	prototype	line:32	class:Paciente	access:public	signature:()	returns:int 
-getSexo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    char getSexo();$/;"	prototype	line:33	class:Paciente	access:public	signature:()	returns:char 
-getPrioridad	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int getPrioridad();$/;"	prototype	line:34	class:Paciente	access:public	signature:()	returns:int 
-getTiempo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int getTiempo();$/;"	prototype	line:35	class:Paciente	access:public	signature:()	returns:int 
-setCodNumerico	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setCodNumerico(int CodNumerico);$/;"	prototype	line:38	class:Paciente	access:public	signature:(int CodNumerico)	returns:void 
-setDNI	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setDNI(string DNI);$/;"	prototype	line:39	class:Paciente	access:public	signature:(string DNI)	returns:void 
-setNombre	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setNombre(string Nombre);$/;"	prototype	line:40	class:Paciente	access:public	signature:(string Nombre)	returns:void 
-setApell1	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setApell1(string Apell1);$/;"	prototype	line:41	class:Paciente	access:public	signature:(string Apell1)	returns:void 
-setApell2	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setApell2(string Apell2);$/;"	prototype	line:42	class:Paciente	access:public	signature:(string Apell2)	returns:void 
-setEdad	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setEdad(int Edad);$/;"	prototype	line:43	class:Paciente	access:public	signature:(int Edad)	returns:void 
-setSexo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setSexo(char Sexo);$/;"	prototype	line:44	class:Paciente	access:public	signature:(char Sexo)	returns:void 
-setPrioridad	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setPrioridad(int Prioridad);$/;"	prototype	line:45	class:Paciente	access:public	signature:(int Prioridad)	returns:void 
-setTiempo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    void setTiempo(int Tiempo);$/;"	prototype	line:46	class:Paciente	access:public	signature:(int Tiempo)	returns:void 
-CodNumerico	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int CodNumerico;$/;"	member	line:50	class:Paciente	access:private
-DNI	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string DNI;$/;"	member	line:51	class:Paciente	access:private
-Nombre	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string Nombre;$/;"	member	line:52	class:Paciente	access:private
-Apell1	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string Apell1;$/;"	member	line:53	class:Paciente	access:private
-Apell2	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    string Apell2;$/;"	member	line:54	class:Paciente	access:private
-Edad	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int Edad;$/;"	member	line:55	class:Paciente	access:private
-Sexo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    char Sexo;$/;"	member	line:56	class:Paciente	access:private
-Prioridad	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int Prioridad;$/;"	member	line:57	class:Paciente	access:private
-Tiempo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.hpp	/^    int Tiempo;$/;"	member	line:58	class:Paciente	access:private
 
 
 
 
-PILAPACIENTES_HPP	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^#define PILAPACIENTES_HPP$/;"	macro	line:2
-PilaPacientes	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^class PilaPacientes$/;"	class	line:5
-PilaPacientes	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    PilaPacientes();$/;"	prototype	line:8	class:PilaPacientes	access:public	signature:()
-~PilaPacientes	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    ~PilaPacientes();$/;"	prototype	line:9	class:PilaPacientes	access:public	signature:()
-insertar	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    void insertar(Paciente v);$/;"	prototype	line:10	class:PilaPacientes	access:public	signature:(Paciente v)	returns:void 
-extraer	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    Paciente extraer();$/;"	prototype	line:11	class:PilaPacientes	access:public	signature:()	returns:Paciente 
-mostrar	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    void mostrar();$/;"	prototype	line:12	class:PilaPacientes	access:public	signature:()	returns:void 
-estaVacia	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    bool estaVacia();$/;"	prototype	line:13	class:PilaPacientes	access:public	signature:()	returns:bool 
-ultimo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\PilaPacientes.hpp	/^    pnodo ultimo;$/;"	member	line:16	class:PilaPacientes	access:private
 
 
 
 
-LISTAURGENCIA_HPP	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^#define LISTAURGENCIA_HPP$/;"	macro	line:2
-ListaUrgencia	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^class ListaUrgencia$/;"	class	line:5
-ListaUrgencia	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    ListaUrgencia();$/;"	prototype	line:8	class:ListaUrgencia	access:public	signature:()
-~ListaUrgencia	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    ~ListaUrgencia();$/;"	prototype	line:9	class:ListaUrgencia	access:public	signature:()
-insertar	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    void insertar(Paciente p);$/;"	prototype	line:11	class:ListaUrgencia	access:public	signature:(Paciente p)	returns:void 
-borrar	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    void borrar(string dni); \/\/ Cambiar a borrar último$/;"	prototype	line:12	class:ListaUrgencia	access:public	signature:(string dni)	returns:void 
-mostrar	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    void mostrar();$/;"	prototype	line:13	class:ListaUrgencia	access:public	signature:()	returns:void 
-getultimo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    lnodo getultimo();$/;"	prototype	line:14	class:ListaUrgencia	access:public	signature:()	returns:lnodo 
-getprimero	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    lnodo getprimero();$/;"	prototype	line:15	class:ListaUrgencia	access:public	signature:()	returns:lnodo 
-longitud	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    int longitud;$/;"	member	line:16	class:ListaUrgencia	access:public
-buscarCodNumerico	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    Paciente buscarCodNumerico(int CodNumerico);$/;"	prototype	line:17	class:ListaUrgencia	access:public	signature:(int CodNumerico)	returns:Paciente 
-primero	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    lnodo primero;$/;"	member	line:20	class:ListaUrgencia	access:private
-ultimo	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    lnodo ultimo;$/;"	member	line:21	class:ListaUrgencia	access:private
-size	C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.hpp	/^    int size;$/;"	member	line:22	class:ListaUrgencia	access:private
 
 
 

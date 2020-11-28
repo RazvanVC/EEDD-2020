@@ -2,6 +2,10 @@
 #include <string> 
 #include "PilaPacientes.hpp"
 #include "ListaUrgencia.hpp"
+#include "conio.h"
+#include <exception>
+#include <typeinfo>
+#include <stdexcept>
 
 using namespace std;
 
@@ -168,6 +172,7 @@ int main()
                 cout << endl;
                 cout << "El paciente aun no se ha encontrado"<<endl;
                 } else break;
+                getch();
                 iteracion++;
             } while (!pilaEntrada.estaVacia());
             
@@ -194,17 +199,24 @@ int main()
                 pilaPacientesTemp.mostrar();
                 
                 cout << endl;
-                cout << "El paciente aun no se ha encontrado"<<endl;
-                
+                getch();
                 iteracion++;
             } while (!pilaPacientesTemp.estaVacia());
+            
+            try{
+                if (listaRoja.size!=0){
+                    listaRoja.borrar(DNI);
+                }
+            } catch(...){
+                cout << "No se encuentra en lista roja" << endl;
+            }
+            getch();
+            
             
             break;
         case 2:
             // TODO Code Option 2
             int codPaciente, emergenciaA, emergenciaN;
-            bool continuar;
-            continuar = true;
             
             //Asignacion Codigo Paciente
             cout << "Inserte el codigo de paciente a modificar: ";
@@ -230,50 +242,26 @@ int main()
                 break;
             }
             
-            switch (emergenciaA){
-                case 1:
-                    cout << "Entro en caso 1";
-                    if (listaRoja.longitud==0) {
-                        bool comparacion;
-                        comparacion = listaRoja.longitud==0;
-                        cout << comparacion << endl;
-                        continuar = false;
-                        cout << "La lista seleccionada se encuentra vacia" << endl;
+
+                switch (emergenciaA){
+                    case 1:
+                        pacienteActual = listaRoja.buscarCodNumerico(codPaciente);
+                        listaRoja.borrar(pacienteActual.getDNI());
                         break;
-                    }
-                    cout << "Hago el IF";
-                    //pacienteActual = listaRoja.buscarCodNumerico(codPaciente);
-                    listaRoja.borrar(pacienteActual.getDNI());
-                    break;
-                case 2:
-                    if (listaNaranja.longitud==0) {
-                        continuar = false;
-                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                    case 2:
+                        pacienteActual = listaNaranja.buscarCodNumerico(codPaciente);
+                        listaNaranja.borrar(pacienteActual.getDNI());
                         break;
-                    }
-                    //pacienteActual = listaNaranja.buscarCodNumerico(codPaciente);
-                    listaNaranja.borrar(pacienteActual.getDNI());
-                    break;
-                case 3:
-                    if (listaAmarilla.longitud==0) {
-                        continuar = false;
-                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                    case 3:
+                        pacienteActual = listaAmarilla.buscarCodNumerico(codPaciente);
+                        listaAmarilla.borrar(pacienteActual.getDNI());
                         break;
-                    }
-                    pacienteActual = listaAmarilla.buscarCodNumerico(codPaciente);
-                    listaAmarilla.borrar(pacienteActual.getDNI());
-                    break;
-                case 4:
-                    if (listaVerde.longitud==0) {
-                        continuar = false;
-                        cout << "La lista seleccionada se encuentra vacia" << endl;
+                    case 4:
+                        pacienteActual = listaVerde.buscarCodNumerico(codPaciente);
+                        listaVerde.borrar(pacienteActual.getDNI());
                         break;
-                    }
-                    pacienteActual = listaVerde.buscarCodNumerico(codPaciente);
-                    listaVerde.borrar(pacienteActual.getDNI());
-                    break;
-            }
-            if (!continuar) break;
+                }
+
             
             //Asignacion de Nueva Emergencia
             cout << "Indique la emergencia actual a la que se desea asignar" << endl;

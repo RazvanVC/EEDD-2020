@@ -14,11 +14,11 @@ public:
     lnodo getultimo();
     lnodo getprimero();
     int longitud;
+    int size;
     Paciente buscarCodNumerico(int CodNumerico);
 
 private:
     lnodo primero;
     lnodo ultimo;
-    int size;
 };
 #endif // LISTAURGENCIA_HPP
