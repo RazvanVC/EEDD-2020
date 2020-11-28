@@ -1,11 +1,9 @@
 #include "ListaUrgencia.hpp"
 #include <iostream>
 
-
-
-
 ListaUrgencia::ListaUrgencia()
-{  pnodo aux;
+{
+    pnodo aux;
 
     primero();
     while(pLista) {
@@ -111,4 +109,3 @@ void ListaUrgencia::mostrar()
 ListaUrgencia::~ListaUrgencia()
 {
 }
-

@@ -5,19 +5,32 @@
 class ListaUrgencia
 {
 public:
-    ListaUrgencia();
+    ListaUrgencia()
+        : pLista(NULL)
+    {
+    }
     ~ListaUrgencia();
-    bool ListaVacia(); 
+    bool ListaVacia()
+    {
+        return pLista == NULL;
+    }
     void insertar(Paciente p);
-    void borrar(int v); //Cambiar a borrar último  
+    void borrar(int v); // Cambiar a borrar último
     void mostrar();
     void siguiente();
     void anterior();
     void primero();
     void ultimo();
-    pnodo actual() { return pLista;}
-    int valorActual() { return pLista ->paciente;}
+    pnodo actual()
+    {
+        return pLista;
+    }
+    Paciente valorActual()
+    {
+        return pLista->paciente;
+    }
 
 private:
     pnodo pLista;
 };
+#endif // LISTAURGENCIA_HPP
