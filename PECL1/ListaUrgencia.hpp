@@ -11,8 +11,8 @@ public:
     void insertar(Paciente p);
     void borrar(string dni); // Cambiar a borrar último
     void mostrar();
-    void getprimero();
-    void getultimo();
+    lnodo getultimo();
+    lnodo getprimero();
     int longitud;
     Paciente buscarCodNumerico(int CodNumerico);
 
