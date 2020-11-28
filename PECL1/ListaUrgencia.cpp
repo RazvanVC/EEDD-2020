@@ -97,19 +97,18 @@ void ListaUrgencia::getultimo()
 }*/
 
 Paciente ListaUrgencia::buscarCodNumerico(int CodNumerico)
-        {
-            lnodo aux;
-            aux = primero;
-            while(aux->siguiente != NULL) {
-                if (aux->paciente.getCodNumerico() == CodNumerico){
-                        return aux->paciente;
-                    }
-                else {
-                    aux = aux->siguiente;
-                }
-            }
+{
+    lnodo aux;
+    aux = primero;
+    while(aux->siguiente != NULL) {
+        if(aux->paciente.getCodNumerico() == CodNumerico) {
+            return aux->paciente;
+        } else {
+            aux = aux->siguiente;
         }
-        
+    }
+}
+
 ListaUrgencia::~ListaUrgencia()
 {
 }

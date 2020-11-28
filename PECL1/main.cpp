@@ -12,24 +12,24 @@ int main()
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
     cout << "1. Baja de paciente" << endl;
-    cout << "2. Modificación-Reasignación de paciente a tipo emergencia" << endl;
+    cout << "2. Modificacion-Reasignacion de paciente a tipo emergencia" << endl;
     cout << "3. Consultas de pacientes/emergencias" << endl;
     cout << "4. Reiniciar programa" << endl;
     cout << "5. Salir del programa" << endl;
-    cout << "Seleccione un opcicion del menu: ";
+    cout << "Seleccione una opcion del menu: ";
     cin >> opcion;
     
     Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
     p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
-    p3 = Paciente(3, "99999993C", "María", "Setien", "Buendia", 60, 'H');
+    p3 = Paciente(3, "99999993C", "Maria", "Setien", "Buendia", 60, 'H');
     p4 = Paciente(4, "99999994D", "Luis", "Dominguez", "Gracia", 4, 'V');
     p5 = Paciente(5, "99999995E", "Eva", "Navarro", "Hueste", 23, 'H');
-    p6 = Paciente(6, "99999996F", "José", "Márquez", "Higuera", 15, 'V');
-    p7 = Paciente(7, "99999997G", "Lucía", "Vindel", "Higuera", 80, 'H');
-    p8 = Paciente(8, "99999998H", "Víctor", "Méndez", "Gimeno", 67, 'V');
+    p6 = Paciente(6, "99999996F", "Jose", "Marquez", "Higuera", 15, 'V');
+    p7 = Paciente(7, "99999997G", "Lucia", "Vindel", "Higuera", 80, 'H');
+    p8 = Paciente(8, "99999998H", "Victor", "Mendez", "Gimeno", 67, 'V');
     p9 = Paciente(9, "99999999J", "Elena", "Espinosa", "Moreno", 2, 'H');
-    p10 = Paciente(10, "100000000K", "Manuel", "García", "Pérez", 87, 'V');
+    p10 = Paciente(10, "100000000K", "Manuel", "Garcia", "Perez", 87, 'V');
     
     PilaPacientes pilaEntrada;
     pilaEntrada = PilaPacientes();
@@ -59,7 +59,7 @@ int main()
             pacienteActual = pilaEntrada.extraer();
             
             cout << "\nPara dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
-            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
             cout << "2 - Nivel Naranja - Emergencia" << endl;
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
@@ -111,7 +111,7 @@ int main()
             
             //Asignacion de Emergencia Antigua
             cout << "Indique la emergencia anterior a la que estaba asignado" << endl;
-            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
             cout << "2 - Nivel Naranja - Emergencia" << endl;
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
@@ -125,7 +125,7 @@ int main()
             
             //Asignacion de Nueva Emergencia
             cout << "Indique la emergencia anterior a la que estaba asignado" << endl;
-            cout << "1 - Nivel Rojo - Resucitación" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
             cout << "2 - Nivel Naranja - Emergencia" << endl;
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
@@ -185,7 +185,7 @@ int main()
             
             break;
         }
-        cout << "Seleccione un opcicion del menu: ";
+        cout << "Seleccione una opcion del menu: ";
         cin >> opcion;
     }
     
