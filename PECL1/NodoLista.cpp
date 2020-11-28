@@ -1,7 +1,8 @@
 #include "NodoLista.hpp"
+
 NodoLista::NodoLista(Paciente p, NodoLista* sig, NodoLista* ant)
 {
-    Paciente = p;
+    paciente = p;
     siguiente = sig;
     anterior = ant;
 }

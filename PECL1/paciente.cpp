@@ -1,4 +1,8 @@
 #include "paciente.hpp"
+#include "iostream"
+
+using namespace std;
+
 
 Paciente::Paciente() // Inializamos las variables a valores estandar que nunca van a adquirir para chequear
 {
@@ -14,7 +18,8 @@ Paciente::Paciente() // Inializamos las variables a valores estandar que nunca v
 }
 
 // Clase principal de paciente
-Paciente::Paciente(int CodNumerico,
+Paciente::Paciente(
+    int CodNumerico,
     string DNI,
     string Nombre,
     string Apell1,
@@ -129,8 +134,9 @@ void Paciente::setTiempo(int time)
     Tiempo = time;
 }
 
-Paciente::imprimirPaciente() // Lógica de cómo se tienen que mostrar las cosas por pantalla
+void Paciente::imprimirPaciente() // Lógica de cómo se tienen que mostrar las cosas por pantalla
 {
+    cout<<"Paciente";
 }
 
 Paciente::~Paciente()

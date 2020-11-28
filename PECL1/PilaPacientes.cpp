@@ -1,4 +1,5 @@
 #include "PilaPacientes.hpp"
+#include "iostream"
 
 PilaPacientes::PilaPacientes() // Declaramos la pila
 {
