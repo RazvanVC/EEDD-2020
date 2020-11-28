@@ -13,7 +13,7 @@ public:
     void mostrar();
     void siguiente();
     void anterior();
-    void primero();
+    void Primero();
     void ultimo();
     pnodo actual() { return pLista;}
     int valorActual() { return pLista ->paciente;}

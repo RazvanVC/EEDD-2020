@@ -1,4 +1,4 @@
-u#include "ListaUrgencia.hpp"
+#include "ListaUrgencia.hpp"
 
 ListaUrgencia::ListaUrgencia()
 {  pnodo aux;

@@ -1,0 +1,9 @@
+ListaUrgencia	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^ListaUrgencia::ListaUrgencia()$/;"	function	line:3	class:ListaUrgencia	signature:()	returns:u include ListaUrgencia :: 
+Insertar	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::Insertar(int v)$/;"	function	line:14	class:ListaUrgencia	signature:(int v)	returns:void ListaUrgencia :: 
+Borrar	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::Borrar(int v)$/;"	function	line:42	class:ListaUrgencia	signature:(int v)	returns:void ListaUrgencia :: 
+ListaVacia	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^bool ListaUrgencia::ListaVacia() \/\/ Comprueba si la lista está vacía$/;"	function	line:63	class:ListaUrgencia	signature:()	returns:bool ListaUrgencia :: 
+primero	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::primero()$/;"	function	line:72	class:ListaUrgencia	signature:()	returns:void ListaUrgencia :: 
+ultimo	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::ultimo()$/;"	function	line:78	class:ListaUrgencia	signature:()	returns:void ListaUrgencia :: 
+siguiente	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::siguiente()$/;"	function	line:83	class:ListaUrgencia	signature:()	returns:void ListaUrgencia :: 
+anterior	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::anterior()$/;"	function	line:89	class:ListaUrgencia	signature:()	returns:void ListaUrgencia :: 
+Mostrar	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ListaUrgencia.cpp	/^void ListaUrgencia::Mostrar()$/;"	function	line:94	class:ListaUrgencia	signature:()	returns:void ListaUrgencia :: 
