@@ -5,10 +5,7 @@
 class ListaUrgencia
 {
 public:
-    ListaUrgencia()
-        : pLista(NULL)
-    {
-    }
+    ListaUrgencia();
     ~ListaUrgencia();
     bool ListaVacia()
     {

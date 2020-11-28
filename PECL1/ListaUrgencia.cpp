@@ -3,6 +3,7 @@
 
 ListaUrgencia::ListaUrgencia()
 {
+    pLista = NULL;
     pnodo aux;
 
     primero();
@@ -11,6 +12,7 @@ ListaUrgencia::ListaUrgencia()
         pLista = pLista->siguiente;
         delete aux;
     }
+    
 }
 
 void ListaUrgencia::insertar(Paciente p)
@@ -19,10 +21,11 @@ void ListaUrgencia::insertar(Paciente p)
 
     primero();
     // Si la Lista está vacía
-    if(ListaVacia() || pLista->paciente > p) {
+    if(ListaVacia() || pLista->paciente.getTiempo() > p.getTiempo()) {
         // Asignamos a Lista un nuevo nodo de valor p y
         // cuyo siguiente elemento es la Lista actual
-        nuevo = new nodo(p, pLista);
+        new pnodo(p);
+        nuevo = new pnodo(p, pLista);
         if(!pLista)
             pLista = nuevo;
         else
