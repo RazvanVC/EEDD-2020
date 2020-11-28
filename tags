@@ -1,0 +1,10 @@
+COLA_HPP	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^#define COLA_HPP$/;"	macro	line:2
+Cola	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^class Cola$/;"	class	line:6
+Cola	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    Cola();$/;"	prototype	line:9	class:Cola	access:public	signature:()
+~Cola	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    ~Cola();$/;"	prototype	line:10	class:Cola	access:public	signature:()
+encolar	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    void encolar(Paciente p);$/;"	prototype	line:11	class:Cola	access:public	signature:(Paciente p)	returns:void 
+desencolar	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    void desencolar();$/;"	prototype	line:12	class:Cola	access:public	signature:()	returns:void 
+esVacia	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    bool esVacia();$/;"	prototype	line:14	class:Cola	access:public	signature:()	returns:bool 
+verCola	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    void verCola();$/;"	prototype	line:15	class:Cola	access:public	signature:()	returns:void 
+frente	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    NodoCola *frente, *ultimo;$/;"	member	line:18	class:Cola	access:private
+ultimo	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\Cola.hpp	/^    NodoCola *frente, *ultimo;$/;"	member	line:18	class:Cola	access:private

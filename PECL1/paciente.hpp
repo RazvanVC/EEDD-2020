@@ -44,9 +44,6 @@ public:
     void setPrioridad(int Prioridad);
     void setTiempo(int Tiempo);
 
-    // Declaración de método para imprimir por pantalla el paciente
-    void imprimirPaciente();
-
     // Atributos
 private:
     int CodNumerico;
