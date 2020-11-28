@@ -18,9 +18,8 @@ public:
         string Apell1,
         string Apell2,
         int Edad,
-        char Sexo,
-        int Prioridad,
-        int Tiempo);
+        char Sexo
+        );
     ~Paciente();
 
     // Declaraciones de gets

@@ -25,9 +25,8 @@ Paciente::Paciente(
     string Apell1,
     string Apell2,
     int Edad,
-    char Sexo,
-    int Prioridad,
-    int Tiempo)
+    char Sexo
+    )
 {
     this->CodNumerico = CodNumerico;
     this->DNI = DNI;
@@ -36,8 +35,8 @@ Paciente::Paciente(
     this->Apell2 = Apell2;
     this->Edad = Edad;
     this->Sexo = Sexo;
-    this->Prioridad = Prioridad;
-    this->Tiempo = Tiempo;
+    this->Prioridad = 0;
+    this->Tiempo = 0;
 }
 
 /* GETS */
