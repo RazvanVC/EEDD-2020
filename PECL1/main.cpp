@@ -148,6 +148,7 @@ int main()
             
             pilaPacientesTemp = PilaPacientes();
             int iteracion;
+            bool encontrado; encontrado = false;
             iteracion = 1;
             do {
                 cout << "Iteracion: " << iteracion << endl;
@@ -157,21 +158,20 @@ int main()
                 pilaPacientesTemp.mostrar();
                 pacienteActual = pilaEntrada.extraer();
                 
-                cout << "Pila principal de pacientes" << endl << endl;
-                pilaEntrada.mostrar();
-                cout << endl << "Pila pacientes temporal" << endl << endl;
-                pilaPacientesTemp.mostrar();
+                    if (pacienteActual.getDNI() != DNI) {
+                        pilaPacientesTemp.insertar(pacienteActual);
+                        cout << "Pila principal de pacientes" << endl << endl;
+                        pilaEntrada.mostrar();
+                        cout << endl << "Pila pacientes temporal" << endl << endl;
+                        pilaPacientesTemp.mostrar();
                 
-                if (pacienteActual.getDNI() != DNI) {
-                pilaPacientesTemp.insertar(pacienteActual);
-                cout << "Pila principal de pacientes" << endl << endl;
-                pilaEntrada.mostrar();
-                cout << endl << "Pila pacientes temporal" << endl << endl;
-                pilaPacientesTemp.mostrar();
-                
-                cout << endl;
-                cout << "El paciente aun no se ha encontrado"<<endl;
-                } else break;
+                        cout << endl;
+                        cout << "El paciente aun no se ha encontrado"<<endl;
+                    } else {
+                        encontrado = true;
+                        cout << endl << "Se ha encontrado el paciente" << endl << "Iniciando el borrado..." << endl << "Borrado completo. Reviertiendo listas...";
+                        break;
+                    }
                 getch();
                 iteracion++;
             } while (!pilaEntrada.estaVacia());
@@ -187,11 +187,6 @@ int main()
                 pilaEntrada.mostrar();
                 pacienteActual = pilaPacientesTemp.extraer();
                 
-                cout << "Pila principal de pacientes" << endl << endl;
-                pilaEntrada.mostrar();
-                cout << endl << "Pila pacientes temporal" << endl << endl;
-                pilaPacientesTemp.mostrar();
-                
                 pilaEntrada.insertar(pacienteActual);
                 cout << "Pila principal de pacientes" << endl << endl;
                 pilaEntrada.mostrar();
@@ -203,15 +198,49 @@ int main()
                 iteracion++;
             } while (!pilaPacientesTemp.estaVacia());
             
+            if (encontrado) break;
+            
             try{
+                cout << "Entro en try";
                 if (listaRoja.size!=0){
+                    cout << "Entro en IF";
                     listaRoja.borrar(DNI);
-                }
+                    getch();
+                } else cout << "La lista roja esta vacia" << endl;
             } catch(...){
-                cout << "No se encuentra en lista roja" << endl;
+                cout << "No se encuentra en la lista roja" << endl;
+                break;
             }
             getch();
             
+            try{
+                if (listaNaranja.size!=0){
+                    listaNaranja.borrar(DNI);
+                } else cout << "La lista naranja esta vacia" << endl;
+            } catch(...){
+                cout << "No se encuentra en la lista naranja" << endl;
+            }
+            getch();
+            
+            try{
+                if (listaAmarilla.size!=0){
+                    listaAmarilla.borrar(DNI);
+                } else cout << "La lista amarilla esta vacia" << endl;
+            } catch(...){
+                cout << "No se encuentra en la lista amarilla" << endl;
+            }
+            getch();
+            
+            try{
+                if (listaVerde.size!=0){
+                    listaVerde.borrar(DNI);
+                } else cout << "La lista verde esta vacia" << endl;
+            } catch(...){
+                cout << "No se encuentra en la lista verde" << endl;
+            }
+            getch();
+            
+            cout << "No se ha encontrado el DNI especificado" << endl;
             
             break;
         case 2:
