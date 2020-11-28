@@ -72,17 +72,7 @@ void ListaUrgencia::borrar(string dni)
     size = size - 1;
 }
 
-lnodo ListaUrgencia::getprimero()
-{
-    return primero;
-}
-
-lnodo ListaUrgencia::getultimo()
-{
-    return ultimo;
-}
-
-void ListaUrgencia::mostrar()
+/*void ListaUrgencia::mostrar()
 {
     lnodo nodo;
     {
@@ -94,7 +84,7 @@ void ListaUrgencia::mostrar()
         }
     }
     cout << endl;
-}
+}*/
 
 Paciente ListaUrgencia::buscarCodNumerico(int CodNumerico)
 {

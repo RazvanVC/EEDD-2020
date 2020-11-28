@@ -135,7 +135,7 @@ void Paciente::setTiempo(int time)
 
 void Paciente::imprimirPaciente() // Lógica de cómo se tienen que mostrar las cosas por pantalla
 {
-    cout<<"Paciente";
+    cout << "Datos pacientes: " << CodNumerico << ", " << DNI << ", " << Nombre << ", " << Apell1 << ", " << Apell2 << ", " << Edad << ", " << Sexo;
 }
 
 Paciente::~Paciente()
