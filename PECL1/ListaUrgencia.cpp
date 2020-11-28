@@ -3,9 +3,9 @@
 
 ListaUrgencia::ListaUrgencia()
 {
-primero = NULL;
-ultimo= NULL;
-size = 0;
+    primero = NULL;
+    ultimo = NULL;
+    size = 0;
 }
 
 void ListaUrgencia::insertar(Paciente nuevo)
@@ -43,48 +43,48 @@ void ListaUrgencia::insertar(Paciente nuevo)
     size = size + 1;
 }
 
-void ListaUrgencia::borrar()
+void ListaUrgencia::borrar(string dni)
 {
-    pnodo nodo;
-    nodo = pLista;
-    int valor = cin << "Introduce el número de la lista que quieras borrar" << if(valor > ultimo())
-    {
-        cout >> "Valor introducido incorrecto" >>
+    lnodo aux;
+
+    if(primero->paciente.getDNI() == dni) {
+        aux = primero;
+        primero->siguiente->anterior = NULL;
+        primero->siguiente = primero;
+        delete(aux);
+
+    } else if(ultimo->paciente.getDNI() == dni) {
+        aux = ultimo;
+        ultimo->anterior->siguiente = NULL;
+        ultimo = ultimo->anterior;
+        delete(aux);
+    } else {
+        aux = primero;
+        while(aux->siguiente->paciente.getDNI() != dni) {
+            aux = aux->siguiente;
+        }
+        aux->siguiente->anterior = aux->anterior;
+        aux->anterior->siguiente = aux->siguiente;
+        aux->siguiente = NULL;
+        aux->anterior = NULL;
+        delete(aux);
     }
-    // else {
-    // while(nodo && nodo->valor < v)
-    //    nodo = nodo->siguiente;
-    // while(nodo && nodo->valor > v)
-    //    nodo = nodo->anterior;
-
-    // if(!nodo || nodo->valor != v)
-    //    return;
-    // Borrar el nodo
-
-    // if(nodo->anterior) // no es el primer elemento
-    //    nodo->anterior->siguiente = nodo->siguiente;
-    // if(nodo->siguiente) // no el el último nodo
-    //    nodo->siguiente->anterior = nodo->anterior;
-    // delete nodo;
-};
+    size = size - 1;
 }
-
 
 void ListaUrgencia::getprimero()
 {
-   return primero;
+    // return primero;
 }
 
 void ListaUrgencia::getultimo()
 {
-    return ultimo;
+    // return ultimo;
 }
 
-
-
-void ListaUrgencia::mostrar()
+/*void ListaUrgencia::mostrar()
 {
-    pnodo nodo;
+    lnodo nodo;
     {
         primero();
         nodo = pLista;
@@ -94,7 +94,22 @@ void ListaUrgencia::mostrar()
         }
     }
     cout << endl;
-}
+}*/
+
+Paciente ListaUrgencia::buscarCodNumerico(int CodNumerico)
+        {
+            lnodo aux;
+            aux = primero;
+            while(aux->siguiente != NULL) {
+                if (aux->paciente.getCodNumerico() == CodNumerico){
+                        return aux->paciente;
+                    }
+                else {
+                    aux = aux->siguiente;
+                }
+            }
+        }
+        
 ListaUrgencia::~ListaUrgencia()
 {
 }

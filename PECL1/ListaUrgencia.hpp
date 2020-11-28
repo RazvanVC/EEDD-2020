@@ -7,14 +7,14 @@ class ListaUrgencia
 public:
     ListaUrgencia();
     ~ListaUrgencia();
-    
+
     void insertar(Paciente p);
-    void borrar(); // Cambiar a borrar último
+    void borrar(string dni); // Cambiar a borrar último
     void mostrar();
     void getprimero();
     void getultimo();
-   
     int longitud;
+    Paciente buscarCodNumerico(int CodNumerico);
 
 private:
     lnodo primero;
