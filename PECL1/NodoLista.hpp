@@ -6,7 +6,7 @@
 class NodoLista
 {
 public:
-    NodoLista(Paciente p, NodoLista* sig = NULL, NodoLista* ant = NULL);
+    NodoLista(Paciente paciente, NodoLista* sig = NULL, NodoLista* ant = NULL);
     ~NodoLista();
     Paciente paciente;
     NodoLista* siguiente;

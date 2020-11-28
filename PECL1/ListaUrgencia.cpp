@@ -41,27 +41,31 @@ void ListaUrgencia::insertar(Paciente p)
     }
 }
 
-void ListaUrgencia::borrar(int p)
+void ListaUrgencia::borrar()
 {
     pnodo nodo;
-
     nodo = pLista;
-    while(nodo && nodo->paciente < p)
-        nodo = nodo->siguiente;
-    while(nodo && nodo->paciente > p)
-        nodo = nodo->anterior;
+    int valor = cin << "Introduce el número de la lista que quieras borrar" <<
+    if (valor > ultimo()){
+        cout >> "Valor introducido incorrecto">>
+    }
+    //else {
+    //while(nodo && nodo->valor < v)
+    //    nodo = nodo->siguiente;
+    //while(nodo && nodo->valor > v)
+    //    nodo = nodo->anterior;
 
-    if(!nodo || nodo->paciente != p)
-        return;
+    //if(!nodo || nodo->valor != v)
+    //    return;
     // Borrar el nodo
 
-    if(nodo->anterior) // no es el primer elemento
-        nodo->anterior->siguiente = nodo->siguiente;
-    if(nodo->siguiente) // no el el último nodo
-        nodo->siguiente->anterior = nodo->anterior;
-    delete nodo;
-}
-
+    //if(nodo->anterior) // no es el primer elemento
+    //    nodo->anterior->siguiente = nodo->siguiente;
+    //if(nodo->siguiente) // no el el último nodo
+    //    nodo->siguiente->anterior = nodo->anterior;
+    //delete nodo;
+    }
+;}
 bool ListaUrgencia::ListaVacia() // Comprueba si la lista está vacía
 {
     if(ultimo == NULL && primero == NULL) {

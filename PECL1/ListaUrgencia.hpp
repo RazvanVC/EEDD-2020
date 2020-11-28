@@ -15,7 +15,7 @@ public:
         return pLista == NULL;
     }
     void insertar(Paciente p);
-    void borrar(int v); // Cambiar a borrar último
+    void borrar(); // Cambiar a borrar último
     void mostrar();
     void siguiente();
     void anterior();
