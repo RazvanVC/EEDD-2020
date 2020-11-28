@@ -7,7 +7,7 @@ class NodoCola
 public:
     NodoCola(Paciente p, NodoCola *sig);
     ~NodoCola();
-private:
+
     Paciente p;
     NodoCola* sig;
     friend class cola;

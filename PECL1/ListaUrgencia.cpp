@@ -3,102 +3,85 @@
 
 ListaUrgencia::ListaUrgencia()
 {
-    pLista = NULL;
-    pnodo aux;
-
-    primero();
-    while(pLista) {
-        aux = pLista;
-        pLista = pLista->siguiente;
-        delete aux;
-    }
-    
+primero = NULL;
+ultimo= NULL;
+size = 0;
 }
 
-void ListaUrgencia::insertar(Paciente p)
+void ListaUrgencia::insertar(Paciente nuevo)
 {
-    pnodo nuevo;
+    lnodo aux;
+    lnodo n;
 
-    primero();
-    // Si la Lista está vacía
-    if(ListaVacia() || pLista->paciente.getTiempo() > p.getTiempo()) {
-        // Asignamos a Lista un nuevo nodo de valor p y
-        // cuyo siguiente elemento es la Lista actual
-        nuevo = new pnodo(p, pLista);
-        if(!pLista)
-            pLista = nuevo;
-        else
-            pLista->anterior = nuevo;
+    n = new NodoLista(nuevo);
+
+    if(primero == NULL) {
+        primero = n;
+        ultimo = n;
     } else {
-        // Buscar el nodo de paciente menor a p
-        // Avanzamos hasta el último elemento o hasta que el siguiente tenga
-        // un paciente mayor que p
-        while(pLista->siguiente && pLista->siguiente->paciente <= p)
-            siguiente();
-        // Creamos un nuevo nodo después del nodo actual
-        nuevo = new nodo(p, pLista->siguiente, pLista);
-        pLista->siguiente = nuevo;
-        if(nuevo->siguiente)
-            nuevo->siguiente->anterior = nuevo;
+        // nuevo tiene hora más pequeño
+        if(nuevo.getTiempo() > primero->paciente.getTiempo()) {
+            n->siguiente = primero;
+            primero->anterior = n;
+            primero = n;
+        } else if(nuevo.getTiempo() <= ultimo->paciente.getTiempo()) {
+            ultimo->siguiente = n;
+            n->anterior = ultimo;
+            ultimo = n;
+        } else {
+            aux = primero;
+            while(aux->siguiente->paciente.getPrioridad() > nuevo.getTiempo()) {
+                aux = aux->siguiente;
+            }
+
+            n->siguiente = aux->siguiente;
+            n->anterior = aux;
+            aux->siguiente->anterior = n;
+            aux->siguiente = n;
+        }
     }
+    size = size + 1;
 }
 
 void ListaUrgencia::borrar()
 {
     pnodo nodo;
     nodo = pLista;
-    int valor = cin << "Introduce el número de la lista que quieras borrar" <<
-    if (valor > ultimo()){
-        cout >> "Valor introducido incorrecto">>
+    int valor = cin << "Introduce el número de la lista que quieras borrar" << if(valor > ultimo())
+    {
+        cout >> "Valor introducido incorrecto" >>
     }
-    //else {
-    //while(nodo && nodo->valor < v)
+    // else {
+    // while(nodo && nodo->valor < v)
     //    nodo = nodo->siguiente;
-    //while(nodo && nodo->valor > v)
+    // while(nodo && nodo->valor > v)
     //    nodo = nodo->anterior;
 
-    //if(!nodo || nodo->valor != v)
+    // if(!nodo || nodo->valor != v)
     //    return;
     // Borrar el nodo
 
-    //if(nodo->anterior) // no es el primer elemento
+    // if(nodo->anterior) // no es el primer elemento
     //    nodo->anterior->siguiente = nodo->siguiente;
-    //if(nodo->siguiente) // no el el último nodo
+    // if(nodo->siguiente) // no el el último nodo
     //    nodo->siguiente->anterior = nodo->anterior;
-    //delete nodo;
-    }
-;}
-bool ListaUrgencia::ListaVacia() // Comprueba si la lista está vacía
-{
-    if(ultimo == NULL && primero == NULL) {
-        return true;
-    } else {
-        return false;
-    }
+    // delete nodo;
+};
 }
 
-void ListaUrgencia::primero()
+
+void ListaUrgencia::getprimero()
 {
-    while(pLista && pLista->anterior)
-        pLista = pLista->anterior;
+   return primero;
 }
 
-void ListaUrgencia::ultimo()
+void ListaUrgencia::getultimo()
 {
-    while(pLista && pLista->siguiente)
-        pLista = pLista->siguiente;
-}
-void ListaUrgencia::siguiente()
-{
-    if(pLista)
-        pLista = pLista->siguiente;
+    return ultimo;
 }
 
-void ListaUrgencia::anterior()
-{
-    if(pLista)
-        pLista = pLista->anterior;
-}
+
+
 void ListaUrgencia::mostrar()
 {
     pnodo nodo;

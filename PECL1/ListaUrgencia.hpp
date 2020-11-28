@@ -7,24 +7,18 @@ class ListaUrgencia
 public:
     ListaUrgencia();
     ~ListaUrgencia();
-    bool ListaVacia()
-    {
-        return pLista == NULL;
-    }
+    
     void insertar(Paciente p);
     void borrar(); // Cambiar a borrar último
     void mostrar();
-    void siguiente();
-    void anterior();
-    void primero();
-    void ultimo();
-    Paciente valorActual()
-    {
-        return pLista->paciente;
-    }
+    void getprimero();
+    void getultimo();
+   
     int longitud;
 
 private:
-    lnodo pLista;
+    lnodo primero;
+    lnodo ultimo;
+    int size;
 };
 #endif // LISTAURGENCIA_HPP
