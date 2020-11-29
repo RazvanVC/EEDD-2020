@@ -360,25 +360,54 @@ int main()
 			cout << endl;
 			
 			if (opcionP3<1 || opcionP3>3){
-				cout << "La opción seleccionada es erronea" << endl;
+				cout << "La opcion seleccionada es erronea" << endl;
 				cout << "Regresando al menu principal..." << endl;
 			}
 			
 			switch (opcionP3){
 				case 1:
 					int opcionP31;
-					cout << "Seleccione la opción que quiere consultar" << endl << endl;
+					cout << "Seleccione la opcion que quiere consultar" << endl << endl;
 					cout << "1 - Consultas paciente determinado en pila de paciente" << endl;
 					cout << "2 - Consultas la pila de pacientes" << endl << endl;
 					cout << "Opcion: ";
 					cin >> opcionP31;
 					cout << endl;
 					if (opcionP31==1){
-						
+						string DNI31;
+						cout << "Inserte el DNI a buscar: ";
+						cin >> DNI31;
+						//pacienteActual = pilaEntrada.buscar(DNI31);
+						if (pacienteActual.getDNI()==DNI31){
+							cout << endl << endl << "El paciente buscado es: " << endl; 
+							pacienteActual.imprimePila();
+						} else {
+							cout << "El paciente no se ha encontrado" << endl;
+						}
+					} else if (opcionP31==2) {
+						cout << "Imprimiendo pila de pacientes" << endl << endl;
+						pilaEntrada.mostrar();
+					} else {
+						cout << "La opcion seleccionada es erronea" << endl;
+						cout << "Regresando al menu principal..." << endl;
 					}
 					break;
 				case 2:
-					
+					int opcionP32;
+					cout << "Seleccione la opcion que quiere consultar" << endl << endl;
+					cout << "1 - Consultar emergencia a la que esta asignada un paciente" << endl;
+					cout << "2 - Consultar la lista de emergencia seleccionada" << endl << endl;
+					cout << "Opcion: ";
+					cin >> opcionP32;
+					cout << endl;
+					if (opcionP32==1){
+						
+					} else if (opcionP32==2) {
+						
+					} else {
+						cout << "La opcion seleccionada es erronea" << endl;
+						cout << "Regresando al menu principal..." << endl;
+					}
 					break;
 				case 3:
 					
