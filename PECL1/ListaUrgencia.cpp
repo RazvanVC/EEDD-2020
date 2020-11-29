@@ -33,7 +33,6 @@ void ListaUrgencia::insertar(Paciente nuevo)
             while(aux->siguiente->paciente.getPrioridad() > nuevo.getTiempo()) {
                 aux = aux->siguiente;
             }
-
             n->siguiente = aux->siguiente;
             n->anterior = aux;
             aux->siguiente->anterior = n;
