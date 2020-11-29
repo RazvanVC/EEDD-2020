@@ -44,8 +44,17 @@ void ListaUrgencia::insertar(Paciente nuevo)
 
 void ListaUrgencia::borrar(string dni)
 {
-    lnodo aux;
-
+    lnodo aux = primero;
+    
+    while (aux->paciente.getDNI() != dni || aux->siguiente != NULL){
+        aux->siguiente;
+        
+    }
+    if (aux->paciente.getDNI() == dni){
+        delete(aux);
+        size--;
+    }
+    /*
     if(primero->paciente.getDNI() == dni) {
         aux = primero;
         primero->siguiente->anterior = NULL;
@@ -73,7 +82,7 @@ void ListaUrgencia::borrar(string dni)
             delete(aux);
             size = size - 1;
         }
-    }
+    }*/
 }
 
 void ListaUrgencia::mostrar()

@@ -342,8 +342,9 @@ int main()
         case 3:
             // TODO Code Option 3
             cout << endl << "Lista Roja" << endl;
+            if (listaRoja->size!=0){
             listaRoja->mostrar();
-            getch();
+            getch();}
             cout << endl << "Lista Naranja" << endl;
             listaNaranja->mostrar();
             getch();
