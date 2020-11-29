@@ -215,7 +215,9 @@ int main()
             
             try{
                 if (listaNaranja.size!=0){
+                    cout << "patata ricolina"<< endl; 
                     listaNaranja.borrar(DNI);
+                    cout << "patata ricolina"<< endl; 
                 } else cout << "La lista naranja esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista naranja" << endl;
@@ -243,6 +245,8 @@ int main()
             cout << "No se ha encontrado el DNI especificado" << endl;
             
             break;
+            
+            
         case 2:
             // TODO Code Option 2
             int codPaciente, emergenciaA, emergenciaN;
