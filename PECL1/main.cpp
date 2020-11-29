@@ -292,25 +292,26 @@ int main()
                 break;
             }
             
-                switch (emergenciaA){
-                    case 1:
-                        pacienteActual = listaRoja->buscarCodNumerico(codPaciente);
-                        listaRoja->borrar(pacienteActual.getDNI());
-                        break;
-                    case 2:
-                        pacienteActual = listaNaranja->buscarCodNumerico(codPaciente);
-                        listaNaranja->borrar(pacienteActual.getDNI());
-                        break;
-                    case 3:
-                        pacienteActual = listaAmarilla->buscarCodNumerico(codPaciente);
-                        listaAmarilla->borrar(pacienteActual.getDNI());
-                        break;
-                    case 4:
-                        pacienteActual = listaVerde->buscarCodNumerico(codPaciente);
-                        listaVerde->borrar(pacienteActual.getDNI());
-                        break;
-                }
-            
+			switch (emergenciaA){
+				case 1:
+					pacienteActual = listaRoja->buscarCodNumerico(codPaciente);
+					listaRoja->borrar(pacienteActual.getDNI());
+					break;
+				case 2:
+					pacienteActual = listaNaranja->buscarCodNumerico(codPaciente);
+					listaNaranja->borrar(pacienteActual.getDNI());
+					break;
+				case 3:
+					pacienteActual = listaAmarilla->buscarCodNumerico(codPaciente);
+					listaAmarilla->borrar(pacienteActual.getDNI());
+					break;
+				case 4:
+					pacienteActual = listaVerde->buscarCodNumerico(codPaciente);
+					listaVerde->borrar(pacienteActual.getDNI());
+					break;
+			}
+				
+            cout << "Paciente: " << pacienteActual.getApell1() << endl;
             
             //Asignacion de Nueva Emergencia
             cout << "Indique la emergencia actual a la que se desea asignar" << endl;
@@ -348,18 +349,6 @@ int main()
             break;
         case 3:
             // TODO Code Option 3
-            cout << endl << "Lista Roja" << endl;
-            listaRoja->mostrar();
-            getch();
-            cout << endl << "Lista Naranja" << endl;
-            listaNaranja->mostrar();
-            getch();
-            cout << endl << "Lista Amarilla" << endl;
-            listaAmarilla->mostrar();
-            getch();
-            cout << endl << "Lista Verde" << endl;
-            listaVerde->mostrar();
-            getch();
             break;
         case 4:
             pilaEntrada = PilaPacientes();
@@ -380,6 +369,21 @@ int main()
             listaVerde = new ListaUrgencia();
             
             break;
+		
+		case 6:
+			cout << endl << "Lista Roja" << endl;
+            listaRoja->mostrar();
+            getch();
+            cout << endl << "Lista Naranja" << endl;
+            listaNaranja->mostrar();
+            getch();
+            cout << endl << "Lista Amarilla" << endl;
+            listaAmarilla->mostrar();
+            getch();
+            cout << endl << "Lista Verde" << endl;
+            listaVerde->mostrar();
+            getch();
+            break;
         }
         curr_time = time(NULL);
         tm *tm_local = localtime(&curr_time);
@@ -394,6 +398,5 @@ int main()
         cin >> opcion;
         cout << endl << endl;
         }
-        getch();
     return 0;
 }
