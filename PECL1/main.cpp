@@ -6,13 +6,26 @@
 #include <exception>
 #include <typeinfo>
 #include <stdexcept>
-#include <ctime>
+#include <stdio.h>
+#include <time.h>
+
+// Get current date/time, format is YYYY-MM-DD.HH:mm:ss
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+	cout << tstruct.tm_hour;
+    return buf;
+}
 
 using namespace std;
 
 int main()
 {
-    
     Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
     p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
@@ -47,17 +60,12 @@ int main()
     listaAmarilla = new ListaUrgencia();
     listaNaranja = new ListaUrgencia();
     listaVerde = new ListaUrgencia();
-    /*listaRoja = ListaUrgencia();
-    listaNaranja = ListaUrgencia();
-    listaAmarilla = ListaUrgencia();
-    listaVerde = ListaUrgencia();*/ 
     
     int opcion;
     
-    time_t curr_time;
-    curr_time = time(NULL);
-    tm *tm_local = localtime(&curr_time);
     
+	cout << "Fecha y Hora Actual: " << currentDateTime() << endl;
+	
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
@@ -98,7 +106,7 @@ int main()
             pacienteActual.setPrioridad(nEmergencia);
             
             //Pensar en como determinar Tiempo
-            cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
+            //cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
             
             switch (pacienteActual.getPrioridad()){
                 case 1:
@@ -387,6 +395,7 @@ int main()
 					} else if (opcionP31==2) {
 						cout << "Imprimiendo pila de pacientes" << endl << endl;
 						pilaEntrada.mostrar();
+						cout << endl;
 					} else {
 						cout << "La opcion seleccionada es erronea" << endl;
 						cout << "Regresando al menu principal..." << endl;
@@ -401,9 +410,70 @@ int main()
 					cin >> opcionP32;
 					cout << endl;
 					if (opcionP32==1){
+						int numeroPaciente;
+						cout << "Inserte el codigo del paciente a buscar: ";
+						cin >> numeroPaciente;
+						try {
+							pacienteActual = listaRoja->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias roja"<< endl;
+								break;
+							}
+						} catch (...) {}
 						
+						try {
+							pacienteActual = listaNaranja->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias naranja"<< endl;
+								break;
+							}
+						} catch (...) {}
+						
+						try {
+							pacienteActual = listaAmarilla->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias amarilla"<< endl;
+								break;
+							}
+						} catch (...) {}
+						
+						try {
+							pacienteActual = listaVerde->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias verde" << endl;
+								break;
+							}
+						} catch (...) {}
+						
+						cout << "El paciente con el codigo numerico: " << numeroPaciente << " no se ha encontrado en ninguna lista de emergencias" << endl;
 					} else if (opcionP32==2) {
-						
+						int listaConsultada;
+						cout << "Indique la lista de emergencias que desea ver. " << endl;
+						cout << "1 - Nivel Rojo - Resucitacion" << endl;
+						cout << "2 - Nivel Naranja - Emergencia" << endl;
+						cout << "3 - Nivel Amarillo - Urgencia" << endl;
+						cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+						cout << "Opcion: ";
+						cin >> listaConsultada;
+						cout << endl;
+						switch (listaConsultada){
+							case 1:
+								cout << "Mostrando lista de emergencias roja..." << endl << endl;
+								listaRoja->mostrar();
+								break;
+							case 2:
+								cout << "Mostrando lista de emergencias naranja..." << endl << endl;
+								listaNaranja->mostrar();
+								break;
+							case 3:
+								cout << "Mostrando lista de emergencias amarilla..." << endl << endl;
+								listaAmarilla->mostrar();
+								break;
+							case 4:
+								cout << "Mostrando lista de emergencias verde..." << endl << endl;
+								listaVerde->mostrar();
+								break;
+						}
 					} else {
 						cout << "La opcion seleccionada es erronea" << endl;
 						cout << "Regresando al menu principal..." << endl;
@@ -451,8 +521,11 @@ int main()
             getch();
             break;
         }
+		/*
         curr_time = time(NULL);
-        tm *tm_local = localtime(&curr_time);
+        tm *tm_local = localtime(&curr_time);*/
+		cout << "currentDateTime()=" << currentDateTime() << endl;
+		
         cout << endl;
         cout << "0. Alta de paciente en emergencia" << endl;
         cout << "1. Baja de paciente" << endl;
