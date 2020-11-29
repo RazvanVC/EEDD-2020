@@ -33,7 +33,6 @@ void ListaUrgencia::insertar(Paciente nuevo)
             while(aux->siguiente->paciente.getPrioridad() > nuevo.getTiempo()) {
                 aux = aux->siguiente;
             }
-
             n->siguiente = aux->siguiente;
             n->anterior = aux;
             aux->siguiente->anterior = n;
@@ -45,8 +44,17 @@ void ListaUrgencia::insertar(Paciente nuevo)
 
 void ListaUrgencia::borrar(string dni)
 {
-    lnodo aux;
-
+    lnodo aux = primero;
+    
+    while (aux->paciente.getDNI() != dni || aux->siguiente != NULL){
+        aux->siguiente;
+        
+    }
+    if (aux->paciente.getDNI() == dni){
+        delete(aux);
+        size--;
+    }
+    /*
     if(primero->paciente.getDNI() == dni) {
         aux = primero;
         primero->siguiente = primero;
@@ -74,14 +82,13 @@ void ListaUrgencia::borrar(string dni)
             delete(aux);
             size = size - 1;
         }
-    }
+    }*/
 }
 
 void ListaUrgencia::mostrar()
 {
-    lnodo aux;
-    aux = primero;
-    while(aux->siguiente != NULL) {
+    lnodo aux = ultimo;
+    while(aux) {
         aux->paciente.imprimeLista();
         aux = aux->siguiente;
     }
