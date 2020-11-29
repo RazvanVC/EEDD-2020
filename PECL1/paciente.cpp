@@ -14,7 +14,12 @@ Paciente::Paciente() // Inializamos las variables a valores estandar que nunca v
     this->Edad = -1;
     this->Sexo = 'Z';
     this->Prioridad = -1;
-    this->Tiempo = -1;
+	this->anno=0;
+	this->mes=0;
+	this->dia=0;
+	this->hora=0;
+	this->minuto=0;
+	this->segundo=0;
 }
 
 // Clase principal de paciente
@@ -38,10 +43,15 @@ Paciente::Paciente(
     this->Edad = Edad;
     this->Sexo = Sexo;
     this->Prioridad = 0;
-    this->Tiempo = 0;
+	this->anno=0;
+	this->mes=0;
+	this->dia=0;
+	this->hora=0;
+	this->minuto=0;
+	this->segundo=0;
 }
 void Paciente::imprimeLista()
-{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI <<"Fecha"<< Fecha << " Tiempo" << Tiempo << endl; //Sigue faltando fecha 
+{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI ;//<<"Fecha"<< Fecha << " Tiempo" << Tiempo << endl; //Sigue faltando fecha 
     }
 void Paciente::imprimePila()
 { cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI  << " Nombre: " << Nombre << " Primer apellido: "
@@ -89,9 +99,52 @@ int Paciente::getPrioridad()
     return Prioridad;
 }
 
-int Paciente::getTiempo()
+int Paciente::getAnno()
 {
-    return Tiempo;
+	return anno;
+}
+
+int Paciente::getMes()
+{
+	return mes;
+}
+
+int Paciente::getDia()
+{
+	return dia;
+}
+
+int Paciente::getHora()
+{
+	return hora;
+}
+
+int Paciente::getMinuto()
+{
+	return minuto;
+}
+
+int Paciente::getSegundo()
+{
+	return segundo;
+}
+
+long Paciente::getTiempo()
+{
+    long tiempo = 0;
+	tiempo = getAnno();
+	tiempo-=2000;
+	tiempo*=100;
+	tiempo+= getMes();
+	tiempo*=100;
+	tiempo+= getDia();
+	tiempo*=100;
+	tiempo+= getHora();
+	tiempo*=100;
+	tiempo+= getMinuto();
+	tiempo*=100;
+	tiempo+= getSegundo();
+	return tiempo;
 }
 
 /* SETS */
@@ -136,11 +189,35 @@ void Paciente::setPrioridad(int pri)
     Prioridad = pri;
 }
 
-void Paciente::setTiempo(int time)
+void Paciente::setAnno(int annos)
 {
-    Tiempo = time;
+	anno = annos;
 }
 
+void Paciente::setMes(int mesN)
+{
+	mes = mesN;
+}
+
+void Paciente::setDia(int diaN)
+{
+	dia = diaN;
+}
+
+void Paciente::setHora(int horaN)
+{
+	hora = horaN;
+}
+
+void Paciente::setMinuto(int minutoN)
+{
+	minuto = minutoN;
+}
+
+void Paciente::setSegundo(int segundoN)
+{
+	segundo = segundoN;
+}
 
 Paciente::~Paciente()
 {

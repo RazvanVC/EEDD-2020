@@ -19,8 +19,6 @@ public:
         string Apell2,
         int Edad,
         char Sexo
-        int Fecha,
-        int Tiempo
         );
     ~Paciente();
     void imprimeLista();
@@ -34,7 +32,13 @@ public:
     int getEdad();
     char getSexo();
     int getPrioridad();
-    int getTiempo();
+    long getTiempo();
+	int getAnno();
+	int getMes();
+	int getDia();
+	int getHora();
+	int getMinuto();
+	int getSegundo();
 
     // Declaraciones de sets
     void setCodNumerico(int CodNumerico);
@@ -45,7 +49,12 @@ public:
     void setEdad(int Edad);
     void setSexo(char Sexo);
     void setPrioridad(int Prioridad);
-    void setTiempo(int Tiempo);
+	void setAnno(int anno);
+	void setMes(int mes);
+	void setDia(int dia);
+	void setHora(int hora);
+	void setMinuto(int minuto);
+	void setSegundo(int segundo);
 
     // Atributos
 private:
@@ -57,8 +66,12 @@ private:
     int Edad;
     char Sexo;
     int Prioridad;
-    int Tiempo;
-    int Fecha;
+	int anno;
+	int mes;
+	int dia;
+	int hora;
+	int minuto;
+	int segundo;
 };
 
 #endif // PACIENTE_HPP
