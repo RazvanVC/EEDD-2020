@@ -60,14 +60,16 @@ void ListaUrgencia::borrar(string dni)
         delete(aux);
     } else {
         aux = primero;
-        while(aux->siguiente->paciente.getDNI() != dni) {
+        while(aux->siguiente != NULL) {
             aux = aux->siguiente;
+            if(aux->siguiente->paciente.getDNI() == dni) {
+                aux->siguiente->anterior = aux->anterior;
+                aux->anterior->siguiente = aux->siguiente;
+                aux->siguiente = NULL;
+                aux->anterior = NULL;
+                delete(aux);
+            }
         }
-        aux->siguiente->anterior = aux->anterior;
-        aux->anterior->siguiente = aux->siguiente;
-        aux->siguiente = NULL;
-        aux->anterior = NULL;
-        delete(aux);
     }
     size = size - 1;
 }
