@@ -32,7 +32,7 @@ public:
     int getEdad();
     char getSexo();
     int getPrioridad();
-    long getTiempo();
+    float getTiempo();
 	int getAnno();
 	int getMes();
 	int getDia();

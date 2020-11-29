@@ -49,12 +49,13 @@ Paciente::Paciente(
 	this->segundo=0;
 }
 void Paciente::imprimeLista()
-{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI ;//<<"Fecha"<< Fecha << " Tiempo" << Tiempo << endl; //Sigue faltando fecha 
+{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI << "Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo()<< endl;
     }
 void Paciente::imprimePila()
 { cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI  << " Nombre: " << Nombre << " Primer apellido: "
  << Apell1 <<"Segundo apellido: " << Apell2 <<"Edad: " << Edad << "Sexo: " << Sexo << endl;
-    }
+}
+
 /* GETS */
 
 int Paciente::getCodNumerico()
@@ -127,21 +128,34 @@ int Paciente::getSegundo()
 	return segundo;
 }
 
-long Paciente::getTiempo()
+float Paciente::getTiempo()
 {
-    long tiempo = 0;
+    float tiempo;
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo = getAnno();
-	tiempo-=2000;
+	//cout << "Tiempo: " << tiempo << endl;
+	tiempo = tiempo - 2000;
+	//cout << "Tiempo: " << tiempo << endl;
+	tiempo = tiempo * 100;
+	//cout << "Tiempo: " << tiempo << endl;
+	tiempo = tiempo + getMes();
+	//cout << "Tiempo: " << tiempo << endl;
+	tiempo = tiempo * 100;
+	//cout << "Tiempo: " << tiempo << endl;
+	tiempo = tiempo + getDia();
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo*=100;
-	tiempo+= getMes();
-	tiempo*=100;
-	tiempo+= getDia();
-	tiempo*=100;
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo+= getHora();
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo*=100;
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo+= getMinuto();
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo*=100;
+	//cout << "Tiempo: " << tiempo << endl;
 	tiempo+= getSegundo();
+	//cout << "Tiempo: " << tiempo << endl;
 	return tiempo;
 }
 

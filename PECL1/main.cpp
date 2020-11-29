@@ -22,17 +22,28 @@ const std::string currentDateTime() {
     return buf;
 }
 
-const void setTimePaciente(Paciente p) {
+const Paciente setTimePaciente(Paciente p) {
 	time_t     now = time(0);
     struct tm  tstruct;
 	tstruct = *localtime(&now);
 	
-	p.setAnno(tstruct.tm_year);
+	cout << tstruct.tm_year+1900;
+	p.setAnno(tstruct.tm_year+1900);
+	p.getAnno();
 	p.setMes(tstruct.tm_mon);
 	p.setDia(tstruct.tm_mday);
 	p.setHora(tstruct.tm_hour);
 	p.setMinuto(tstruct.tm_min);
 	p.setSegundo(tstruct.tm_sec);
+	
+	return p;
+}
+
+const void mostrarListas(){
+	time_t     now = time(0);
+    struct tm  tstruct;
+	tstruct = *localtime(&now);
+	
 }
 
 using namespace std;
@@ -117,7 +128,7 @@ int main()
                 break;
             }
             pacienteActual.setPrioridad(nEmergencia);
-            setTimePaciente(pacienteActual);
+            pacienteActual = setTimePaciente(pacienteActual);
             //Pensar en como determinar Tiempo
             //cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
             
@@ -456,6 +467,8 @@ int main()
 								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias verde" << endl;
 								break;
 							}
+						cout << "No se ha encontrado el paciente en ninguna lista";
+						break;
 						} catch (...) {}
 						
 						cout << "El paciente con el codigo numerico: " << numeroPaciente << " no se ha encontrado en ninguna lista de emergencias" << endl;
@@ -493,7 +506,7 @@ int main()
 					}
 					break;
 				case 3:
-					
+					mostrarListas();
 					break;
 			}
 			
