@@ -78,9 +78,8 @@ void ListaUrgencia::borrar(string dni)
 
 void ListaUrgencia::mostrar()
 {
-    lnodo aux;
-    aux = primero;
-    while(aux->siguiente != NULL) {
+    lnodo aux = ultimo;
+    while(aux) {
         aux->paciente.imprimeLista();
         aux = aux->siguiente;
     }

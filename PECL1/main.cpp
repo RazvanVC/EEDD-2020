@@ -39,16 +39,25 @@ int main()
     pilaEntrada.insertar(p1);
     
     Paciente pacienteActual;
-    ListaUrgencia listaRoja, listaNaranja, listaAmarilla, listaVerde;
-    listaRoja = ListaUrgencia();
+    ListaUrgencia* listaRoja;
+    ListaUrgencia* listaNaranja;
+    ListaUrgencia* listaAmarilla;
+    ListaUrgencia* listaVerde;
+    listaRoja = new ListaUrgencia();
+    listaAmarilla = new ListaUrgencia();
+    listaNaranja = new ListaUrgencia();
+    listaVerde = new ListaUrgencia();
+    /*listaRoja = ListaUrgencia();
     listaNaranja = ListaUrgencia();
     listaAmarilla = ListaUrgencia();
-    listaVerde = ListaUrgencia();
+    listaVerde = ListaUrgencia();*/ 
     
     int opcion;
+    
     time_t curr_time;
     curr_time = time(NULL);
     tm *tm_local = localtime(&curr_time);
+    
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
@@ -93,16 +102,16 @@ int main()
             
             switch (pacienteActual.getPrioridad()){
                 case 1:
-                    listaRoja.insertar(pacienteActual);
+                    listaRoja -> insertar(pacienteActual);
                     break;
                 case 2:
-                    listaNaranja.insertar(pacienteActual);
+                    listaNaranja -> insertar(pacienteActual);
                     break;
                 case 3:
-                    listaAmarilla.insertar(pacienteActual);
+                    listaAmarilla -> insertar(pacienteActual);
                     break;
                 case 4:
-                    listaVerde.insertar(pacienteActual);
+                    listaVerde -> insertar(pacienteActual);
                     break;
             }
             
@@ -132,10 +141,10 @@ int main()
                     pilaEntrada.insertar(p2);
                     pilaEntrada.insertar(p1);
                     
-                    listaRoja = ListaUrgencia();
-                    listaNaranja = ListaUrgencia();
-                    listaAmarilla = ListaUrgencia();
-                    listaVerde = ListaUrgencia();
+                    listaRoja = new ListaUrgencia();
+                    listaNaranja = new ListaUrgencia();
+                    listaAmarilla = new ListaUrgencia();
+                    listaVerde = new ListaUrgencia();
                 }else return 0;
             }
             break;
@@ -207,9 +216,9 @@ int main()
             if (encontrado) break;
             
             try{
-                if (listaRoja.size!=0){
+                if (listaRoja -> size!=0){
                     
-                    listaRoja.borrar(DNI);
+                    listaRoja -> borrar(DNI);
                     break;
                 } else cout << "La lista roja esta vacia" << endl;
             } catch(...){
@@ -219,8 +228,8 @@ int main()
             getch();
             
             try{
-                if (listaNaranja.size!=0){
-                    listaNaranja.borrar(DNI);
+                if (listaNaranja->size!=0){
+                    listaNaranja->borrar(DNI);
                 } else cout << "La lista naranja esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista naranja" << endl;
@@ -228,8 +237,8 @@ int main()
             getch();
             
             try{
-                if (listaAmarilla.size!=0){
-                    listaAmarilla.borrar(DNI);
+                if (listaAmarilla->size!=0){
+                    listaAmarilla->borrar(DNI);
                 } else cout << "La lista amarilla esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista amarilla" << endl;
@@ -237,8 +246,8 @@ int main()
             getch();
             
             try{
-                if (listaVerde.size!=0){
-                    listaVerde.borrar(DNI);
+                if (listaVerde->size!=0){
+                    listaVerde->borrar(DNI);
                 } else cout << "La lista verde esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista verde" << endl;
@@ -278,20 +287,20 @@ int main()
             
                 switch (emergenciaA){
                     case 1:
-                        pacienteActual = listaRoja.buscarCodNumerico(codPaciente);
-                        listaRoja.borrar(pacienteActual.getDNI());
+                        pacienteActual = listaRoja->buscarCodNumerico(codPaciente);
+                        listaRoja->borrar(pacienteActual.getDNI());
                         break;
                     case 2:
-                        pacienteActual = listaNaranja.buscarCodNumerico(codPaciente);
-                        listaNaranja.borrar(pacienteActual.getDNI());
+                        pacienteActual = listaNaranja->buscarCodNumerico(codPaciente);
+                        listaNaranja->borrar(pacienteActual.getDNI());
                         break;
                     case 3:
-                        pacienteActual = listaAmarilla.buscarCodNumerico(codPaciente);
-                        listaAmarilla.borrar(pacienteActual.getDNI());
+                        pacienteActual = listaAmarilla->buscarCodNumerico(codPaciente);
+                        listaAmarilla->borrar(pacienteActual.getDNI());
                         break;
                     case 4:
-                        pacienteActual = listaVerde.buscarCodNumerico(codPaciente);
-                        listaVerde.borrar(pacienteActual.getDNI());
+                        pacienteActual = listaVerde->buscarCodNumerico(codPaciente);
+                        listaVerde->borrar(pacienteActual.getDNI());
                         break;
                 }
             
@@ -313,7 +322,7 @@ int main()
             //asignacion Tiempo
             
             pacienteActual.setPrioridad(emergenciaN);
-            
+            /*
             switch (pacienteActual.getPrioridad()){
                 case 1:
                     listaRoja.insertar(pacienteActual);
@@ -327,19 +336,23 @@ int main()
                 case 4:
                     listaVerde.insertar(pacienteActual);
                     break;
-            }
+            }*/
             
             break;
         case 3:
             // TODO Code Option 3
             cout << endl << "Lista Roja" << endl;
-            listaRoja.mostrar();
+            listaRoja->mostrar();
+            getch();
             cout << endl << "Lista Naranja" << endl;
-            listaNaranja.mostrar();
+            listaNaranja->mostrar();
+            getch();
             cout << endl << "Lista Amarilla" << endl;
-            listaAmarilla.mostrar();
+            listaAmarilla->mostrar();
+            getch();
             cout << endl << "Lista Verde" << endl;
-            listaVerde.mostrar();
+            listaVerde->mostrar();
+            getch();
             break;
         case 4:
             pilaEntrada = PilaPacientes();
@@ -354,10 +367,10 @@ int main()
             pilaEntrada.insertar(p2);
             pilaEntrada.insertar(p1);
             
-            listaRoja = ListaUrgencia();
-            listaNaranja = ListaUrgencia();
-            listaAmarilla = ListaUrgencia();
-            listaVerde = ListaUrgencia();
+            listaRoja = new ListaUrgencia();
+            listaNaranja = new ListaUrgencia();
+            listaAmarilla = new ListaUrgencia();
+            listaVerde = new ListaUrgencia();
             
             break;
         }
