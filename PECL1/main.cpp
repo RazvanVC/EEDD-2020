@@ -310,7 +310,7 @@ int main()
 					listaVerde->borrar(pacienteActual.getDNI());
 					break;
 			}
-				
+			
             cout << "Paciente: " << pacienteActual.getApell1() << endl;
             
             //Asignacion de Nueva Emergencia
@@ -349,6 +349,43 @@ int main()
             break;
         case 3:
             // TODO Code Option 3
+			int opcionP3;
+			cout << "Seleccione la opcion que quiere consultar" << endl << endl;
+			cout << "1 - Consultas de pacientes" << endl;
+			cout << "2 - Consultas de emergencia" << endl;
+			cout << "3 - Consultas de tiempos de emergencia superados" << endl << endl;
+			
+			cout << "Opcion: "; 
+			cin >> opcionP3;
+			cout << endl;
+			
+			if (opcionP3<1 || opcionP3>3){
+				cout << "La opción seleccionada es erronea" << endl;
+				cout << "Regresando al menu principal..." << endl;
+			}
+			
+			switch (opcionP3){
+				case 1:
+					int opcionP31;
+					cout << "Seleccione la opción que quiere consultar" << endl << endl;
+					cout << "1 - Consultas paciente determinado en pila de paciente" << endl;
+					cout << "2 - Consultas la pila de pacientes" << endl << endl;
+					cout << "Opcion: ";
+					cin >> opcionP31;
+					cout << endl;
+					if (opcionP31==1){
+						
+					}
+					break;
+				case 2:
+					
+					break;
+				case 3:
+					
+					break;
+			}
+			
+			
             break;
         case 4:
             pilaEntrada = PilaPacientes();
@@ -398,5 +435,9 @@ int main()
         cin >> opcion;
         cout << endl << endl;
         }
+		
+		cout << "Cerrando programa..." << endl << endl;
+		cout << "Pulse ENTER para continuar..." <<endl;
+		getch();
     return 0;
 }
