@@ -31,8 +31,6 @@ Paciente::Paciente(
     string Apell2,
     int Edad,
     char Sexo
-    int Fecha,
-    int Tiempo
     )
 {
     this->CodNumerico = CodNumerico;

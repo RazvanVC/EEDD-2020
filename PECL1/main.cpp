@@ -22,6 +22,19 @@ const std::string currentDateTime() {
     return buf;
 }
 
+const void setTimePaciente(Paciente p) {
+	time_t     now = time(0);
+    struct tm  tstruct;
+	tstruct = *localtime(&now);
+	
+	p.setAnno(tstruct.tm_year);
+	p.setMes(tstruct.tm_mon);
+	p.setDia(tstruct.tm_mday);
+	p.setHora(tstruct.tm_hour);
+	p.setMinuto(tstruct.tm_min);
+	p.setSegundo(tstruct.tm_sec);
+}
+
 using namespace std;
 
 int main()
@@ -104,7 +117,7 @@ int main()
                 break;
             }
             pacienteActual.setPrioridad(nEmergencia);
-            
+            setTimePaciente(pacienteActual);
             //Pensar en como determinar Tiempo
             //cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
             
