@@ -18,7 +18,7 @@ const std::string currentDateTime() {
     // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
     // for more information about date/time format
     strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
-
+	cout << tstruct.tm_hour;
     return buf;
 }
 
@@ -26,7 +26,6 @@ using namespace std;
 
 int main()
 {
-    
     Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
     p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
@@ -65,7 +64,7 @@ int main()
     int opcion;
     
     
-	cout << "currentDateTime()=" << currentDateTime() << endl;
+	cout << "Fecha y Hora Actual: " << currentDateTime() << endl;
 	
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << endl;
