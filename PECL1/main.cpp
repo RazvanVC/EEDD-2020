@@ -409,13 +409,25 @@ int main()
 						string DNI31;
 						cout << "Inserte el DNI a buscar: ";
 						cin >> DNI31;
-						pacienteActual = pilaEntrada.buscar(DNI31);
-						if (pacienteActual.getDNI()==DNI31){
-							cout << endl << endl << "El paciente buscado es: " << endl; 
-							pacienteActual.imprimePila();
-						} else {
-							cout << "El paciente no se ha encontrado" << endl;
-						}
+						bool encontrado = false;
+						do {
+							pacienteActual = pilaEntrada.extraer();
+							if (pacienteActual.getDNI() == DNI31) {
+								cout << endl << endl << "El paciente buscado es: " << endl; 
+								pacienteActual.imprimePila();
+								encontrado = true;
+								break;
+							} else {
+								pilaPacientesTemp.insertar(pacienteActual);
+							}
+						} while (!pilaEntrada.estaVacia());
+						
+						if (!encontrado) cout << "El paciente no se ha encontrado" << endl;
+						
+						do {
+							pacienteActual = pilaPacientesTemp.extraer();
+							pilaEntrada.insertar(pacienteActual);
+						} while (!pilaPacientesTemp.estaVacia());
 					} else if (opcionP31==2) {
 						cout << "Imprimiendo pila de pacientes" << endl << endl;
 						pilaEntrada.mostrar();
