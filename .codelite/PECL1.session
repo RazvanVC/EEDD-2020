@@ -1,60 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1.workspace">
-  <int Value="6" Name="m_selectedTab"/>
+  <int Value="0" Name="m_selectedTab"/>
   <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1.workspace" Name="m_workspaceName"/>
-  <TabInfoArray Name="TabInfoArray">
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\ListaUrgencia.cpp" Name="FileName"/>
-      <int Value="48" Name="FirstVisibleLine"/>
-      <int Value="53" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\ListaUrgencia.hpp" Name="FileName"/>
-      <int Value="11" Name="FirstVisibleLine"/>
-      <int Value="12" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\paciente.cpp" Name="FileName"/>
-      <int Value="44" Name="FirstVisibleLine"/>
-      <int Value="45" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\paciente.hpp" Name="FileName"/>
-      <int Value="21" Name="FirstVisibleLine"/>
-      <int Value="37" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\PilaPacientes.cpp" Name="FileName"/>
-      <int Value="10" Name="FirstVisibleLine"/>
-      <int Value="31" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\PilaPacientes.hpp" Name="FileName"/>
-      <int Value="1" Name="FirstVisibleLine"/>
-      <int Value="2" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
-      <int Value="205" Name="FirstVisibleLine"/>
-      <int Value="219" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks">
-        <wxString Value="205:3"/>
-      </wxArrayString>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-  </TabInfoArray>
+  <TabInfoArray Name="TabInfoArray"/>
   <SerializedObject Name="m_breakpoints">
     <long Value="0" Name="Count"/>
   </SerializedObject>

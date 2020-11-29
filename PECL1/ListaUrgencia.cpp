@@ -49,8 +49,8 @@ void ListaUrgencia::borrar(string dni)
 
     if(primero->paciente.getDNI() == dni) {
         aux = primero;
-        primero->siguiente->anterior = NULL;
         primero->siguiente = primero;
+        primero->anterior = NULL;
         aux->siguiente = NULL;
         delete(aux);
         size = size - 1;
