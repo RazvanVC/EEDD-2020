@@ -19,6 +19,8 @@ public:
         string Apell2,
         int Edad,
         char Sexo
+        int Fecha,
+        int Tiempo
         );
     ~Paciente();
     void imprimeLista();
@@ -56,6 +58,7 @@ private:
     char Sexo;
     int Prioridad;
     int Tiempo;
+    int Fecha;
 };
 
 #endif // PACIENTE_HPP

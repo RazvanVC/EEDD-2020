@@ -26,6 +26,8 @@ Paciente::Paciente(
     string Apell2,
     int Edad,
     char Sexo
+    int Fecha,
+    int Tiempo
     )
 {
     this->CodNumerico = CodNumerico;
@@ -39,7 +41,7 @@ Paciente::Paciente(
     this->Tiempo = 0;
 }
 void Paciente::imprimeLista()
-{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI << " Tiempo" << Tiempo << endl; //Sigue faltando fecha 
+{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI <<"Fecha"<< Fecha << " Tiempo" << Tiempo << endl; //Sigue faltando fecha 
     }
 void Paciente::imprimePila()
 { cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI  << " Nombre: " << Nombre << " Primer apellido: "
