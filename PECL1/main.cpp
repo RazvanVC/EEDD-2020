@@ -332,9 +332,13 @@ int main()
             break;
         case 3:
             // TODO Code Option 3
+            cout << endl << "Lista Roja" << endl;
             listaRoja.mostrar();
+            cout << endl << "Lista Naranja" << endl;
             listaNaranja.mostrar();
+            cout << endl << "Lista Amarilla" << endl;
             listaAmarilla.mostrar();
+            cout << endl << "Lista Verde" << endl;
             listaVerde.mostrar();
             break;
         case 4:
