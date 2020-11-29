@@ -93,8 +93,6 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="NodoCola.cpp"/>
-    <File Name="NodoCola.hpp"/>
     <File Name="NodoLista.cpp"/>
     <File Name="NodoLista.hpp"/>
     <File Name="ListaUrgencia.cpp"/>

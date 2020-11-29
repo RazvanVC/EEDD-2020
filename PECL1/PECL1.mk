@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoLista.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/ListaUrgencia.cpp$(ObjectSuffix) 
+Objects0=../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoLista.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/ListaUrgencia.cpp$(ObjectSuffix) 
 
 
 
@@ -124,14 +124,6 @@ PreBuild:
 
 ../build-$(ConfigurationName)/PECL1/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/main.cpp$(PreprocessSuffix) main.cpp
-
-../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(ObjectSuffix): NodoCola.cpp ../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/razva/OneDrive/Documentos/GitHub/EEDD-2020/PECL1/NodoCola.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/NodoCola.cpp$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(DependSuffix): NodoCola.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(DependSuffix) -MM NodoCola.cpp
-
-../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(PreprocessSuffix): NodoCola.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(PreprocessSuffix) NodoCola.cpp
 
 ../build-$(ConfigurationName)/PECL1/NodoLista.cpp$(ObjectSuffix): NodoLista.cpp ../build-$(ConfigurationName)/PECL1/NodoLista.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/razva/OneDrive/Documentos/GitHub/EEDD-2020/PECL1/NodoLista.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/NodoLista.cpp$(ObjectSuffix) $(IncludePath)

@@ -387,6 +387,7 @@ int main()
 					} else if (opcionP31==2) {
 						cout << "Imprimiendo pila de pacientes" << endl << endl;
 						pilaEntrada.mostrar();
+						cout << endl;
 					} else {
 						cout << "La opcion seleccionada es erronea" << endl;
 						cout << "Regresando al menu principal..." << endl;
@@ -401,9 +402,70 @@ int main()
 					cin >> opcionP32;
 					cout << endl;
 					if (opcionP32==1){
+						int numeroPaciente;
+						cout << "Inserte el codigo del paciente a buscar: ";
+						cin >> numeroPaciente;
+						try {
+							pacienteActual = listaRoja->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias roja"<< endl;
+								break;
+							}
+						} catch (...) {}
 						
+						try {
+							pacienteActual = listaNaranja->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias naranja"<< endl;
+								break;
+							}
+						} catch (...) {}
+						
+						try {
+							pacienteActual = listaAmarilla->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias amarilla"<< endl;
+								break;
+							}
+						} catch (...) {}
+						
+						try {
+							pacienteActual = listaVerde->buscarCodNumerico(numeroPaciente);
+							if (pacienteActual.getCodNumerico()==numeroPaciente){
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias verde" << endl;
+								break;
+							}
+						} catch (...) {}
+						
+						cout << "El paciente con el codigo numerico: " << numeroPaciente << " no se ha encontrado en ninguna lista de emergencias" << endl;
 					} else if (opcionP32==2) {
-						
+						int listaConsultada;
+						cout << "Indique la lista de emergencias que desea ver. " << endl;
+						cout << "1 - Nivel Rojo - Resucitacion" << endl;
+						cout << "2 - Nivel Naranja - Emergencia" << endl;
+						cout << "3 - Nivel Amarillo - Urgencia" << endl;
+						cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+						cout << "Opcion: ";
+						cin >> listaConsultada;
+						cout << endl;
+						switch (listaConsultada){
+							case 1:
+								cout << "Mostrando lista de emergencias roja..." << endl << endl;
+								listaRoja->mostrar();
+								break;
+							case 2:
+								cout << "Mostrando lista de emergencias naranja..." << endl << endl;
+								listaNaranja->mostrar();
+								break;
+							case 3:
+								cout << "Mostrando lista de emergencias amarilla..." << endl << endl;
+								listaAmarilla->mostrar();
+								break;
+							case 4:
+								cout << "Mostrando lista de emergencias verde..." << endl << endl;
+								listaVerde->mostrar();
+								break;
+						}
 					} else {
 						cout << "La opcion seleccionada es erronea" << endl;
 						cout << "Regresando al menu principal..." << endl;
