@@ -11,6 +11,7 @@ public:
     Paciente extraer();
     void mostrar();
     bool estaVacia();
+	Paciente buscar(string dni);
 
 private:
     pnodo ultimo;

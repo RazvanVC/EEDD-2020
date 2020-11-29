@@ -377,7 +377,7 @@ int main()
 						string DNI31;
 						cout << "Inserte el DNI a buscar: ";
 						cin >> DNI31;
-						//pacienteActual = pilaEntrada.buscar(DNI31);
+						pacienteActual = pilaEntrada.buscar(DNI31);
 						if (pacienteActual.getDNI()==DNI31){
 							cout << endl << endl << "El paciente buscado es: " << endl; 
 							pacienteActual.imprimePila();

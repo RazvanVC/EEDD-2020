@@ -46,6 +46,20 @@ bool PilaPacientes::estaVacia() // Comprueba si la pila está vacía
     }
 }
 
+Paciente PilaPacientes::buscar(string dni)
+{
+    PilaPacientes pilaAux;
+    pilaAux = PilaPacientes();
+    while(ultimo->paciente.getDNI() != dni or ultimo->siguiente == NULL) {
+        pilaAux.insertar(extraer());
+    }
+    if(ultimo->paciente.getDNI() == dni) {
+        return extraer();
+    } else {
+        return Paciente();
+    }
+}
+
 PilaPacientes::~PilaPacientes()
 {
     pnodo aux = ultimo;
