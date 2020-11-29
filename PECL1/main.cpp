@@ -215,9 +215,7 @@ int main()
             
             try{
                 if (listaNaranja.size!=0){
-                    cout << "patata ricolina"<< endl; 
                     listaNaranja.borrar(DNI);
-                    cout << "patata ricolina"<< endl; 
                 } else cout << "La lista naranja esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista naranja" << endl;
