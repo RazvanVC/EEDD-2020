@@ -6,7 +6,21 @@
 #include <exception>
 #include <typeinfo>
 #include <stdexcept>
-#include <ctime>
+#include <stdio.h>
+#include <time.h>
+
+// Get current date/time, format is YYYY-MM-DD.HH:mm:ss
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    return buf;
+}
 
 using namespace std;
 
@@ -47,17 +61,12 @@ int main()
     listaAmarilla = new ListaUrgencia();
     listaNaranja = new ListaUrgencia();
     listaVerde = new ListaUrgencia();
-    /*listaRoja = ListaUrgencia();
-    listaNaranja = ListaUrgencia();
-    listaAmarilla = ListaUrgencia();
-    listaVerde = ListaUrgencia();*/ 
     
     int opcion;
     
-    time_t curr_time;
-    curr_time = time(NULL);
-    tm *tm_local = localtime(&curr_time);
     
+	cout << "currentDateTime()=" << currentDateTime() << endl;
+	
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
@@ -98,7 +107,7 @@ int main()
             pacienteActual.setPrioridad(nEmergencia);
             
             //Pensar en como determinar Tiempo
-            cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
+            //cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
             
             switch (pacienteActual.getPrioridad()){
                 case 1:
@@ -513,8 +522,11 @@ int main()
             getch();
             break;
         }
+		/*
         curr_time = time(NULL);
-        tm *tm_local = localtime(&curr_time);
+        tm *tm_local = localtime(&curr_time);*/
+		cout << "currentDateTime()=" << currentDateTime() << endl;
+		
         cout << endl;
         cout << "0. Alta de paciente en emergencia" << endl;
         cout << "1. Baja de paciente" << endl;
