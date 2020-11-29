@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1.workspace">
-  <int Value="5" Name="m_selectedTab"/>
+  <int Value="6" Name="m_selectedTab"/>
   <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\ListaUrgencia.cpp" Name="FileName"/>
-      <int Value="55" Name="FirstVisibleLine"/>
+      <int Value="48" Name="FirstVisibleLine"/>
       <int Value="79" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
@@ -33,16 +33,25 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\PilaPacientes.cpp" Name="FileName"/>
-      <int Value="15" Name="FirstVisibleLine"/>
+      <int Value="32" Name="FirstVisibleLine"/>
       <int Value="33" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\PilaPacientes.hpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="11" Name="CurrentLine"/>
+      <int Value="5" Name="FirstVisibleLine"/>
+      <int Value="2" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
+      <int Value="201" Name="FirstVisibleLine"/>
+      <int Value="212" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks">
+        <wxString Value="212:3"/>
+      </wxArrayString>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
   </TabInfoArray>

@@ -6,7 +6,6 @@
 #include <exception>
 #include <typeinfo>
 #include <stdexcept>
-#include <ctime>
 
 using namespace std;
 
@@ -46,9 +45,7 @@ int main()
     listaVerde = ListaUrgencia();
     
     int opcion;
-    time_t curr_time;
-    curr_time = time(NULL);
-    tm *tm_local = localtime(&curr_time);
+
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
@@ -64,7 +61,6 @@ int main()
     
     PilaPacientes pilaPacientesTemp;
     string DNI;
-    
     
     while(opcion != 5) {
         switch(opcion) {
@@ -89,7 +85,6 @@ int main()
             pacienteActual.setPrioridad(nEmergencia);
             
             //Pensar en como determinar Tiempo
-            cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
             
             switch (pacienteActual.getPrioridad()){
                 case 1:
@@ -145,8 +140,7 @@ int main()
             
             if (DNI.empty()){
                 cout << "El DNI no puede estar vacio" << endl;
-            }
-            if (DNI.length()<9){
+            } else if (DNI.size()<9){
                 cout << "La longitud del DNI es incorrecta" << endl;
             }
             
@@ -154,7 +148,6 @@ int main()
             
             pilaPacientesTemp = PilaPacientes();
             int iteracion;
-            bool encontrado; encontrado = false;
             iteracion = 1;
             do {
                 cout << "Iteracion: " << iteracion << endl;
@@ -164,20 +157,21 @@ int main()
                 pilaPacientesTemp.mostrar();
                 pacienteActual = pilaEntrada.extraer();
                 
-                    if (pacienteActual.getDNI() != DNI) {
-                        pilaPacientesTemp.insertar(pacienteActual);
-                        cout << "Pila principal de pacientes" << endl << endl;
-                        pilaEntrada.mostrar();
-                        cout << endl << "Pila pacientes temporal" << endl << endl;
-                        pilaPacientesTemp.mostrar();
+                cout << "Pila principal de pacientes" << endl << endl;
+                pilaEntrada.mostrar();
+                cout << endl << "Pila pacientes temporal" << endl << endl;
+                pilaPacientesTemp.mostrar();
                 
-                        cout << endl;
-                        cout << "El paciente aun no se ha encontrado"<<endl;
-                    } else {
-                        encontrado = true;
-                        cout << endl << "Se ha encontrado el paciente" << endl << "Iniciando el borrado..." << endl << "Borrado completo. Reviertiendo listas...";
-                        break;
-                    }
+                if (pacienteActual.getDNI() != DNI) {
+                pilaPacientesTemp.insertar(pacienteActual);
+                cout << "Pila principal de pacientes" << endl << endl;
+                pilaEntrada.mostrar();
+                cout << endl << "Pila pacientes temporal" << endl << endl;
+                pilaPacientesTemp.mostrar();
+                
+                cout << endl;
+                cout << "El paciente aun no se ha encontrado"<<endl;
+                } else break;
                 getch();
                 iteracion++;
             } while (!pilaEntrada.estaVacia());
@@ -193,6 +187,11 @@ int main()
                 pilaEntrada.mostrar();
                 pacienteActual = pilaPacientesTemp.extraer();
                 
+                cout << "Pila principal de pacientes" << endl << endl;
+                pilaEntrada.mostrar();
+                cout << endl << "Pila pacientes temporal" << endl << endl;
+                pilaPacientesTemp.mostrar();
+                
                 pilaEntrada.insertar(pacienteActual);
                 cout << "Pila principal de pacientes" << endl << endl;
                 pilaEntrada.mostrar();
@@ -203,8 +202,6 @@ int main()
                 getch();
                 iteracion++;
             } while (!pilaPacientesTemp.estaVacia());
-            
-            if (encontrado) break;
             
             try{
                 if (listaRoja.size!=0){
@@ -246,7 +243,6 @@ int main()
             cout << "No se ha encontrado el DNI especificado" << endl;
             
             break;
-                cout << "No se encuentra el sistema" << endl;
         case 2:
             // TODO Code Option 2
             int codPaciente, emergenciaA, emergenciaN;
@@ -275,6 +271,7 @@ int main()
                 break;
             }
             
+
                 switch (emergenciaA){
                     case 1:
                         pacienteActual = listaRoja.buscarCodNumerico(codPaciente);
@@ -293,7 +290,7 @@ int main()
                         listaVerde.borrar(pacienteActual.getDNI());
                         break;
                 }
-            
+
             
             //Asignacion de Nueva Emergencia
             cout << "Indique la emergencia actual a la que se desea asignar" << endl;
@@ -338,8 +335,6 @@ int main()
             
             break;
         }
-        curr_time = time(NULL);
-        tm *tm_local = localtime(&curr_time);
         cout << endl;
         cout << "0. Alta de paciente en emergencia" << endl;
         cout << "1. Baja de paciente" << endl;
@@ -351,6 +346,5 @@ int main()
         cin >> opcion;
         cout << endl << endl;
         }
-        getch();
     return 0;
 }
