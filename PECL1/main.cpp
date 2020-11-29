@@ -219,6 +219,7 @@ int main()
                 if (listaRoja -> size!=0){
                     
                     listaRoja -> borrar(DNI);
+					cout << "Se ha borrado de la lista roja" << endl << endl;
                     break;
                 } else cout << "La lista roja esta vacia" << endl;
             } catch(...){
@@ -230,6 +231,8 @@ int main()
             try{
                 if (listaNaranja->size!=0){
                     listaNaranja->borrar(DNI);
+					cout << "Se ha borrado de la lista naranja" << endl << endl;
+					break;
                 } else cout << "La lista naranja esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista naranja" << endl;
@@ -239,6 +242,8 @@ int main()
             try{
                 if (listaAmarilla->size!=0){
                     listaAmarilla->borrar(DNI);
+					cout << "Se ha borrado de la lista amarilla" << endl << endl;
+					break;
                 } else cout << "La lista amarilla esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista amarilla" << endl;
@@ -248,6 +253,8 @@ int main()
             try{
                 if (listaVerde->size!=0){
                     listaVerde->borrar(DNI);
+					cout << "Se ha borrado de la lista verde" << endl << endl;
+					break;
                 } else cout << "La lista verde esta vacia" << endl;
             } catch(...){
                 cout << "No se encuentra en la lista verde" << endl;
@@ -322,29 +329,28 @@ int main()
             //asignacion Tiempo
             
             pacienteActual.setPrioridad(emergenciaN);
-            /*
+            
             switch (pacienteActual.getPrioridad()){
                 case 1:
-                    listaRoja.insertar(pacienteActual);
+                    listaRoja->insertar(pacienteActual);
                     break;
                 case 2:
-                    listaNaranja.insertar(pacienteActual);
+                    listaNaranja->insertar(pacienteActual);
                     break;
                 case 3:
-                    listaAmarilla.insertar(pacienteActual);
+                    listaAmarilla->insertar(pacienteActual);
                     break;
                 case 4:
-                    listaVerde.insertar(pacienteActual);
+                    listaVerde->insertar(pacienteActual);
                     break;
-            }*/
+            }
             
             break;
         case 3:
             // TODO Code Option 3
             cout << endl << "Lista Roja" << endl;
-            if (listaRoja->size!=0){
             listaRoja->mostrar();
-            getch();}
+            getch();
             cout << endl << "Lista Naranja" << endl;
             listaNaranja->mostrar();
             getch();
