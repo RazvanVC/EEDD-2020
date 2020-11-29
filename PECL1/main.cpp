@@ -212,8 +212,35 @@ int main()
             }
             getch();
             
+            try{
+                if (listaNaranja.size!=0){
+                    listaNaranja.borrar(DNI);
+                }
+            } catch(...){
+                cout << "No se encuentra en lista naranja" << endl;
+            }
+            getch();
+            
+            try{
+                if (listaAmarilla.size!=0){
+                    listaAmarilla.borrar(DNI);
+                }
+            } catch(...){
+                cout << "No se encuentra en lista amarilla" << endl;
+            }
+            getch();
+            
+            try{
+                if (listaVerde.size!=0){
+                    listaVerde.borrar(DNI);
+                }
+            } catch(...){
+                cout << "No se encuentra en lista verde" << endl;
+            }
+            getch();
             
             break;
+                cout << "No se encuentra el sistema" << endl;
         case 2:
             // TODO Code Option 2
             int codPaciente, emergenciaA, emergenciaN;

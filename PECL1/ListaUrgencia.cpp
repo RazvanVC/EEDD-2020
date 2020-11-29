@@ -78,7 +78,6 @@ void ListaUrgencia::mostrar()
         aux = primero;
         while(aux->siguiente != NULL) {
             aux->paciente.imprimeLista();
-            
             aux = aux->siguiente;
         }
     cout << endl;
