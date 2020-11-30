@@ -15,13 +15,10 @@ const std::string currentDateTime() {
     struct tm  tstruct;
     char       buf[80];
     tstruct = *localtime(&now);
-    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-    // for more information about date/time format
     strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
-	cout << tstruct.tm_hour;
     return buf;
 }
-
+// Seteamos el tiempo del paciente
 const Paciente setTimePaciente(Paciente p) {
 	time_t     now = time(0);
     struct tm  tstruct;
@@ -36,7 +33,7 @@ const Paciente setTimePaciente(Paciente p) {
 	
 	return p;
 }
-
+//Mostramos la lista de emergencia roja ordenada por tiempo de espera
 const void mostrarListas(ListaUrgencia* listaRoja){
 	time_t     now = time(0);
     struct tm  tstruct;
@@ -48,18 +45,20 @@ using namespace std;
 
 int main()
 {
+    //Generamos 10 pacientes
     Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
     p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
-    p3 = Paciente(3, "99999993C", "María", "Setien", "Buendia", 60, 'H');
+    p3 = Paciente(3, "99999993C", "Maria", "Setien", "Buendia", 60, 'H');
     p4 = Paciente(4, "99999994D", "Luis", "Dominguez", "Gracia", 4, 'V');
     p5 = Paciente(5, "99999995E", "Eva", "Navarro", "Hueste", 23, 'H');
-    p6 = Paciente(6, "99999996F", "José", "Márquez", "Higuera", 15, 'V');
-    p7 = Paciente(7, "99999997G", "Lucía", "Vindel", "Higuera", 80, 'H');
-    p8 = Paciente(8, "99999998H", "Víctor", "Méndez", "Gimeno", 67, 'V');
+    p6 = Paciente(6, "99999996F", "Jose", "Marquez", "Higuera", 15, 'V');
+    p7 = Paciente(7, "99999997G", "Lucia", "Vindel", "Higuera", 80, 'H');
+    p8 = Paciente(8, "99999998H", "Victor", "Mendez", "Gimeno", 67, 'V');
     p9 = Paciente(9, "99999999J", "Elena", "Espinosa", "Moreno", 2, 'H');
-    p10 = Paciente(10, "100000000K", "Manuel", "García", "Pérez", 87, 'V');
+    p10 = Paciente(10, "100000000K", "Manuel", "Garcia", "Perez", 87, 'V');
     
+    //Insertamos los pacientes en la pila PilaPacientes en orden inverso (LIFO)
     PilaPacientes pilaEntrada;
     pilaEntrada = PilaPacientes();
     pilaEntrada.insertar(p10);
@@ -73,21 +72,27 @@ int main()
     pilaEntrada.insertar(p2);
     pilaEntrada.insertar(p1);
     
+    //Declaramos la variable paciente
     Paciente pacienteActual;
+    
+    //Creamos punteros
     ListaUrgencia* listaRoja;
     ListaUrgencia* listaNaranja;
     ListaUrgencia* listaAmarilla;
     ListaUrgencia* listaVerde;
+    
+    //Cremoas las listas de emergencia
     listaRoja = new ListaUrgencia();
     listaAmarilla = new ListaUrgencia();
     listaNaranja = new ListaUrgencia();
     listaVerde = new ListaUrgencia();
     
+    //Declaramos la variable opción que va a ser la que introduzca el usuario por pantalla
     int opcion;
     
     
-	cout << "Fecha y Hora Actual: " << currentDateTime() << endl;
-	
+	cout << "Fecha y hora actual: " << currentDateTime() << endl;
+	cout << endl;
     cout << "Bienvenido al triaje de emergencias" << endl << endl;
     cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
@@ -96,19 +101,21 @@ int main()
     cout << "3. Consultas de pacientes/emergencias" << endl;
     cout << "4. Reiniciar programa" << endl;
     cout << "5. Salir del programa" << endl;
-    cout << "Seleccione un opcicion del menu: ";
+    cout << "Seleccione un opcion del menu: ";
     cin >> opcion;
     cout << endl << endl;
     
-    
+    //Declaramos las variables pilaPacientesTemp y DNI para utilizarlas más adelante
     PilaPacientes pilaPacientesTemp;
     string DNI;
     
-    
+    //Bucle para controlar lo que va a hacer el programa según la opción introducida por el usuario
     while(opcion != 5) {
         switch(opcion) {
         case 0:
+            //Declaramos la variable nEmergencia
             int nEmergencia;
+            //Se saca el primer paciente de la pila
             pacienteActual = pilaEntrada.extraer();
             
             cout << "Para dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
@@ -117,19 +124,22 @@ int main()
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
             cout << "Inserte la prioridad del paciente: ";
-            cin >> nEmergencia;
+            cin >> nEmergencia; //Guardamos el número de la opción introducida por el usuario para asignar el paciente a la lista de emergencia
             
+            //Controlamos que el usuario no pueda meter una opción que no se muestre por pantalla
             if (nEmergencia<1 || nEmergencia>4){
                 cout << "\nERROR: Numero de emergencia erroneo."<< endl;
                 cout << "Regresando a menu principal..." << endl << endl;
+                //Insertamos de nuevo el paciente a la pila
                 pilaEntrada.insertar(pacienteActual);
                 break;
             }
+            //Seteamos la prioridad del paciente y el tiempo
             pacienteActual.setPrioridad(nEmergencia);
             pacienteActual = setTimePaciente(pacienteActual);
-            //Pensar en como determinar Tiempo
             //cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" << tm_local->tm_sec;
             
+            //Hacemos un get de la prioridad del paciente y se le asigna a una lista de emergencia según el caso
             switch (pacienteActual.getPrioridad()){
                 case 1:
                     listaRoja -> insertar(pacienteActual);
@@ -159,6 +169,7 @@ int main()
                     if (!(opcionFinal<1) || !(opcionFinal>2)) opcionCorrecta = true;
                 } while (!opcionCorrecta);
                 if (opcionFinal == 1){
+                    //Volvemos a llenar PilaPacientes
                     pilaEntrada = PilaPacientes();
                     pilaEntrada.insertar(p10);
                     pilaEntrada.insertar(p9);
@@ -171,6 +182,7 @@ int main()
                     pilaEntrada.insertar(p2);
                     pilaEntrada.insertar(p1);
                     
+                    //Sobreescribimos las listas de emergencias (las vaciamos)
                     listaRoja = new ListaUrgencia();
                     listaNaranja = new ListaUrgencia();
                     listaAmarilla = new ListaUrgencia();
@@ -180,12 +192,12 @@ int main()
             break;
         case 1:
             cout << "Indique el DNI del paciente que desea dar de baja: ";
-            cin >> DNI;
+            cin >> DNI; //El usuario introduce el DNI
             
-            if (DNI.empty()){
+            if (DNI.empty()){ //Error si no se introduce nada
                 cout << "El DNI no puede estar vacio" << endl;
             }
-            if (DNI.length()<9){
+            if (DNI.length()<9){ //Error si no introducimos la longitud correcta
                 cout << "La longitud del DNI es incorrecta" << endl;
             }
             
@@ -196,6 +208,8 @@ int main()
             bool encontrado; encontrado = false;
             iteracion = 1;
             do {
+                //Se va vaciando la pilaEntrada y se vuelca en pilaPacientesTem para ir buscando el paciente del DNI introducido
+                //Se muestran una por una las iteraciones realizadas imprimiendo por pantalla las pilas de los pacientes (principal y temporal)
                 cout << "Iteracion: " << iteracion << endl;
                 cout << "Pila principal de pacientes" << endl << endl;
                 pilaEntrada.mostrar();
@@ -203,7 +217,7 @@ int main()
                 pilaPacientesTemp.mostrar();
                 pacienteActual = pilaEntrada.extraer();
                 
-                    if (pacienteActual.getDNI() != DNI) {
+                    if (pacienteActual.getDNI() != DNI) { //Si el dni del paciente no coincide con el DNI introducido, se introduce en una pila temporal
                         pilaPacientesTemp.insertar(pacienteActual);
                         cout << "Pila principal de pacientes" << endl << endl;
                         pilaEntrada.mostrar();
@@ -212,19 +226,20 @@ int main()
                 
                         cout << endl;
                         cout << "El paciente aun no se ha encontrado"<<endl;
-                    } else {
+                    } else { //Si se encuentra, se revierte la pila temporal en la principal y se borra la pila temporal
                         encontrado = true;
                         cout << endl << "Se ha encontrado el paciente" << endl << "Iniciando el borrado..." << endl << "Borrado completo. Reviertiendo listas...";
                         break;
                     }
                 getch();
                 iteracion++;
-            } while (!pilaEntrada.estaVacia());
+            } while (!pilaEntrada.estaVacia()); //Esto se repetirá hasta que la pilaEntrada esté vacía
             
             cout << endl;
             cout << "Revertimos el proceso de las pilas" << endl;
             
             do {
+                //Este es el proceso contrario (rellenar)
                 cout << "Iteracion: " << iteracion << endl;
                 cout << "Pila principal de pacientes" << endl << endl;
                 pilaPacientesTemp.mostrar();
@@ -241,69 +256,72 @@ int main()
                 cout << endl;
                 getch();
                 iteracion++;
-            } while (!pilaPacientesTemp.estaVacia());
+            } while (!pilaPacientesTemp.estaVacia()); //Esto se repite hasta que la pilaPacientesTemp esté vacía
             
-            if (encontrado) break;
+            if (encontrado) break; //En el momento en que lo encuentra, para de buscar
             
             try{
-                if (listaRoja -> size!=0){
-                    
-                    listaRoja -> borrar(DNI);
+                //Busca en la lista de emergencia Roja
+                if (listaRoja -> size!=0){ //Si la lista contiene algo, comienza a buscar en ella
+                    listaRoja -> borrar(DNI); //Si lo encuentra, lo borra
 					cout << "Se ha borrado de la lista roja" << endl << endl;
                     break;
-                } else cout << "La lista roja esta vacia" << endl;
+                } else cout << "La lista roja esta vacia" << endl; //Si la lista está vacía, lo indica por pantalla
             } catch(...){
-                cout << "No se encuentra en la lista roja" << endl;
+                cout << "No se encuentra en la lista roja" << endl; //Si no está en esta lista, salta una excepción y se indica por pantalla
                 break;
             }
             getch();
             
             try{
-                if (listaNaranja->size!=0){
-                    listaNaranja->borrar(DNI);
-					cout << "Se ha borrado de la lista naranja" << endl << endl;
+                //Busca en la lista de emergencia Naranaja
+                if (listaNaranja->size!=0){ //Si la lista contiene algo, comienza a buscar en ella
+                    listaNaranja->borrar(DNI); //Si lo encuentra, lo borra
+					cout << "Se ha borrado de la lista naranja" << endl << endl; 
 					break;
-                } else cout << "La lista naranja esta vacia" << endl;
+                } else cout << "La lista naranja esta vacia" << endl; //Si la lista está vacía, lo indica por pantalla
             } catch(...){
-                cout << "No se encuentra en la lista naranja" << endl;
+                cout << "No se encuentra en la lista naranja" << endl; //Si no está en esta lista, salta una excepción y se indica por pantalla
             }
             getch();
             
             try{
-                if (listaAmarilla->size!=0){
-                    listaAmarilla->borrar(DNI);
-					cout << "Se ha borrado de la lista amarilla" << endl << endl;
+                //Busca en la lista de emergencia Amarilla
+                if (listaAmarilla->size!=0){ //Si la lista contiene algo, comienza a buscar en ella
+                    listaAmarilla->borrar(DNI); //Si lo encuentra, lo borra
+					cout << "Se ha borrado de la lista amarilla" << endl << endl; 
 					break;
-                } else cout << "La lista amarilla esta vacia" << endl;
+                } else cout << "La lista amarilla esta vacia" << endl; //Si la lista está vacía, lo indica por pantalla
             } catch(...){
-                cout << "No se encuentra en la lista amarilla" << endl;
+                cout << "No se encuentra en la lista amarilla" << endl; //Si no está en esta lista, salta una excepción y se indica por pantalla
             }
             getch();
             
             try{
-                if (listaVerde->size!=0){
-                    listaVerde->borrar(DNI);
-					cout << "Se ha borrado de la lista verde" << endl << endl;
+                //Busca en la lista de emergencia Verde
+                if (listaVerde->size!=0){ //Si la lista contiene algo, comienza a buscar en ella
+                    listaVerde->borrar(DNI); //Si lo encuentra, lo borra
+					cout << "Se ha borrado de la lista verde" << endl << endl; 
 					break;
-                } else cout << "La lista verde esta vacia" << endl;
+                } else cout << "La lista verde esta vacia" << endl; //Si la lista está vacía, lo indica por pantalla
             } catch(...){
-                cout << "No se encuentra en la lista verde" << endl;
+                cout << "No se encuentra en la lista verde" << endl; //Si no está en esta lista, salta una excepción y se indica por pantalla
             }
             getch();
             
-            cout << "No se ha encontrado el DNI especificado" << endl;
+            cout << "No se ha encontrado el DNI especificado" << endl; //SI no está el DNI, se indica por pantalla
             
             break;
         case 2:
-            // TODO Code Option 2
+            //Se declaran las siguientes variables
             int codPaciente, emergenciaA, emergenciaN;
             
             //Asignacion Codigo Paciente
             cout << "Inserte el codigo de paciente a modificar: ";
-            cin >> codPaciente;
-            if (codPaciente<1 || codPaciente>10){
-                cout << "ERROR: Codigo de paciente incorrecto" << endl;
-                cout << "Regresando a menu principal..." << endl;
+            cin >> codPaciente; //El usuario introduce el código del paciente
+            if (codPaciente<1 || codPaciente>10){ //Se comprueba que la entreada sea entre 1 y 10
+                cout << "ERROR: Codigo de paciente incorrecto" << endl; //Si hay un error, se indica por pantalla
+                cout << "Regresando a menu principal..." << endl; //Regresamos al menú principal
                 break;
             }
             
@@ -314,15 +332,16 @@ int main()
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;;
             cout << "Emergencia anterior: ";
-            cin >> emergenciaA;
+            cin >> emergenciaA; //El usuario introduce la lista donde se encuentra el paciente actualmente
             
-            if (emergenciaA<1 || emergenciaA>4){
-                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl;
-                cout << "Regresando a menu principal..." << endl;
+            if (emergenciaA<1 || emergenciaA>4){ //Se comprueba que la entrada sea entre 1 y 4
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl; //Si hay un error, se indica por pantalla
+                cout << "Regresando a menu principal..." << endl; //Regresamos al menú principal
                 break;
             }
             
 			switch (emergenciaA){
+                //Dependiendo de la lista en la que se encuentre entrará en un caso, seleccionará al paciente y lo borrará de la lista
 				case 1:
 					pacienteActual = listaRoja->buscarCodNumerico(codPaciente);
 					listaRoja->borrar(pacienteActual.getDNI());
@@ -341,7 +360,7 @@ int main()
 					break;
 			}
 			
-            cout << "Paciente: " << pacienteActual.getApell1() << endl;
+            cout << "Paciente: " << pacienteActual.getApell1() << endl; //Se imprime por pantalla el paciente seleccionado
             
             //Asignacion de Nueva Emergencia
             cout << "Indique la emergencia actual a la que se desea asignar" << endl;
@@ -350,17 +369,17 @@ int main()
             cout << "3 - Nivel Amarillo - Urgencia" << endl;
             cout << "4 - Nivel Verde - Urgencia Menor" << endl;
             cout << "Emergencia nueva: ";
-            cin >> emergenciaN;
-            if (emergenciaN<1 || emergenciaN>4){
-                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl;
-                cout << "Regresando a menu principal..." << endl;
+            cin >> emergenciaN; //El usuario introduce la lista donde se va a trasladar al paciente
+            if (emergenciaN<1 || emergenciaN>4){ //Se comprueba que la entrada sea entre 1 y 4
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl; //Si hay un error, se indica por pantalla
+                cout << "Regresando a menu principal..." << endl; //Regresamos al menú principal
                 break;
             }
             
-            //asignacion Tiempo
-            
+            //Asignacion Tiempo
             pacienteActual.setPrioridad(emergenciaN);
             
+            //Una vez asignado el tiempo, se asigna al paciente a la nueva lista de emergencia
             switch (pacienteActual.getPrioridad()){
                 case 1:
                     listaRoja->insertar(pacienteActual);
@@ -378,7 +397,7 @@ int main()
             
             break;
         case 3:
-            // TODO Code Option 3
+            //Se declara la variable para la opción
 			int opcionP3;
 			cout << "Seleccione la opcion que quiere consultar" << endl << endl;
 			cout << "1 - Consultas de pacientes" << endl;
@@ -386,103 +405,110 @@ int main()
 			cout << "3 - Consultas de tiempos de emergencia superados" << endl << endl;
 			
 			cout << "Opcion: "; 
-			cin >> opcionP3;
+			cin >> opcionP3; //El usuario introduce la opción que quiere consultar
 			cout << endl;
 			
-			if (opcionP3<1 || opcionP3>3){
-				cout << "La opcion seleccionada es erronea" << endl;
-				cout << "Regresando al menu principal..." << endl;
+			if (opcionP3<1 || opcionP3>3){ //Se comprueba que la entrada sea entre 1 y 3
+				cout << "La opcion seleccionada es erronea" << endl; //Si hay un error, se indica por pantalla
+				cout << "Regresando al menu principal..." << endl; //Regresamos al menú principal
 			}
 			
 			switch (opcionP3){
 				case 1:
+                    //Se declara otra variable para la opción
 					int opcionP31;
 					cout << "Seleccione la opcion que quiere consultar" << endl << endl;
 					cout << "1 - Consultas paciente determinado en pila de paciente" << endl;
 					cout << "2 - Consultas la pila de pacientes" << endl << endl;
 					cout << "Opcion: ";
-					cin >> opcionP31;
+					cin >> opcionP31; //El usuario introduce la opción que quiere consultar
 					cout << endl;
 					if (opcionP31==1){
+                        //Declaramos la variable para poder buscar por DNI
 						string DNI31;
 						cout << "Inserte el DNI a buscar: ";
-						cin >> DNI31;
-						bool encontrado = false;
+						cin >> DNI31; //El usuario introduce el DNI que quiere consultar
+						bool encontrado = false; //Se declara e iniciliza la variabe encontrado
 						do {
-							pacienteActual = pilaEntrada.extraer();
-							if (pacienteActual.getDNI() == DNI31) {
-								cout << endl << endl << "El paciente buscado es: " << endl; 
+                            //Vamos comparando el DNI introducido hasta encontrar el paciente correspondiente
+							pacienteActual = pilaEntrada.extraer(); //Extraemos el primero de la pila
+							if (pacienteActual.getDNI() == DNI31) { //Comparamos si tienen el mismo DNI
+								cout << endl << endl << "El paciente buscado es: " << endl; //En caso positivo, se imprimer el paciente por pantalla
 								pacienteActual.imprimePila();
 								encontrado = true;
 								break;
 							} else {
-								pilaPacientesTemp.insertar(pacienteActual);
+								pilaPacientesTemp.insertar(pacienteActual); //Se inserta el paciente actual en la pila temporal
 							}
-						} while (!pilaEntrada.estaVacia());
+						} while (!pilaEntrada.estaVacia()); //Esto se repetirá hasta que la pilaEntrada esté vacía
 						
-						if (!encontrado) cout << "El paciente no se ha encontrado" << endl;
+						if (!encontrado) cout << "El paciente no se ha encontrado" << endl; //Si no se encuentra el paciente, se indica por pantalla
 						
 						do {
+                            //Extraemos el paciente de la pila temporal para reconstruir nuestra pilaEntrada
 							pacienteActual = pilaPacientesTemp.extraer();
-							pilaEntrada.insertar(pacienteActual);
-						} while (!pilaPacientesTemp.estaVacia());
+							pilaEntrada.insertar(pacienteActual); //Insertamos el paciente actual en la pilaEntrada para volver a los valores anteriores a la búsqueda
+						} while (!pilaPacientesTemp.estaVacia()); //Esto se repetirá hasta que la pilaPacientesTemp esté vacía
 					} else if (opcionP31==2) {
 						cout << "Imprimiendo pila de pacientes" << endl << endl;
-						pilaEntrada.mostrar();
+						pilaEntrada.mostrar(); //Se imprime por pantalla toda la pila
 						cout << endl;
 					} else {
-						cout << "La opcion seleccionada es erronea" << endl;
-						cout << "Regresando al menu principal..." << endl;
+						cout << "La opcion seleccionada es erronea" << endl; //Si hay un error, se indica por pantalla
+						cout << "Regresando al menu principal..." << endl; //Regresamos al menú principal
 					}
 					break;
 				case 2:
+                    //Se declara otra variable para la opción
 					int opcionP32;
 					cout << "Seleccione la opcion que quiere consultar" << endl << endl;
 					cout << "1 - Consultar emergencia a la que esta asignada un paciente" << endl;
 					cout << "2 - Consultar la lista de emergencia seleccionada" << endl << endl;
 					cout << "Opcion: ";
-					cin >> opcionP32;
+					cin >> opcionP32; //El usuario introduce la opción que quiere consultar
 					cout << endl;
 					if (opcionP32==1){
+                        //Declaramos la variable para poder buscar por el código de identificación
 						int numeroPaciente;
 						cout << "Inserte el codigo del paciente a buscar: ";
-						cin >> numeroPaciente;
+						cin >> numeroPaciente; //El usuario introduce el código que quiere consultar
 						try {
-							pacienteActual = listaRoja->buscarCodNumerico(numeroPaciente);
-							if (pacienteActual.getCodNumerico()==numeroPaciente){
-								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias roja"<< endl;
+							pacienteActual = listaRoja->buscarCodNumerico(numeroPaciente); //Buscamos el código del paciente en la lista Roja
+							if (pacienteActual.getCodNumerico()==numeroPaciente){ //Si coincide con el código introducido
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias roja"<< endl; //Se indica por pantalla que se ha encontrado
 								break;
 							}
 						} catch (...) {}
 						
 						try {
-							pacienteActual = listaNaranja->buscarCodNumerico(numeroPaciente);
-							if (pacienteActual.getCodNumerico()==numeroPaciente){
-								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias naranja"<< endl;
+							pacienteActual = listaNaranja->buscarCodNumerico(numeroPaciente); //Buscamos el código del paciente en la lista Naranja
+							if (pacienteActual.getCodNumerico()==numeroPaciente){ //Si coincide con el código introducido
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias naranja"<< endl; //Se indica por pantalla que se ha encontrado
 								break;
 							}
 						} catch (...) {}
 						
 						try {
-							pacienteActual = listaAmarilla->buscarCodNumerico(numeroPaciente);
-							if (pacienteActual.getCodNumerico()==numeroPaciente){
-								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias amarilla"<< endl;
+							pacienteActual = listaAmarilla->buscarCodNumerico(numeroPaciente); //Buscamos el código del paciente en la lista Amarilla
+							if (pacienteActual.getCodNumerico()==numeroPaciente){ //Si coincide con el código introducido
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias amarilla"<< endl; //Se indica por pantalla que se ha encontrado
 								break;
 							}
 						} catch (...) {}
 						
 						try {
-							pacienteActual = listaVerde->buscarCodNumerico(numeroPaciente);
-							if (pacienteActual.getCodNumerico()==numeroPaciente){
-								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias verde" << endl;
+							pacienteActual = listaVerde->buscarCodNumerico(numeroPaciente); //Buscamos el código del paciente en la lista Verde
+							if (pacienteActual.getCodNumerico()==numeroPaciente){ //Si coincide con el código introducido
+								cout << "DNI del paciente: " << pacienteActual.getDNI() << " se encuentra en la lista de emergencias verde" << endl; //Se indica por pantalla que se ha encontrado
 								break;
 							}
-						cout << "No se ha encontrado el paciente en ninguna lista";
+						cout << "No se ha encontrado el paciente en ninguna lista"; //Si no se encuentra el paciente, se indica por pantalla
 						break;
 						} catch (...) {}
 						
 						cout << "El paciente con el codigo numerico: " << numeroPaciente << " no se ha encontrado en ninguna lista de emergencias" << endl;
 					} else if (opcionP32==2) {
+                        //Declaramos la variable para poder buscar por lista de emergencia
 						int listaConsultada;
 						cout << "Indique la lista de emergencias que desea ver. " << endl;
 						cout << "1 - Nivel Rojo - Resucitacion" << endl;
@@ -490,38 +516,40 @@ int main()
 						cout << "3 - Nivel Amarillo - Urgencia" << endl;
 						cout << "4 - Nivel Verde - Urgencia Menor" << endl;
 						cout << "Opcion: ";
-						cin >> listaConsultada;
+						cin >> listaConsultada; //El usuario introduce la lista de emergencia que desea consultar
 						cout << endl;
 						switch (listaConsultada){
+                            //Según el caso, mostrará una de las 4 listas disponibles
 							case 1:
 								cout << "Mostrando lista de emergencias roja..." << endl << endl;
-								listaRoja->mostrar();
+								listaRoja->mostrar(); //Muestra la lista de emergencia Roja
 								break;
 							case 2:
 								cout << "Mostrando lista de emergencias naranja..." << endl << endl;
-								listaNaranja->mostrar();
+								listaNaranja->mostrar(); //Muestra la lista de emergencia Naranja
 								break;
 							case 3:
 								cout << "Mostrando lista de emergencias amarilla..." << endl << endl;
-								listaAmarilla->mostrar();
+								listaAmarilla->mostrar(); //Muestra la lista de emergencia Amarilla
 								break;
 							case 4:
 								cout << "Mostrando lista de emergencias verde..." << endl << endl;
-								listaVerde->mostrar();
+								listaVerde->mostrar(); //Muestra la lista de emergencia Verde
 								break;
 						}
 					} else {
-						cout << "La opcion seleccionada es erronea" << endl;
-						cout << "Regresando al menu principal..." << endl;
+						cout << "La opcion seleccionada es erronea" << endl; //Si hay un error, se indica por pantalla
+						cout << "Regresando al menu principal..." << endl; //Regresamos al menú principal
 					}
 					break;
 				case 3:
-					mostrarListas(listaRoja);
+					mostrarListas(listaRoja); //Muestra la lista de emergencia Roja
 					break;
 			}
 			
             break;
         case 4:
+            //Se resetea la PilaPacientes añadiendo de nuevo todos los pacientes
             pilaEntrada = PilaPacientes();
             pilaEntrada.insertar(p10);
             pilaEntrada.insertar(p9);
@@ -533,7 +561,8 @@ int main()
             pilaEntrada.insertar(p3);
             pilaEntrada.insertar(p2);
             pilaEntrada.insertar(p1);
-            
+        
+            //Sobreescribimos las listas de emergencias (las vaciamos)
             listaRoja = new ListaUrgencia();
             listaNaranja = new ListaUrgencia();
             listaAmarilla = new ListaUrgencia();
@@ -560,8 +589,7 @@ int main()
         curr_time = time(NULL);
         tm *tm_local = localtime(&curr_time);*/
 		
-		cout<< endl << endl << "Dia y hora actual" << currentDateTime() << endl;
-		
+		cout<< endl << endl << "Fecha y hora actual: " << currentDateTime() << endl;
         cout << endl;
         cout << "0. Alta de paciente en emergencia" << endl;
         cout << "1. Baja de paciente" << endl;
@@ -569,7 +597,7 @@ int main()
         cout << "3. Consultas de pacientes/emergencias" << endl;
         cout << "4. Reiniciar programa" << endl;
         cout << "5. Salir del programa" << endl;
-        cout << "Seleccione un opcicion del menu: ";
+        cout << "Seleccione un opcion del menu: ";
         cin >> opcion;
         cout << endl << endl;
         }
