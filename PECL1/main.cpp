@@ -27,9 +27,7 @@ const Paciente setTimePaciente(Paciente p) {
     struct tm  tstruct;
 	tstruct = *localtime(&now);
 	
-	cout << tstruct.tm_year+1900;
 	p.setAnno(tstruct.tm_year+1900);
-	p.getAnno();
 	p.setMes(tstruct.tm_mon);
 	p.setDia(tstruct.tm_mday);
 	p.setHora(tstruct.tm_hour);
@@ -39,11 +37,11 @@ const Paciente setTimePaciente(Paciente p) {
 	return p;
 }
 
-const void mostrarListas(){
+const void mostrarListas(ListaUrgencia* listaRoja){
 	time_t     now = time(0);
     struct tm  tstruct;
 	tstruct = *localtime(&now);
-	
+	listaRoja->mostrarC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min, tstruct.tm_sec);
 }
 
 using namespace std;
@@ -518,10 +516,9 @@ int main()
 					}
 					break;
 				case 3:
-					mostrarListas();
+					mostrarListas(listaRoja);
 					break;
 			}
-			
 			
             break;
         case 4:
@@ -562,7 +559,8 @@ int main()
 		/*
         curr_time = time(NULL);
         tm *tm_local = localtime(&curr_time);*/
-		cout << "currentDateTime()=" << currentDateTime() << endl;
+		
+		cout<< endl << endl << "Dia y hora actual" << currentDateTime() << endl;
 		
         cout << endl;
         cout << "0. Alta de paciente en emergencia" << endl;
@@ -581,3 +579,4 @@ int main()
 		getch();
     return 0;
 }
+

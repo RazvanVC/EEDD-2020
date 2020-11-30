@@ -86,6 +86,16 @@ void ListaUrgencia::mostrar()
     cout << endl;
 }
 
+void ListaUrgencia::mostrarC3(int a, int mes, int d, int h, int m, int s)
+{
+	lnodo aux = primero;
+    while(aux) {
+        aux->paciente.imprimeC3(a, mes, d, h, m, s);
+        aux = aux->siguiente;
+    }
+    cout << endl;
+}
+
 Paciente ListaUrgencia::buscarCodNumerico(int CodNumerico)
 {
     lnodo aux;

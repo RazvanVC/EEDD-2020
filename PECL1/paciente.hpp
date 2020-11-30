@@ -23,6 +23,7 @@ public:
     ~Paciente();
     void imprimeLista();
     void imprimePila();
+	void imprimeC3(int a, int mes, int d, int h, int m, int s);
     // Declaraciones de gets
     int getCodNumerico();
     string getDNI();

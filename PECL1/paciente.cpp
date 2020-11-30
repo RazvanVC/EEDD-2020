@@ -49,13 +49,16 @@ Paciente::Paciente(
 	this->segundo=0;
 }
 void Paciente::imprimeLista()
-{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI << "Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo()<< endl;
+{ cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI << " Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo()<< endl;
     }
 void Paciente::imprimePila()
 { cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI  << " Nombre: " << Nombre << " Primer apellido: "
- << Apell1 <<"Segundo apellido: " << Apell2 <<"Edad: " << Edad << "Sexo: " << Sexo << endl;
+ << Apell1 <<" Segundo apellido: " << Apell2 <<" Edad: " << Edad << " Sexo: " << Sexo << endl;
 }
-
+void Paciente::imprimeC3(int annoA, int mesA, int diaA, int horaA, int minutoA, int segundoA)
+{
+	cout << "Prioridad: "<< getPrioridad() << " Codigo Numerico: " << CodNumerico << " Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo() << " Tiempo Excedido: " << getAnno()-annoA<<getMes()-mesA<<getDia()-diaA<<getHora()-horaA<<getMinuto()-mesA<<getSegundo()-segundoA<< endl;
+}
 /* GETS */
 
 int Paciente::getCodNumerico()
