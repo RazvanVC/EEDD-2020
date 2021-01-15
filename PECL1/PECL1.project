@@ -93,6 +93,10 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="ColaPacientes.cpp"/>
+    <File Name="ColaPacientes.hpp"/>
+    <File Name="NodoCola.cpp"/>
+    <File Name="NodoCola.hpp"/>
     <File Name="ArbolUrgencia.cpp"/>
     <File Name="ArbolUrgencia.hpp"/>
     <File Name="NodoArbol.hpp"/>

@@ -4,7 +4,7 @@
 
 class ArbolUrgencia
 {
- private:
+private:
         Anodo raiz;
         Anodo actual = NULL;
         int contador, altura;
@@ -14,8 +14,8 @@ class ArbolUrgencia
         void mostrar(int& d);
 
     public:
-        ArbolUrgencia() : raiz(NULL), actual(NULL) {}
-        ~ArbolUrgencia() {podar(raiz);}
+        ArbolUrgencia();
+        ~ArbolUrgencia();
         bool buscar(int CodNumerico);
         void insertar(Paciente p);
         void borrar(string DNI);

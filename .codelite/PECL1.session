@@ -1,54 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1.workspace">
-  <int Value="4" Name="m_selectedTab"/>
+  <int Value="3" Name="m_selectedTab"/>
   <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
-      <int Value="537" Name="FirstVisibleLine"/>
-      <int Value="559" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\NodoArbol.cpp" Name="FileName"/>
-      <int Value="3" Name="FirstVisibleLine"/>
-      <int Value="4" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\NodoArbol.hpp" Name="FileName"/>
+      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\ColaPacientes.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\ArbolUrgencia.hpp" Name="FileName"/>
+      <wxString Value="C:\Users\necok\OneDrive\Escritorio\JimenoMartinJaime - copia\NodoCola.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="34" Name="CurrentLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\ArbolUrgencia.cpp" Name="FileName"/>
+      <wxString Value="C:\Users\necok\OneDrive\Escritorio\JimenoMartinJaime - copia\NodoCola.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="119" Name="CurrentLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\PilaPacientes.cpp" Name="FileName"/>
-      <int Value="3" Name="FirstVisibleLine"/>
-      <int Value="4" Name="CurrentLine"/>
+      <wxString Value="C:\Users\necok\OneDrive\Escritorio\JimenoMartinJaime - copia\Cola.cpp" Name="FileName"/>
+      <int Value="110" Name="FirstVisibleLine"/>
+      <int Value="146" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1\paciente.cpp" Name="FileName"/>
-      <int Value="37" Name="FirstVisibleLine"/>
-      <int Value="59" Name="CurrentLine"/>
+      <wxString Value="C:\Users\necok\OneDrive\Escritorio\JimenoMartinJaime - copia\Cola.hpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

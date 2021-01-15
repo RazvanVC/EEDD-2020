@@ -1,14 +1,13 @@
 #include <iostream> 
 #include <string> 
 #include "PilaPacientes.hpp"
-#include "ListaUrgencia.hpp"
 #include "conio.h"
 #include <exception>
 #include <typeinfo>
 #include <stdexcept>
 #include <stdio.h>
 #include <time.h>
-
+/*
 // Get current date/time, format is YYYY-MM-DD.HH:mm:ss
 const std::string currentDateTime() {
     time_t     now = time(0);
@@ -76,7 +75,7 @@ int main()
     Paciente pacienteActual;
     
     //Creamos punteros
-    ListaUrgencia* listaRoja;
+    ArbolUrgencia* listaRoja;
     ListaUrgencia* listaNaranja;
     ListaUrgencia* listaAmarilla;
     ListaUrgencia* listaVerde;
@@ -585,10 +584,11 @@ int main()
             getch();
             break;
         }
-		/*
+         
         curr_time = time(NULL);
         tm *tm_local = localtime(&curr_time);*/
 		
+        /*
 		cout<< endl << endl << "Fecha y hora actual: " << currentDateTime() << endl;
         cout << endl;
         cout << "0. Alta de paciente en emergencia" << endl;
@@ -608,3 +608,4 @@ int main()
     return 0;
 }
 
+*/

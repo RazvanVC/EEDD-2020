@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(ObjectSuffix) 
+Objects0=../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(ObjectSuffix) ../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix) 
 
 
 
@@ -93,14 +93,6 @@ PreBuild:
 ##
 ## Objects
 ##
-../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix): main.cpp ../build-$(ConfigurationName)/PECL1/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/PECL1/main.cpp$(DependSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/main.cpp$(DependSuffix) -MM main.cpp
-
-../build-$(ConfigurationName)/PECL1/main.cpp$(PreprocessSuffix): main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/main.cpp$(PreprocessSuffix) main.cpp
-
 ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(ObjectSuffix): NodoPila.cpp ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/NodoPila.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/NodoPila.cpp$(ObjectSuffix) $(IncludePath)
 ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(DependSuffix): NodoPila.cpp
@@ -108,14 +100,6 @@ PreBuild:
 
 ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(PreprocessSuffix): NodoPila.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/NodoPila.cpp$(PreprocessSuffix) NodoPila.cpp
-
-../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix): paciente.cpp ../build-$(ConfigurationName)/PECL1/paciente.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/paciente.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/paciente.cpp$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/PECL1/paciente.cpp$(DependSuffix): paciente.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/paciente.cpp$(DependSuffix) -MM paciente.cpp
-
-../build-$(ConfigurationName)/PECL1/paciente.cpp$(PreprocessSuffix): paciente.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/paciente.cpp$(PreprocessSuffix) paciente.cpp
 
 ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(ObjectSuffix): PilaPacientes.cpp ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/PilaPacientes.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/PilaPacientes.cpp$(ObjectSuffix) $(IncludePath)
@@ -125,6 +109,14 @@ PreBuild:
 ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(PreprocessSuffix): PilaPacientes.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/PilaPacientes.cpp$(PreprocessSuffix) PilaPacientes.cpp
 
+../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(ObjectSuffix): NodoArbol.cpp ../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/NodoArbol.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/NodoArbol.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(DependSuffix): NodoArbol.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(DependSuffix) -MM NodoArbol.cpp
+
+../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(PreprocessSuffix): NodoArbol.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(PreprocessSuffix) NodoArbol.cpp
+
 ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(ObjectSuffix): ArbolUrgencia.cpp ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/ArbolUrgencia.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ArbolUrgencia.cpp$(ObjectSuffix) $(IncludePath)
 ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(DependSuffix): ArbolUrgencia.cpp
@@ -133,13 +125,37 @@ PreBuild:
 ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(PreprocessSuffix): ArbolUrgencia.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/ArbolUrgencia.cpp$(PreprocessSuffix) ArbolUrgencia.cpp
 
-../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(ObjectSuffix): NodoArbol.cpp ../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/NodoArbol.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/NodoArbol.cpp$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(DependSuffix): NodoArbol.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(DependSuffix) -MM NodoArbol.cpp
+../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(ObjectSuffix): ColaPacientes.cpp ../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/ColaPacientes.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ColaPacientes.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(DependSuffix): ColaPacientes.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(DependSuffix) -MM ColaPacientes.cpp
 
-../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(PreprocessSuffix): NodoArbol.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/NodoArbol.cpp$(PreprocessSuffix) NodoArbol.cpp
+../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(PreprocessSuffix): ColaPacientes.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/ColaPacientes.cpp$(PreprocessSuffix) ColaPacientes.cpp
+
+../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix): main.cpp ../build-$(ConfigurationName)/PECL1/main.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/PECL1/main.cpp$(DependSuffix): main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/main.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/main.cpp$(DependSuffix) -MM main.cpp
+
+../build-$(ConfigurationName)/PECL1/main.cpp$(PreprocessSuffix): main.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/main.cpp$(PreprocessSuffix) main.cpp
+
+../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(ObjectSuffix): NodoCola.cpp ../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/NodoCola.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/NodoCola.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(DependSuffix): NodoCola.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(DependSuffix) -MM NodoCola.cpp
+
+../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(PreprocessSuffix): NodoCola.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/NodoCola.cpp$(PreprocessSuffix) NodoCola.cpp
+
+../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix): paciente.cpp ../build-$(ConfigurationName)/PECL1/paciente.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/necok/OneDrive/Escritorio/clase/estructuras_de__datos/EEDD-2020/PECL1/paciente.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/paciente.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/PECL1/paciente.cpp$(DependSuffix): paciente.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/PECL1/paciente.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/PECL1/paciente.cpp$(DependSuffix) -MM paciente.cpp
+
+../build-$(ConfigurationName)/PECL1/paciente.cpp$(PreprocessSuffix): paciente.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/PECL1/paciente.cpp$(PreprocessSuffix) paciente.cpp
 
 
 -include ../build-$(ConfigurationName)/PECL1//*$(DependSuffix)

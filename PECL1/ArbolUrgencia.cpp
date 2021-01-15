@@ -1,6 +1,13 @@
 #include "ArbolUrgencia.hpp"
 #include "iostream"
 
+ArbolUrgencia::ArbolUrgencia(){
+    raiz = NULL;
+    actual = NULL;
+    
+
+    }
+
 void ArbolUrgencia::podar(Anodo& nodo)
 {
     if(nodo) {
@@ -119,4 +126,9 @@ void ArbolUrgencia::preOrden(Anodo nodo)
         postOrden(nodo->anterior);
         postOrden(nodo->siguiente);
     }
+}
+
+ArbolUrgencia::~ArbolUrgencia()
+{
+    podar(raiz);
 }
