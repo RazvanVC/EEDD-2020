@@ -1,7 +1,7 @@
-#include <iostream> 
+/*#include <iostream> 
 #include <string> 
 #include "PilaPacientes.hpp"
-#include "ListaUrgencia.hpp"
+#include "ArbolUrgencia.hpp"
 #include "conio.h"
 #include <exception>
 #include <typeinfo>
@@ -65,14 +65,14 @@ int main()
     pilaEntrada.insertar(p1);
     
     Paciente pacienteActual;
-    ListaUrgencia* listaRoja;
-    ListaUrgencia* listaNaranja;
-    ListaUrgencia* listaAmarilla;
-    ListaUrgencia* listaVerde;
-    listaRoja = new ListaUrgencia();
-    listaAmarilla = new ListaUrgencia();
-    listaNaranja = new ListaUrgencia();
-    listaVerde = new ListaUrgencia();
+    ArbolUrgencia* ArbolRojo;
+    ArbolUrgencia* ArbolNaranja;
+    ArbolUrgencia* ArbolAmarillo;
+    ArbolUrgencia* ArbolVerde;
+    ArbolRojo = new ArbolUrgencia();
+    ArbolAmarillo = new ArbolUrgencia();
+    ArbolNaranja = new ArbolUrgencia();
+    ArbolVerde = new ArbolUrgencia();
     
     int opcion;
     
@@ -123,16 +123,16 @@ int main()
             
             switch (pacienteActual.getPrioridad()){
                 case 1:
-                    listaRoja -> insertar(pacienteActual);
+                    ArbolRojo -> insertar(pacienteActual);
                     break;
                 case 2:
-                    listaNaranja -> insertar(pacienteActual);
+                    ArbolNaranja -> insertar(pacienteActual);
                     break;
                 case 3:
-                    listaAmarilla -> insertar(pacienteActual);
+                    ArbolAmarillo -> insertar(pacienteActual);
                     break;
                 case 4:
-                    listaVerde -> insertar(pacienteActual);
+                    ArbolVerde -> insertar(pacienteActual);
                     break;
             }
             
@@ -162,10 +162,10 @@ int main()
                     pilaEntrada.insertar(p2);
                     pilaEntrada.insertar(p1);
                     
-                    listaRoja = new ListaUrgencia();
-                    listaNaranja = new ListaUrgencia();
-                    listaAmarilla = new ListaUrgencia();
-                    listaVerde = new ListaUrgencia();
+                    ArbolRojo = new ArbolUrgencia();
+                    ArbolNaranja = new ArbolUrgencia();
+                    ArbolAmarillo = new ArbolUrgencia();
+                    ArbolVerde = new ArbolUrgencia();
                 }else return 0;
             }
             break;
@@ -237,9 +237,9 @@ int main()
             if (encontrado) break;
             
             try{
-                if (listaRoja -> size!=0){
+                if (ArbolRojo -> esVacio()= false){
                     
-                    listaRoja -> borrar(DNI);
+                    ArbolRojo -> borrar(DNI);
 					cout << "Se ha borrado de la lista roja" << endl << endl;
                     break;
                 } else cout << "La lista roja esta vacia" << endl;
@@ -537,6 +537,7 @@ int main()
 		/*
         curr_time = time(NULL);
         tm *tm_local = localtime(&curr_time);*/
+        /*
 		cout << "currentDateTime()=" << currentDateTime() << endl;
 		
         cout << endl;
@@ -556,3 +557,4 @@ int main()
 		getch();
     return 0;
 }
+*/
