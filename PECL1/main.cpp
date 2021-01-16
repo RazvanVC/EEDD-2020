@@ -309,6 +309,88 @@ int main()
             cout << "No se ha encontrado el DNI especificado" << endl; // SI no está el DNI, se indica por pantalla
 
             break;
+             case 2:
+            //Se declaran las siguientes variables
+            int codPaciente, emergenciaA, emergenciaN;
+
+            //Asignacion Codigo Paciente
+            cout << "Inserte el codigo de paciente a modificar: ";
+            cin >> codPaciente; //El usuario introduce el código del paciente
+            if (codPaciente<1 || codPaciente>10){ //Se comprueba que la entreada sea entre 1 y 10
+                cout << "ERROR: Codigo de paciente incorrecto" << endl; //Si hay un error, se indica por pantalla
+                cout << "Regresando a menu principal..." << endl; //Regresamos al menú principal
+                break;
+            }
+
+            //Asignacion de Emergencia Antigua
+            cout << "Indique la emergencia anterior a la que estaba asignado" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
+            cout << "2 - Nivel Naranja - Emergencia" << endl;
+            cout << "3 - Nivel Amarillo - Urgencia" << endl;
+            cout << "4 - Nivel Verde - Urgencia Menor" << endl;;
+            cout << "Emergencia anterior: ";
+            cin >> emergenciaA; //El usuario introduce la lista donde se encuentra el paciente actualmente
+
+            if (emergenciaA<1 || emergenciaA>4){ //Se comprueba que la entrada sea entre 1 y 4
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl; //Si hay un error, se indica por pantalla 
+                cout << "Regresando a menu principal..." << endl; //Regresamos al menú principal break;
+            }
+
+                        switch (emergenciaA){
+                //Dependiendo de la lista en la que se encuentre entrará en un caso, seleccionará al paciente y lo borrará de la lista
+                                case 1: 
+                                        pacienteActual = ArbolRojo->buscar(codPaciente);
+                                        ArbolRojo->borrar(pacienteActual.getDNI());
+                                        break;
+                                case 2:
+                                        pacienteActual = ArbolNaranja->buscar(codPaciente);
+                                        ArbolNaranja->borrar(pacienteActual.getDNI());
+                                        break;
+                                case 3:
+                                        pacienteActual = ArbolAmarillo->buscar(codPaciente);
+                                        ArbolAmarillo->borrar(pacienteActual.getDNI());
+                                        break;
+                                case 4:
+                                        pacienteActual = ArbolVerde->buscar(codPaciente);
+                                        ArbolVerde->borrar(pacienteActual.getDNI());
+                                        break;
+                        }
+
+            cout << "Paciente: " << pacienteActual.getApell1() << endl; //Se imprime por pantalla el paciente seleccionado
+
+            //Asignacion de Nueva Emergencia
+            cout << "Indique la emergencia actual a la que se desea asignar" << endl;
+            cout << "1 - Nivel Rojo - Resucitacion" << endl;
+            cout << "2 - Nivel Naranja - Emergencia" << endl;
+            cout << "3 - Nivel Amarillo - Urgencia" << endl;
+            cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+            cout << "Emergencia nueva: ";
+            cin >> emergenciaN; //El usuario introduce la lista donde se va a trasladar al paciente
+            if (emergenciaN<1 || emergenciaN>4){ //Se comprueba que la entrada sea entre 1 y 4
+                cout << "\nERROR: Numero de emergencia antigua erroneo."<< endl; //Si hay un error, se indica por pantalla 
+                cout << "Regresando a menu principal..." << endl; //Regresamos al menú principal break;
+            }
+
+            //Asignacion Tiempo
+            pacienteActual.setPrioridad(emergenciaN);
+
+            //Una vez asignado el tiempo, se asigna al paciente a la nueva lista de emergencia
+            switch (pacienteActual.getPrioridad()){
+                case 1:
+                    ArbolRojo->insertar(pacienteActual);
+                    break;
+                case 2:
+                    ArbolNaranja->insertar(pacienteActual);
+                    break;
+                case 3:
+                    ArbolAmarillo->insertar(pacienteActual);
+                    break;
+                case 4:
+                    ArbolVerde->insertar(pacienteActual);
+                    break;
+            }
+
+            break;
         }
         imprimirMenu();
     }

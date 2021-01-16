@@ -16,12 +16,13 @@ void ArbolUrgencia::podar(Anodo& nodo)
         nodo = NULL;
     }
 }
-bool ArbolUrgencia::buscar(int CodNumerico)
+Paciente ArbolUrgencia::buscar(int CodNumerico)
 {
+    Anodo aux = NULL;
     actual = raiz;
     while(!esVacio(actual)) {
         if(CodNumerico == actual->paciente.getCodNumerico())
-            return true;
+            return aux;
         else if(CodNumerico > actual->paciente.getCodNumerico())
             actual = actual->siguiente;
         else if(CodNumerico < actual->paciente.getCodNumerico())
@@ -49,8 +50,33 @@ void ArbolUrgencia::insertar(Paciente p)
         padre->anterior = new NodoArbol(p);
     else if(p.getCodNumerico() > padre->paciente.getCodNumerico())
         padre->siguiente = new NodoArbol(p);
+         
+         //insertarAux(raiz, p);
 }
-
+/*(void ArbolUrgencia::insertarAux(Anodo nodo, Paciente p){
+    int CodNumericoNodo = nodo->paciente.getCodNumerico();
+    int CodNumerico = p.getCodNumerico();
+    if(CodNumerico > CodNumericoNodo) {
+        Anodo sig = nodo->siguiente;
+        if(sig != NULL) {
+            insertarAux(sig, p);
+        } else {
+            // Insertamos el nuevo nodo
+            NodoArbol* n = new NodoArbol(p);
+            nodo->siguiente = n;
+        }
+    } else {
+        Anodo ant = nodo->anterior;
+        if(ant != NULL) {
+            insertarAux(ant, p);
+        } else {
+            // Insertamos el nuevo nodo
+            Anodo n = new NodoArbol(p);
+            nodo->anterior = n;
+        }
+    }
+}
+ */
 void ArbolUrgencia::borrar(string DNI)
 {
     NodoArbol* padre = NULL;

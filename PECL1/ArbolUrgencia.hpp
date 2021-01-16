@@ -14,8 +14,9 @@ private:
     public:
         ArbolUrgencia();
         ~ArbolUrgencia();
-        bool buscar(int CodNumerico);
+        Paciente buscar(int CodNumerico);
         void insertar(Paciente p);
+        void insertarAux(Anodo nodo, Paciente p);
         void borrar(string DNI);
         bool esVacio(Anodo nodo) {return raiz == NULL;} 
         bool esHoja(Anodo nodo) {return !nodo->siguiente && !nodo->anterior ;} 
