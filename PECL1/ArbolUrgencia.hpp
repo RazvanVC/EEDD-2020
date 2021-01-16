@@ -10,10 +10,11 @@ private:
         void podar(Anodo& nodo);
         void auxContador(Anodo nodo);
         void auxAltura(Anodo nodo, int a);
-        void mostrar(int& d);
+        
     public:
         ArbolUrgencia();
         ~ArbolUrgencia();
+        void mostrar();
         Paciente buscar(int CodNumerico);
         void insertar(Paciente p);
         void insertarAux(Anodo nodo, Paciente p);

@@ -18,17 +18,18 @@ void ArbolUrgencia::podar(Anodo& nodo)
 }
 Paciente ArbolUrgencia::buscar(int CodNumerico)
 {
-    Anodo aux = NULL;
+    Anodo aux;
     actual = raiz;
     while(!esVacio(actual)) {
         if(CodNumerico == actual->paciente.getCodNumerico())
-            return aux;
+            return aux->paciente;
         else if(CodNumerico > actual->paciente.getCodNumerico())
             actual = actual->siguiente;
         else if(CodNumerico < actual->paciente.getCodNumerico())
             actual = actual->anterior;
     }
-    return false;
+    Paciente p0 = Paciente();
+    return p0;
 }
 void ArbolUrgencia::insertar(Paciente p)
 {
@@ -151,7 +152,9 @@ void ArbolUrgencia::preOrden(Anodo nodo)
         postOrden(nodo->siguiente);
     }
 }
-
+void ArbolUrgencia::mostrar(){
+    preOrden(raiz);
+}
 ArbolUrgencia::~ArbolUrgencia()
 {
     podar(raiz);
