@@ -19,6 +19,7 @@ public:
         string Apell2,
         int Edad,
         char Sexo
+        
         );
     ~Paciente();
     void imprimeLista();

@@ -24,6 +24,7 @@ Paciente::Paciente() // Inializamos las variables a valores estandar que nunca v
 
 // Clase principal de paciente
 Paciente::Paciente(
+
     int CodNumerico,
     string DNI,
     string Nombre,
@@ -31,13 +32,8 @@ Paciente::Paciente(
     string Apell2,
     int Edad,
     char Sexo
-    int anno;
-    int mes;
-    int dia;
-    int hora;
-    int minuto;
-    
-    
+   ) 
+
     
 {
     this->CodNumerico = CodNumerico;

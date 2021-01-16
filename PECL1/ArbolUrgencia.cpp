@@ -4,8 +4,7 @@
 ArbolUrgencia::ArbolUrgencia(){
     raiz = NULL;
     actual = NULL;
-    
-
+    size = 0;
     }
 
 void ArbolUrgencia::podar(Anodo& nodo)
@@ -34,8 +33,7 @@ void ArbolUrgencia::insertar(Paciente p)
 {
     NodoArbol* padre = NULL;
     actual = raiz;
-    contador = contador +1;
-    
+    size = size +1;
     while(!esVacio(actual) && p.getCodNumerico() != actual->paciente.getCodNumerico()) {
         padre = actual;
         if(p.getCodNumerico() > actual->paciente.getCodNumerico())
@@ -58,7 +56,7 @@ void ArbolUrgencia::borrar(string DNI)
     NodoArbol* padre = NULL;
     NodoArbol* nodoaux;
     string DNIaux;
-    contador = contador -1;
+    size = size -1;
     actual = raiz;
     while(!esVacio(actual)) {
         if(DNI == actual->paciente.getDNI()) { // Si el valor está en el nodo actual

@@ -7,12 +7,10 @@ class ArbolUrgencia
 private:
         Anodo raiz;
         Anodo actual = NULL;
-        int contador, altura;
         void podar(Anodo& nodo);
         void auxContador(Anodo nodo);
         void auxAltura(Anodo nodo, int a);
         void mostrar(int& d);
-
     public:
         ArbolUrgencia();
         ~ArbolUrgencia();
@@ -21,7 +19,7 @@ private:
         void borrar(string DNI);
         bool esVacio(Anodo nodo) {return raiz == NULL;} 
         bool esHoja(Anodo nodo) {return !nodo->siguiente && !nodo->anterior ;} 
-        int numeroNodos();
+        int size;
         int getAlturaArbol();
         Paciente getValorActual() {return actual->paciente;}
         void esRaiz() {actual = raiz;}
