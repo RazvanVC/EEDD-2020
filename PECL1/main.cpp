@@ -145,7 +145,7 @@ int main()
 {
     //Generamos 10 pacientes
     Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
-    p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
+    p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H',21,01,12,14,03,32);
     p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
     p3 = Paciente(3, "99999993C", "Maria", "Setien", "Buendia", 60, 'H');
     p4 = Paciente(4, "99999994D", "Luis", "Dominguez", "Gracia", 4, 'V');

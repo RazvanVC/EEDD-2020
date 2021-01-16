@@ -31,7 +31,14 @@ Paciente::Paciente(
     string Apell2,
     int Edad,
     char Sexo
-    )
+    int anno;
+    int mes;
+    int dia;
+    int hora;
+    int minuto;
+    
+    
+    
 {
     this->CodNumerico = CodNumerico;
     this->DNI = DNI;
