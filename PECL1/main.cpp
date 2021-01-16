@@ -7,6 +7,43 @@
 #include <stdexcept>
 #include <stdio.h>
 #include <time.h>
+
+using namespace std;
+
+/**
+ * @brief Retorna la opción del menu principal seleccionada
+ * @return opcion (Integer)
+ */
+const int imprimirMenu(){
+	
+	int opcion = 0;
+	
+	cout<< endl << endl << "Fecha y hora actual: " << /*currentDateTime() <<*/ endl;
+	cout << endl;
+	cout << "0. Alta de paciente en emergencia" << endl;
+	cout << "1. Baja de paciente" << endl;
+	cout << "2. Modificacion-Reasignacion de paciente a tipo emergencia" << endl;
+	cout << "3. Consultas de pacientes/emergencias" << endl;
+	cout << "4. Reiniciar programa" << endl;
+	cout << "5. Salir del programa" << endl << endl;
+	cout << "Seleccione un opcion del menu: ";
+	cin >> opcion;
+	cout << endl << endl;
+	
+	return opcion;
+	}
+
+int main(){
+	int opcion = imprimirMenu();
+		
+	while (opcion != 5){
+		switch (opcion){
+		
+		}
+	}
+	
+	return 0;
+	}
 /*
 // Get current date/time, format is YYYY-MM-DD.HH:mm:ss
 const std::string currentDateTime() {
