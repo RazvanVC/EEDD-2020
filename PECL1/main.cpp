@@ -32,18 +32,80 @@ const int imprimirMenu(){
 	
 	return opcion;
 	}
+	
+const void imprimirMenuO0(){
+	cout << "1 - Nivel Rojo - Resucitacion" << endl;
+	cout << "2 - Nivel Naranja - Emergencia" << endl;
+	cout << "3 - Nivel Amarillo - Urgencia" << endl;
+	cout << "4 - Nivel Verde - Urgencia Menor" << endl;
+	cout << "Inserte la prioridad del paciente: ";
+	}
 
 int main(){
+	
+	//Generamos 10 pacientes
+    Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
+    p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
+    p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
+    p3 = Paciente(3, "99999993C", "Maria", "Setien", "Buendia", 60, 'H');
+    p4 = Paciente(4, "99999994D", "Luis", "Dominguez", "Gracia", 4, 'V');
+    p5 = Paciente(5, "99999995E", "Eva", "Navarro", "Hueste", 23, 'H');
+    p6 = Paciente(6, "99999996F", "Jose", "Marquez", "Higuera", 15, 'V');
+    p7 = Paciente(7, "99999997G", "Lucia", "Vindel", "Higuera", 80, 'H');
+    p8 = Paciente(8, "99999998H", "Victor", "Mendez", "Gimeno", 67, 'V');
+    p9 = Paciente(9, "99999999J", "Elena", "Espinosa", "Moreno", 2, 'H');
+    p10 = Paciente(10, "100000000K", "Manuel", "Garcia", "Perez", 87, 'V');
+    
+    //Insertamos los pacientes en la pila PilaPacientes en orden inverso (LIFO)
+    PilaPacientes pilaEntrada;
+    pilaEntrada = PilaPacientes();
+    pilaEntrada.insertar(p10);
+    pilaEntrada.insertar(p9);
+    pilaEntrada.insertar(p8);
+    pilaEntrada.insertar(p7);
+    pilaEntrada.insertar(p6);
+    pilaEntrada.insertar(p5);
+    pilaEntrada.insertar(p4);
+    pilaEntrada.insertar(p3);
+    pilaEntrada.insertar(p2);
+    pilaEntrada.insertar(p1);
+    
+    //Declaramos la variable paciente
+    Paciente pacienteActual;
+	
 	int opcion = imprimirMenu();
 		
 	while (opcion != 5){
 		switch (opcion){
-		
+			case 0:
+				//Declaramos la variable nEmergencia
+				int nEmergencia;
+				//Se saca el primer paciente de la pila
+				pacienteActual = pilaEntrada.extraer();
+				
+				cout << "Para dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
+				imprimirMenuO0();
+				cin >> nEmergencia; //Guardamos el número de la opción introducida por el usuario para asignar el paciente a la lista de emergencia
+				
+				//Controlamos que el usuario no pueda meter una opción que no se muestre por pantalla
+				if (nEmergencia<1 || nEmergencia>4) {
+					cout << "\nERROR: Numero de emergencia erroneo."<< endl;
+					cout << "Regresando a menu principal..." << endl << endl;
+					//Insertamos de nuevo el paciente a la pila
+					pilaEntrada.insertar(pacienteActual);
+					break;
+				}
+				//Seteamos la prioridad del paciente y el tiempo
+				pacienteActual.setPrioridad(nEmergencia);
+				//pacienteActual = setTimePaciente(pacienteActual);
+				
+				break;
 		}
 	}
 	
 	return 0;
 	}
+
 /*
 // Get current date/time, format is YYYY-MM-DD.HH:mm:ss
 const std::string currentDateTime() {
