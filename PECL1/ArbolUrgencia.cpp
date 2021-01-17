@@ -3,12 +3,12 @@
 
 using namespace std;
 
-
-ArbolUrgencia::ArbolUrgencia(){
+ArbolUrgencia::ArbolUrgencia()
+{
     raiz = NULL;
     actual = NULL;
     size = 0;
-    }
+}
 
 void ArbolUrgencia::podar(Anodo& nodo)
 {
@@ -38,24 +38,24 @@ void ArbolUrgencia::insertar(Paciente p)
 {
     NodoArbol* padre = NULL;
     actual = raiz;
-    size = size +1;
+    size = size + 1;
     while(!esVacio(actual) && p.getCodNumerico() != actual->paciente.getCodNumerico()) {
         padre = actual;
         if(p.getCodNumerico() > actual->paciente.getCodNumerico())
             actual = actual->siguiente;
-        else if(p.getCodNumerico() < actual->paciente.getCodNumerico())
+        else
             actual = actual->anterior;
     }
-    if(!esVacio(actual))
-        return;
+    // if(!esVacio(actual))
+    // return;
     if(esVacio(padre))
         raiz = new NodoArbol(p);
     else if(p.getCodNumerico() < padre->paciente.getCodNumerico())
         padre->anterior = new NodoArbol(p);
     else if(p.getCodNumerico() > padre->paciente.getCodNumerico())
         padre->siguiente = new NodoArbol(p);
-         
-         //insertarAux(raiz, p);
+    raiz = actual;
+    // insertarAux(raiz, p);
 }
 /*void ArbolUrgencia::insertarAux(Anodo nodo, Paciente p){
     int CodNumericoNodo = nodo->paciente.getCodNumerico();
@@ -86,7 +86,7 @@ void ArbolUrgencia::borrar(string DNI)
     NodoArbol* padre = NULL;
     NodoArbol* nodoaux;
     string DNIaux;
-    size = size -1;
+    size = size - 1;
     actual = raiz;
     while(!esVacio(actual)) {
         if(DNI == actual->paciente.getDNI()) { // Si el valor está en el nodo actual
@@ -150,26 +150,30 @@ void ArbolUrgencia::inOrden(Anodo nodo)
 void ArbolUrgencia::preOrden(Anodo nodo)
 {
     if(nodo != NULL) {
+        nodo->paciente.getCodNumerico();
         cout << nodo->paciente.getCodNumerico() << " ";
-        postOrden(nodo->anterior);
-        postOrden(nodo->siguiente);
+        preOrden(nodo->anterior);
+        preOrden(nodo->siguiente);
     }
 }
-void ArbolUrgencia::mostrar(){
-	if (size == 0) return;
-	if (size == 1) cout << "i ";
-	else if (size == 2) 
-		cout << "/ \\"; //Se ha empleado doble slash porque una solo parece ser reservado del sistema
-	else {
-		cout << "/ ";
-		int contador = 1;
-		while (contador < size) {
-			cout << "i ";
-			contador ++;
-		}
-		cout << "\\";
-	}
-	cout << endl;
+void ArbolUrgencia::mostrar()
+{
+    if(size == 0)
+        return;
+    if(size == 1)
+        cout << "i ";
+    else if(size == 2)
+        cout << "/ \\"; // Se ha empleado doble slash porque una solo parece ser reservado del sistema
+    else {
+        cout << "/ ";
+        int contador = 0;
+        while(contador < size - 2) {
+            cout << "i ";
+            contador++;
+        }
+        cout << "\\";
+    }
+    cout << endl;
     preOrden(raiz);
 }
 ArbolUrgencia::~ArbolUrgencia()
