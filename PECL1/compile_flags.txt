@@ -5,6 +5,6 @@
 -IC:\TDM-GCC-64\include
 -IC:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include-fixed
 -IC:\TDM-GCC-64\x86_64-w64-mingw32\include
--IC:\Users\necok\OneDrive\Escritorio\clase\estructuras_de__datos\EEDD-2020\PECL1
+-IC:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1
 -target
 x86_64-pc-windows-gnu

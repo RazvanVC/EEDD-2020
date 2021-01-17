@@ -58,9 +58,44 @@ void Paciente::imprimePila()
 { cout << "Codigo Numerico: " << CodNumerico << " DNI: " << DNI  << " Nombre: " << Nombre << " Primer apellido: "
  << Apell1 <<" Segundo apellido: " << Apell2 <<" Edad: " << Edad << " Sexo: " << Sexo << endl;
 }
-void Paciente::imprimeC3(int annoA, int mesA, int diaA, int horaA, int minutoA, int segundoA)
+void Paciente::imprimeC3(int annoActual, int mesActual, int diaActual, int horaActual, int minutoActual, int segundoActual)
 {
-	cout << "Prioridad: "<< getPrioridad() << " Codigo Numerico: " << CodNumerico << " Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo() << " Tiempo Excedido: " << getAnno()-annoA<<getMes()-mesA<<getDia()-diaA<<getHora()-horaA<<getMinuto()-mesA<<getSegundo()-segundoA<< endl;
+	int annoResultado = 0;
+	int mesResultado = 0;
+	int diaResultado = 0;
+	int horaResultado = 0;
+	int minutoResultado = 0;
+	int segundoResultado = 0;
+	
+	if (segundoActual > getSegundo()){
+		segundoResultado = 60+segundoActual-getSegundo();
+		minutoResultado --;
+	} else minutoResultado = segundoResultado + (segundoActual-getSegundo());
+	
+	if (minutoActual > getMinuto()){
+		minutoResultado = 60+minutoActual-getMinuto();
+		horaResultado--;
+	} else minutoResultado = minutoResultado + minutoActual-getMinuto();
+	
+	if (horaActual > getHora()){
+		horaResultado = 24+horaActual-getHora();
+		diaResultado--;
+	} else horaResultado = horaResultado + horaActual - getHora();
+	
+	if (diaActual > getDia()) {
+		diaResultado = 30+diaActual-getDia();
+		mesResultado--;
+	} else diaResultado = diaResultado + diaActual - getDia();
+	
+	if (mesActual > getMes()) {
+		mesResultado = 12 + mesActual - getMes();
+		annoResultado--;
+	} else mesResultado = mesResultado + mesActual - getMes();
+	
+	annoResultado = annoResultado + annoActual - getAnno() - 2000;
+	
+	cout << "Prioridad: "<< getPrioridad() << " Codigo Numerico: " << CodNumerico << " Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo() 
+	<< " Tiempo Excedido: " << annoResultado << mesResultado << diaResultado << horaResultado << minutoResultado << segundoResultado << endl;
 }
 /* GETS */
 
