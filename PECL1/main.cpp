@@ -1,6 +1,7 @@
 
 #include "ArbolUrgencia.hpp"
 #include "PilaPacientes.hpp"
+#include "ColaPacientes.hpp"
 #include "conio.h"
 #include "paciente.hpp"
 #include <exception>
@@ -21,6 +22,16 @@ const std::string currentDateTime() {
     tstruct = *localtime(&now);
     strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
     return buf;
+}
+
+const ColaPacientes cargarColaPacientes(ColaPacientes colaPacientes, ArbolUrgencia* arbol)
+{
+	int i = 0;
+	while (i < arbol->size){
+		colaPacientes->insertar(arbol->buscar(arbol->elementos[i]));
+		i++;
+	}
+	return colaPacientes;
 }
 
 /**
@@ -73,32 +84,51 @@ const Paciente setTimePaciente(Paciente p)
 }
 
 //Mostramos la lista de emergencia roja ordenada por tiempo de espera
-const void mostrarListas(ArbolUrgencia* arbol)
+const void mostrarListas(ArbolUrgencia* arbol, ArbolUrgencia* arbol1, ArbolUrgencia* arbol2, ArbolUrgencia* arbol3)
 {
-        time_t now = time(0);
+		time_t now = time(0);
 		struct tm tstruct;
-        tstruct = *localtime(&now);
+		tstruct = *localtime(&now);
 		Paciente pt;
 		int i = 0;
+		cout << endl << "Lista de urgencias roja" << endl << endl;
+
 		while (i < arbol->size){
-			//pt = arbol -> getValue(i);
+			pt = arbol -> buscar(arbol->elementos[i]);
 			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
 		}
-        arbol->mostrar(); //tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
+
+		i = 0;
+		while (i < arbol1->size){
+			pt = arbol1 -> buscar(arbol1->elementos[i]);
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, 15,0);
+		}
+
+		i = 0;
+		while (i < arbol2->size){
+			pt = arbol2 -> buscar(arbol2->elementos[i]);
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, 1, 0,0);
+		}
+
+		i = 0;
+		while (i < arbol3->size){
+			pt = arbol3 -> buscar(arbol3->elementos[i]);
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, 2, 0,0);
+		}
 }
 
 int main()
 {
 	//Declaracion de variables
-	
+
 	// Creamos punteros hacia los arboles
 	ArbolUrgencia* ArbolRojo;
 	ArbolUrgencia* ArbolNaranja;
 	ArbolUrgencia* ArbolAmarillo;
 	ArbolUrgencia* ArbolVerde;
-	
+
 	int opcion = 0; //Variable de seleccion de opcion
-	
+
 	PilaPacientes pilaEntrada, pilaPacientesTemp; //Pilas de pacientes, tanto la primera donde se introducen los pacientes y la temporal para la consulta 1.1
 	string DNI; //Iniciamos el DNI por el que se van a realizar las diversas busquedas.
 
@@ -591,13 +621,24 @@ int main()
 							ArbolAmarillo->mostrar();
 							cout << endl << "ArbolV" << endl;
 							ArbolVerde->mostrar();
+							
+							ColaPacientes cp;
+							cp = ColaPacientes();
+							cp = cargarColaPacientes(cp, ArbolVerde);
+							cp = cargarColaPacientes(cp, ArbolAmarillo);
+							cp = cargarColaPacientes(cp, ArbolNaranja);
+							cp = cargarColaPacientes(cp, ArbolRojo);
+							
+							cp.imprimir();
+							
 						} else {
 							cout << "La opcion seleccionada es erronea" << endl; // Si hay un error,se indica por pantalla
 							cout << "Regresando al menu principal..." << endl;   // Regresamos al menu principal
 						}
 						break;
 					case 3:
-						mostrarListas(ArbolRojo); //Muestra la lista de emergencia Roja
+						mostrarListas(ArbolRojo, ArbolNaranja, ArbolAmarillo, ArbolVerde); //Muestra la lista de emergencia Roja
+						
 						break;
 				}
 				break;

@@ -42,7 +42,6 @@ void ColaPacientes::imprimir()
         cout << imp << "|" ;
         aux=aux->siguiente;
         imp = aux;
-        
     }
     
 }
