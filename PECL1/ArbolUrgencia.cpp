@@ -1,6 +1,9 @@
 #include "ArbolUrgencia.hpp"
 #include "iostream"
 
+using namespace std;
+
+
 ArbolUrgencia::ArbolUrgencia(){
     raiz = NULL;
     actual = NULL;
@@ -153,6 +156,19 @@ void ArbolUrgencia::preOrden(Anodo nodo)
     }
 }
 void ArbolUrgencia::mostrar(){
+	if (size == 0) return;
+	if (size == 1) cout << "i ";
+	else if (size == 2) 
+		cout << "/ \\"; //Se ha empleado doble slash porque una solo parece ser reservado del sistema
+	else {
+		cout << "/ ";
+		int contador = 1;
+		while (contador < size) {
+			cout << "i ";
+			contador ++;
+		}
+		cout << "\\";
+	}
     preOrden(raiz);
 }
 ArbolUrgencia::~ArbolUrgencia()
