@@ -47,40 +47,13 @@ void ArbolUrgencia::insertar(Paciente p)
         else
             actual = actual->anterior;
     }
-    // if(!esVacio(actual))
-    // return;
     if(esVacio(padre))
         raiz = new NodoArbol(p);
     else if(p.getCodNumerico() < padre->paciente.getCodNumerico())
         padre->anterior = new NodoArbol(p);
     else if(p.getCodNumerico() > padre->paciente.getCodNumerico())
         padre->siguiente = new NodoArbol(p);
-    raiz = actual;
-    // insertarAux(raiz, p);
 }
-/*void ArbolUrgencia::insertarAux(Anodo nodo, Paciente p){
-    int CodNumericoNodo = nodo->paciente.getCodNumerico();
-    int CodNumerico = p.getCodNumerico();
-    if(CodNumerico > CodNumericoNodo) {
-        Anodo sig = nodo->siguiente;
-        if(sig != NULL) {
-            insertarAux(sig, p);
-        } else {
-            // Insertamos el nuevo nodo
-            NodoArbol* n = new NodoArbol(p);
-            nodo->siguiente = n;
-        }
-    } else {
-        Anodo ant = nodo->anterior;
-        if(ant != NULL) {
-            insertarAux(ant, p);
-        } else {
-            // Insertamos el nuevo nodo
-            Anodo n = new NodoArbol(p);
-            nodo->anterior = n;
-        }
-    }
-}*/
 
 void ArbolUrgencia::borrar(string DNI)
 {

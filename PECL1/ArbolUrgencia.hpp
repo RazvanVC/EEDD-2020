@@ -19,7 +19,7 @@ private:
         void insertar(Paciente p);
         void insertarAux(Anodo nodo, Paciente p);
         void borrar(string DNI);
-        bool esVacio(Anodo nodo) {return raiz == NULL;} 
+        bool esVacio(Anodo nodo) {return nodo == NULL;} 
         bool esHoja(Anodo nodo) {return !nodo->siguiente && !nodo->anterior ;} 
         int size;
         int getAlturaArbol();
