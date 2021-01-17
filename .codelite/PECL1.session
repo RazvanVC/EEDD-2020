@@ -1,69 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1.workspace">
+<Session Name="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1.workspace">
   <int Value="1" Name="m_selectedTab"/>
-  <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1.workspace" Name="m_workspaceName"/>
+  <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
-      <int Value="111" Name="FirstVisibleLine"/>
-      <int Value="86" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds">
-        <IntVectorItem Value="30"/>
-        <IntVectorItem Value="50"/>
-        <IntVectorItem Value="152"/>
-        <IntVectorItem Value="167"/>
-        <IntVectorItem Value="173"/>
-        <IntVectorItem Value="213"/>
-        <IntVectorItem Value="228"/>
-        <IntVectorItem Value="232"/>
-        <IntVectorItem Value="268"/>
-        <IntVectorItem Value="273"/>
-        <IntVectorItem Value="286"/>
-        <IntVectorItem Value="319"/>
-        <IntVectorItem Value="341"/>
-        <IntVectorItem Value="352"/>
-        <IntVectorItem Value="363"/>
-        <IntVectorItem Value="374"/>
-        <IntVectorItem Value="393"/>
-        <IntVectorItem Value="404"/>
-        <IntVectorItem Value="409"/>
-        <IntVectorItem Value="440"/>
-        <IntVectorItem Value="450"/>
-        <IntVectorItem Value="1200"/>
-      </IntVector>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.cpp" Name="FileName"/>
-      <int Value="33" Name="FirstVisibleLine"/>
-      <int Value="10" Name="CurrentLine"/>
+      <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.cpp" Name="FileName"/>
+      <int Value="72" Name="FirstVisibleLine"/>
+      <int Value="22" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\NodoArbol.cpp" Name="FileName"/>
-      <int Value="10" Name="FirstVisibleLine"/>
-      <int Value="12" Name="CurrentLine"/>
+      <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
+      <int Value="476" Name="FirstVisibleLine"/>
+      <int Value="422" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.cpp" Name="FileName"/>
+      <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.hpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.hpp" Name="FileName"/>
-      <int Value="9" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="20" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
   </TabInfoArray>
   <SerializedObject Name="m_breakpoints">
-    <long Value="0" Name="Count"/>
+    <long Value="1" Name="Count"/>
+    <SerializedObject Name="Breakpoint0">
+      <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.cpp" Name="file"/>
+      <int Value="58" Name="lineno"/>
+      <wxString Value="" Name="function_name"/>
+      <wxString Value="" Name="memory_address"/>
+      <int Value="1" Name="bp_type"/>
+      <int Value="0" Name="watchpoint_type"/>
+      <wxString Value="" Name="watchpt_data"/>
+      <CData Name="commandlist"/>
+      <bool Value="0" Name="regex"/>
+      <bool Value="0" Name="is_temp"/>
+      <bool Value="1" Name="is_enabled"/>
+      <long Value="0" Name="ignore_number"/>
+      <wxString Value="" Name="conditions"/>
+      <int Value="0" Name="origin"/>
+    </SerializedObject>
   </SerializedObject>
-  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc;*.plist;*.txt" Name="m_findInFilesMask"/>
+  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc;*.xml;*.json;*.sql;*.txt;*.plist;CMakeLists.txt;*.rc;*.iss" Name="m_findInFilesMask"/>
 </Session>

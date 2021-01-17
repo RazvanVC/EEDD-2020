@@ -18,7 +18,7 @@ private:
         Paciente buscar(int CodNumerico);
         void insertar(Paciente p);
         void insertarAux(Anodo nodo, Paciente p);
-        void borrar(string DNI);
+        void borrarA(string DNI);
         bool esVacio(Anodo nodo) {return nodo == NULL;} 
         bool esHoja(Anodo nodo) {return !nodo->siguiente && !nodo->anterior ;} 
         int size;

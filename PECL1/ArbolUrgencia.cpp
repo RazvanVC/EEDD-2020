@@ -55,7 +55,7 @@ void ArbolUrgencia::insertar(Paciente p)
         padre->siguiente = new NodoArbol(p);
 }
 
-void ArbolUrgencia::borrar(string DNI)
+void ArbolUrgencia::borrarA(string DNI)
 {
     NodoArbol* padre = NULL;
     NodoArbol* nodoaux;

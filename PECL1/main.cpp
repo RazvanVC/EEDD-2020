@@ -338,7 +338,7 @@ int main()
 
 				try { // Busca en la lista de emergencia Roja
 					if(ArbolRojo->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
-						ArbolRojo->borrar(DNI); // Si lo encuentra, lo borra
+						ArbolRojo->borrarA(DNI); // Si lo encuentra, lo borra
 						cout << "Se ha borrado de la lista roja" << endl << endl;
 						break;
 					} else cout << "La lista roja esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
@@ -349,7 +349,7 @@ int main()
 
 				try { // Busca en la lista de emergencia Naranaja
 					if(ArbolNaranja->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
-						ArbolNaranja->borrar(DNI); // Si lo encuentra, lo borra
+						ArbolNaranja->borrarA(DNI); // Si lo encuentra, lo borra
 						cout << "Se ha borrado de la lista naranja" << endl << endl;
 						break;
 					} else cout << "La lista naranja esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
@@ -360,7 +360,7 @@ int main()
 
 				try { // Busca en la lista de emergencia Amarilla
 					if(ArbolAmarillo->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
-						ArbolAmarillo->borrar(DNI); // Si lo encuentra, lo borra
+						ArbolAmarillo->borrarA(DNI); // Si lo encuentra, lo borra
 						cout << "Se ha borrado de la lista amarilla" << endl << endl;
 						break;
 					} else cout << "La lista amarilla esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
@@ -371,7 +371,7 @@ int main()
 
 				try { // Busca en la lista de emergencia Verde
 					if(ArbolVerde->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
-						ArbolVerde->borrar(DNI); // Si lo encuentra, lo borra
+						ArbolVerde->borrarA(DNI); // Si lo encuentra, lo borra
 						cout << "Se ha borrado de la lista verde" << endl << endl;
 						break;
 					} else
@@ -408,19 +408,19 @@ int main()
 					switch(emergenciaA) { // Dependiendo de la lista en la que se encuentre entrará en un caso, seleccionará al paciente y lo borrará de la lista
 						case 1:
 							pacienteActual = ArbolRojo->buscar(codPaciente);
-							ArbolRojo->borrar(pacienteActual.getDNI());
+							ArbolRojo->borrarA(pacienteActual.getDNI());
 							break;
 						case 2:
 							pacienteActual = ArbolNaranja->buscar(codPaciente);
-							ArbolNaranja->borrar(pacienteActual.getDNI());
+							ArbolNaranja->borrarA(pacienteActual.getDNI());
 							break;
 						case 3:
 							pacienteActual = ArbolAmarillo->buscar(codPaciente);
-							ArbolAmarillo->borrar(pacienteActual.getDNI());
+							ArbolAmarillo->borrarA(pacienteActual.getDNI());
 							break;
 						case 4:
 							pacienteActual = ArbolVerde->buscar(codPaciente);
-							ArbolVerde->borrar(pacienteActual.getDNI());
+							ArbolVerde->borrarA(pacienteActual.getDNI());
 							break;
 					} 
 				}catch (...) {
