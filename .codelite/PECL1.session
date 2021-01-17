@@ -5,28 +5,53 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
-      <int Value="348" Name="FirstVisibleLine"/>
-      <int Value="372" Name="CurrentLine"/>
+      <int Value="67" Name="FirstVisibleLine"/>
+      <int Value="107" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds">
         <IntVectorItem Value="30"/>
-        <IntVectorItem Value="135"/>
-        <IntVectorItem Value="150"/>
-        <IntVectorItem Value="156"/>
-        <IntVectorItem Value="215"/>
+        <IntVectorItem Value="50"/>
+        <IntVectorItem Value="144"/>
+        <IntVectorItem Value="159"/>
+        <IntVectorItem Value="165"/>
+        <IntVectorItem Value="205"/>
+        <IntVectorItem Value="220"/>
+        <IntVectorItem Value="224"/>
+        <IntVectorItem Value="260"/>
+        <IntVectorItem Value="265"/>
+        <IntVectorItem Value="278"/>
+        <IntVectorItem Value="311"/>
+        <IntVectorItem Value="333"/>
+        <IntVectorItem Value="344"/>
+        <IntVectorItem Value="355"/>
+        <IntVectorItem Value="366"/>
+        <IntVectorItem Value="385"/>
+        <IntVectorItem Value="396"/>
+        <IntVectorItem Value="401"/>
+        <IntVectorItem Value="432"/>
+        <IntVectorItem Value="442"/>
+        <IntVectorItem Value="467"/>
+        <IntVectorItem Value="1185"/>
       </IntVector>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.cpp" Name="FileName"/>
-      <int Value="12" Name="FirstVisibleLine"/>
-      <int Value="23" Name="CurrentLine"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="157" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\NodoArbol.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="6" Name="FirstVisibleLine"/>
       <int Value="12" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\razva\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\paciente.cpp" Name="FileName"/>
+      <int Value="51" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

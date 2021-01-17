@@ -78,7 +78,12 @@ const void mostrarListas(ArbolUrgencia* arbol)
         time_t now = time(0);
 		struct tm tstruct;
         tstruct = *localtime(&now);
-		
+		Paciente pt;
+		int i = 0;
+		while (i < arbol->size){
+			//pt = arbol -> getValue(i);
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
+		}
         arbol->mostrar(); //tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
 }
 
@@ -465,7 +470,7 @@ int main()
 				cout << "3 - Consultas de tiempos de emergencia superados" << endl << endl;
 				cout << "Opcion: "; cin >> opcionP3; /* El usuario introduce la opción que quiere consultar*/ cout << endl;
 
-				if(opcionP3 < 1 || opcionP3 > 3) {                       // Se comprueba que la entrada sea entre 1 y 3
+				if(opcionP3 < 1 || opcionP3 > 3) { // Se comprueba que la entrada sea entre 1 y 3
 					cout << "La opcion seleccionada es erronea" << endl; // Si hay un error, se indica por pantalla
 					cout << "Regresando al menu principal..." << endl;   // Regresamos al menú principal
 				}
