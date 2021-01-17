@@ -56,7 +56,8 @@ const void imprimirNivelesUrgencia()
 }
 
 // Seteamos el tiempo del paciente
-const Paciente setTimePaciente(Paciente p) {
+const Paciente setTimePaciente(Paciente p) 
+{
 		time_t     now = time(0);
 		struct tm  tstruct;
 		tstruct = *localtime(&now);
@@ -69,6 +70,16 @@ const Paciente setTimePaciente(Paciente p) {
 		p.setSegundo(tstruct.tm_sec);
 
 		return p;
+}
+
+//Mostramos la lista de emergencia roja ordenada por tiempo de espera
+const void mostrarListas(ArbolUrgencia* arbol)
+{
+        time_t now = time(0);
+		struct tm tstruct;
+        tstruct = *localtime(&now);
+		
+        arbol->mostrar(); //tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
 }
 
 int main()
@@ -566,12 +577,15 @@ int main()
 									ArbolVerde->mostrar(); // Muestra la lista de emergencia Verde
 									break;
 							}
-						} else if (opcionP32 == 3){
+						} else if (opcionP32 == 3){ //Mostrar todos los arboles
 							
 						} else {
 							cout << "La opcion seleccionada es erronea" << endl; // Si hay un error,se indica por pantalla
 							cout << "Regresando al menu principal..." << endl;   // Regresamos al menu principal
 						}
+						break;
+					case 3:
+						mostrarListas(ArbolRojo); //Muestra la lista de emergencia Roja
 						break;
 				}
 				break;
