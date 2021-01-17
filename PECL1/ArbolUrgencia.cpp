@@ -8,6 +8,7 @@ ArbolUrgencia::ArbolUrgencia()
     raiz = NULL;
     actual = NULL;
     size = 0;
+    int array[10];
 }
 
 void ArbolUrgencia::podar(Anodo& nodo)
