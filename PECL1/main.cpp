@@ -13,6 +13,16 @@
 
 using namespace std;
 
+// Get current date/time, format is YYYY-MM-DD.HH:mm:ss
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+    return buf;
+}
+
 /**
  * @brief Retorna la opción del menu principal seleccionada
  * @return opcion (Integer)
@@ -22,7 +32,7 @@ const int imprimirMenu()
 
     int opcion = 0;
 
-    cout << endl << endl << "Fecha y hora actual: " << /*currentDateTime() <<*/ endl;
+    cout << endl << endl << "Fecha y hora actual: " << currentDateTime() << endl;
     cout << endl;
     cout << "0. Alta de paciente en emergencia" << endl;
     cout << "1. Baja de paciente" << endl;
@@ -108,7 +118,8 @@ int main()
     ArbolNaranja = new ArbolUrgencia();
     ArbolVerde = new ArbolUrgencia();
 
-    int opcion = imprimirMenu();
+    int opcion = 0;
+	opcion = imprimirMenu();
     PilaPacientes pilaPacientesTemp;
     string DNI;
 
@@ -182,6 +193,21 @@ int main()
 				pacienteActual.setHora(hora);
 				pacienteActual.setMinuto(minuto);
 				pacienteActual.setSegundo(seg);
+				
+				switch (pacienteActual.getPrioridad()){
+					case 1:
+						ArbolRojo -> insertar(pacienteActual);
+						break;
+					case 2:
+						ArbolNaranja -> insertar(pacienteActual);
+						break;
+					case 3:
+						ArbolAmarillo -> insertar(pacienteActual);
+						break;
+					case 4:
+						ArbolVerde -> insertar(pacienteActual);
+						break;
+				}
 			}
             
             // cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" <<
@@ -498,7 +524,7 @@ int main()
 							// Vamos comparando el DNI introducido hasta encontrar el paciente correspondiente
 							pacienteActual = pilaEntrada.extraer(); // Extraemos el primero de la pila
 							if(pacienteActual.getDNI() == DNI31) {  // Comparamos si tienen el mismo DNI
-								cout << endl << endln << "El paciente buscado es: " << endl; // En caso positivo, se imprimer el paciente por pantalla 
+								cout << endl << endl << "El paciente buscado es: " << endl; // En caso positivo, se imprimer el paciente por pantalla 
 								pacienteActual.imprimePila();
 								encontrado = true;
 								break;
@@ -661,7 +687,7 @@ int main()
                 break;
 			}
 		}
-		imprimirMenu();
+		opcion = imprimirMenu();
 	}
 
         return 0;

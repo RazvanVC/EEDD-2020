@@ -169,6 +169,7 @@ void ArbolUrgencia::mostrar(){
 		}
 		cout << "\\";
 	}
+	cout << endl;
     preOrden(raiz);
 }
 ArbolUrgencia::~ArbolUrgencia()
