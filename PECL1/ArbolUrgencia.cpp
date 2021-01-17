@@ -54,7 +54,7 @@ void ArbolUrgencia::insertar(Paciente p)
          
          //insertarAux(raiz, p);
 }
-/*(void ArbolUrgencia::insertarAux(Anodo nodo, Paciente p){
+/*void ArbolUrgencia::insertarAux(Anodo nodo, Paciente p){
     int CodNumericoNodo = nodo->paciente.getCodNumerico();
     int CodNumerico = p.getCodNumerico();
     if(CodNumerico > CodNumericoNodo) {
@@ -76,8 +76,8 @@ void ArbolUrgencia::insertar(Paciente p)
             nodo->anterior = n;
         }
     }
-}
- */
+}*/
+
 void ArbolUrgencia::borrar(string DNI)
 {
     NodoArbol* padre = NULL;
