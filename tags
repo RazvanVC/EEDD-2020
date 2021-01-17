@@ -1,2 +1,0 @@
-NodoArbol	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\NodoArbol.cpp	/^NodoArbol::NodoArbol(Paciente p, NodoArbol* sig, NodoArbol* ant)$/;"	function	line:3	class:NodoArbol	signature:(Paciente p, NodoArbol* sig, NodoArbol* ant)	returns:NodoArbol :: 
-~NodoArbol	C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\NodoArbol.cpp	/^NodoArbol::~NodoArbol()$/;"	function	line:10	class:NodoArbol	signature:()	returns:NodoArbol :: 

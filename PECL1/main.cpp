@@ -583,7 +583,14 @@ int main()
 									break;
 							}
 						} else if (opcionP32 == 3){ //Mostrar todos los arboles
-							
+							cout << endl << "ArbolR" << endl;
+							ArbolRojo->mostrar();
+							cout << endl << "ArbolN" << endl;
+							ArbolNaranja->mostrar();
+							cout << endl << "ArbolA" << endl;
+							ArbolAmarillo->mostrar();
+							cout << endl << "ArbolV" << endl;
+							ArbolVerde->mostrar();
 						} else {
 							cout << "La opcion seleccionada es erronea" << endl; // Si hay un error,se indica por pantalla
 							cout << "Regresando al menu principal..." << endl;   // Regresamos al menu principal
