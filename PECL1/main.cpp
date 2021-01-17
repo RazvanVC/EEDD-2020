@@ -48,7 +48,7 @@ const int imprimirMenu()
     return opcion;
 }
 
-const void imprimirMenuO0()
+const void imprimirMenuOpcion0()
 {
     cout << "1 - Nivel Rojo - Resucitacion" << endl;
     cout << "2 - Nivel Naranja - Emergencia" << endl;
@@ -75,9 +75,20 @@ const Paciente setTimePaciente(Paciente p) {
 
 int main()
 {
+	//Declaracion de variables
+	
+	// Creamos punteros hacia los arboles
+	ArbolUrgencia* ArbolRojo;
+	ArbolUrgencia* ArbolNaranja;
+	ArbolUrgencia* ArbolAmarillo;
+	ArbolUrgencia* ArbolVerde;
+	
+	int opcion = 0; //Variable de seleccion de opcion
+	
+	PilaPacientes pilaEntrada, pilaPacientesTemp; //Pilas de pacientes, tanto la primera donde se introducen los pacientes y la temporal para la consulta 1.1
+	string DNI; //Iniciamos el DNI por el que se van a realizar las diversas busquedas.
 
-    // Generamos 10 pacientes
-    Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
+    Paciente p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, pacienteActual; // Generamos 10 pacientes y el paciente que vamos a usar de apoyo
     p1 = Paciente(1, "99999991A", "Silvia", "Martos", "Esteve", 45, 'H');
     p2 = Paciente(2, "99999992B", "Mario", "Ruiz", "Sanchez", 28, 'V');
     p3 = Paciente(3, "99999993C", "Maria", "Setien", "Buendia", 60, 'H');
@@ -90,7 +101,7 @@ int main()
     p10 = Paciente(10, "100000000K", "Manuel", "Garcia", "Perez", 87, 'V');
 
     // Insertamos los pacientes en la pila PilaPacientes en orden inverso (LIFO)
-    PilaPacientes pilaEntrada;
+    
     pilaEntrada = PilaPacientes();
     pilaEntrada.insertar(p10);
     pilaEntrada.insertar(p9);
@@ -103,272 +114,233 @@ int main()
     pilaEntrada.insertar(p2);
     pilaEntrada.insertar(p1);
 
-    // Declaramos la variable paciente
-    Paciente pacienteActual;
-
-    // Creamos punteros
-    ArbolUrgencia* ArbolRojo;
-    ArbolUrgencia* ArbolNaranja;
-    ArbolUrgencia* ArbolAmarillo;
-    ArbolUrgencia* ArbolVerde;
-
-    // Cremoas las listas de emergencia
+	// Cremoas las listas de emergencia
     ArbolRojo = new ArbolUrgencia();
     ArbolAmarillo = new ArbolUrgencia();
     ArbolNaranja = new ArbolUrgencia();
     ArbolVerde = new ArbolUrgencia();
 
-    int opcion = 0;
 	opcion = imprimirMenu();
-    PilaPacientes pilaPacientesTemp;
-    string DNI;
-
+    
     while(opcion != 5) {
         switch(opcion) {
-        case 0:
-            // Declaramos la variable nEmergencia
-            int nEmergencia;
-            // Se saca el primer paciente de la pila
-            pacienteActual = pilaEntrada.extraer();
+			case 0:
+				int nEmergencia; // Declaramos la variable nEmergencia
+				
+				pacienteActual = pilaEntrada.extraer(); // Se saca el primer paciente de la pila
+ 
+				cout << "Para dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
+				imprimirMenuOpcion0();
+				cin >> nEmergencia; // Guardamos el número de la opción introducida por el usuario para asignar el paciente a la lista de emergencia
 
-            cout << "Para dar de alta al paciente " << pacienteActual.getNombre() << " " << pacienteActual.getApell1() << " se necesita que seleccione una prioridad" << endl;
-            imprimirMenuO0();
-            cin >> nEmergencia; // Guardamos el número de la opción introducida por el usuario para asignar el paciente a la lista de emergencia
+				if(nEmergencia < 1 || nEmergencia > 4) { // Controlamos que el usuario no pueda meter una opción que no se muestre por pantalla
+					cout << "\nERROR: Numero de emergencia erroneo." << endl;
+					cout << "Regresando a menu principal..." << endl << endl;
+					// Insertamos de nuevo el paciente a la pila
+					pilaEntrada.insertar(pacienteActual);
+					break;
+				}
+				pacienteActual.setPrioridad(nEmergencia); // Seteamos la prioridad del paciente y el tiempo
 
-            // Controlamos que el usuario no pueda meter una opción que no se muestre por pantalla
-            if(nEmergencia < 1 || nEmergencia > 4) {
-                cout << "\nERROR: Numero de emergencia erroneo." << endl;
-                cout << "Regresando a menu principal..." << endl << endl;
-                // Insertamos de nuevo el paciente a la pila
-                pilaEntrada.insertar(pacienteActual);
-                break;
-            }
-            // Seteamos la prioridad del paciente y el tiempo
-            pacienteActual.setPrioridad(nEmergencia);
-			int opcionSeleccionTiempo;
-			cout << "Seleccione una manera de establecer el tiempo" << endl << endl;
-			cout << "1 - Usar la hora del sistema" << endl;
-			cout << "2 - Establecer el tiempo manualmente" << endl << endl;
-			
-			cout << "Opcion: "; cin >> opcionSeleccionTiempo;
-			if (opcionSeleccionTiempo < 1 || opcionSeleccionTiempo > 2) {
-				cout << endl << "La opcion seleccionada no esta registrada" << endl;
-				cout << "Volviendo al menu principal..." << endl << endl;
-				pilaEntrada.insertar(pacienteActual);
-				break;
-			}
-			if (opcionSeleccionTiempo == 1) {
-				pacienteActual = setTimePaciente(pacienteActual);
-			} else {
-				int anno, mes, dia, hora, minuto, seg;
-				bool valoresCorrectos;
-				valoresCorrectos = true;
-				
-				cout << "Inserte el anno de ingreso: "; cin >> anno;
-				cout << "Inserte el mes de ingreso: "; cin >> mes;
-				cout << "Inserte el dia de ingreso: "; cin >> dia;
-				cout << "Inserte la hora de ingreso: "; cin >> hora;
-				cout << "Inserte el minuto de ingreso: "; cin >> minuto;
-				cout << "Inserte el segundo de ingreso: "; cin >> seg;
-				
-				//Comprobación de valores, sino menu principal;
-				if (anno > 2021 || anno < 0) valoresCorrectos = false;
-				if (mes > 12 || mes < 1) valoresCorrectos = false;
-				if (dia > 31 || dia < 1) valoresCorrectos = false;
-				if (mes == 2 && dia > 28) valoresCorrectos = false;
-				if (hora > 60 || hora < 0) valoresCorrectos = false;
-				if (minuto > 60 || minuto < 0) valoresCorrectos = false;
-				if (seg > 60 || seg < 0) valoresCorrectos = false;
-				
-				if (!valoresCorrectos) { //Si se ha introducido algun valor incorrecto se vuelve al menu principal y se descartan los cambios
+				int opcionSeleccionTiempo;
+				cout << "Seleccione una manera de establecer el tiempo" << endl << endl;
+				cout << "1 - Usar la hora del sistema" << endl;
+				cout << "2 - Establecer el tiempo manualmente" << endl << endl;
+
+				cout << "Opcion: "; cin >> opcionSeleccionTiempo;
+				if (opcionSeleccionTiempo < 1 || opcionSeleccionTiempo > 2) {
 					cout << endl << "La opcion seleccionada no esta registrada" << endl;
 					cout << "Volviendo al menu principal..." << endl << endl;
 					pilaEntrada.insertar(pacienteActual);
 					break;
 				}
-				
-				pacienteActual.setAnno(anno);
-				pacienteActual.setMes(mes);
-				pacienteActual.setDia(dia);
-				pacienteActual.setHora(hora);
-				pacienteActual.setMinuto(minuto);
-				pacienteActual.setSegundo(seg);
-				
-				switch (pacienteActual.getPrioridad()){
+				if (opcionSeleccionTiempo == 1) {
+					pacienteActual = setTimePaciente(pacienteActual);
+				} else {
+					int anno, mes, dia, hora, minuto, seg;
+					bool valoresCorrectos;
+					valoresCorrectos = true;
+
+					cout << "Inserte el anno de ingreso: "; cin >> anno;
+					cout << "Inserte el mes de ingreso: "; cin >> mes;
+					cout << "Inserte el dia de ingreso: "; cin >> dia;
+					cout << "Inserte la hora de ingreso: "; cin >> hora;
+					cout << "Inserte el minuto de ingreso: "; cin >> minuto;
+					cout << "Inserte el segundo de ingreso: "; cin >> seg;
+
+					//Comprobación de valores, sino menu principal;
+					if (anno > 2021 || anno < 0) valoresCorrectos = false;
+					if (mes > 12 || mes < 1) valoresCorrectos = false;
+					if (dia > 31 || dia < 1) valoresCorrectos = false;
+					if (mes == 2 && dia > 28) valoresCorrectos = false;
+					if (hora > 60 || hora < 0) valoresCorrectos = false;
+					if (minuto > 60 || minuto < 0) valoresCorrectos = false;
+					if (seg > 60 || seg < 0) valoresCorrectos = false;
+
+					if (!valoresCorrectos) { //Si se ha introducido algun valor incorrecto se vuelve al menu principal y se descartan los cambios
+						cout << endl << "Alguno de los parametros introducidos son erroneos" << endl;
+						cout << "Volviendo al menu principal..." << endl << endl;
+						pilaEntrada.insertar(pacienteActual);
+						break;
+					}
+
+					pacienteActual.setAnno(anno);
+					pacienteActual.setMes(mes);
+					pacienteActual.setDia(dia);
+					pacienteActual.setHora(hora);
+					pacienteActual.setMinuto(minuto);
+					pacienteActual.setSegundo(seg);
+
+				}
+
+				// Hacemos un get de la prioridad del paciente y se le asigna a una lista de emergencia según el caso
+				switch(pacienteActual.getPrioridad()) {
 					case 1:
-						ArbolRojo -> insertar(pacienteActual);
+						ArbolRojo->insertar(pacienteActual);
 						break;
 					case 2:
-						ArbolNaranja -> insertar(pacienteActual);
+						ArbolNaranja->insertar(pacienteActual);
 						break;
 					case 3:
-						ArbolAmarillo -> insertar(pacienteActual);
+						ArbolAmarillo->insertar(pacienteActual);
 						break;
 					case 4:
-						ArbolVerde -> insertar(pacienteActual);
+						ArbolVerde->insertar(pacienteActual);
 						break;
 				}
-			}
+
+				if(pilaEntrada.estaVacia()) {
+					int opcionFinal;
+					bool opcionCorrecta;
+					opcionCorrecta = true;
+					do {
+						cout << endl;
+						cout << "La pila de pacientes se ha vaciado, seleccione una de las siguientes opciones: " << endl;
+						cout << "1 - Resetear del programa" << endl;
+						cout << "2 - Salir del programa" << endl;
+						cin >> opcionFinal;
+						if(!(opcionFinal < 1) || !(opcionFinal > 2))
+							opcionCorrecta = true;
+					} while(!opcionCorrecta);
+
+					if(opcionFinal == 1) {
+						// Volvemos a llenar PilaPacientes
+						pilaEntrada = PilaPacientes();
+						pilaEntrada.insertar(p10);
+						pilaEntrada.insertar(p9);
+						pilaEntrada.insertar(p8);
+						pilaEntrada.insertar(p7);
+						pilaEntrada.insertar(p6);
+						pilaEntrada.insertar(p5);
+						pilaEntrada.insertar(p4);
+						pilaEntrada.insertar(p3);
+						pilaEntrada.insertar(p2);
+						pilaEntrada.insertar(p1);
+
+						// Sobreescribimos las listas de emergencias (las vaciamos)
+						ArbolRojo = new ArbolUrgencia();
+						ArbolNaranja = new ArbolUrgencia();
+						ArbolAmarillo = new ArbolUrgencia();
+						ArbolVerde = new ArbolUrgencia();
+					} else return 0;
+				}
+				break;
+
+			case 1:
+				cout << "Indique el DNI del paciente que desea dar de baja: "; cin >> DNI;
+
+				if(DNI.empty()) { // Error si no se introduce nada
+					cout << "El DNI no puede estar vacio" << endl;
+					cout << "Volviendo al menu principal..." << endl << endl;
+					break;
+				}
+				if(DNI.length() < 9) { // Error si no introducimos la longitud correcta
+					cout << "La longitud del DNI es incorrecta" << endl;
+					cout << "Volviendo al menu principal..." << endl << endl;
+					break;
+				}
+
+				// Comprobar si está en pila
+
+				pilaPacientesTemp = PilaPacientes();
+				int iteracion;
+				bool encontrado;
+				encontrado = false;
+				iteracion = 1;
+				do {
+					// Se va vaciando la pilaEntrada y se vuelca en pilaPacientesTem para ir buscando el paciente del DNI
+					// introducido Se muestran una por una las iteraciones realizadas imprimiendo por pantalla las pilas de
+					// los pacientes(principal y temporal)
+					cout << "Iteracion: " << iteracion << endl;
+					cout << "Pila principal de pacientes" << endl << endl;
+					pilaEntrada.mostrar();
+					cout << endl << "Pila pacientes temporal" << endl << endl;
+					pilaPacientesTemp.mostrar();
+					pacienteActual = pilaEntrada.extraer();
+
+					if(pacienteActual.getDNI() != DNI) { // Si el dni del paciente no coincide con el DNI introducido,se introduce en una pila temporal
+						pilaPacientesTemp.insertar(pacienteActual);
+						cout << "Pila principal de pacientes" << endl << endl;
+						pilaEntrada.mostrar();
+						cout << endl << "Pila pacientes temporal" << endl << endl;
+						pilaPacientesTemp.mostrar();
+						cout << endl << "El paciente aun no se ha encontrado" << endl;
+					} else { // Si se encuentra, se revierte la pila temporal en la principal y se borra la pila temporal
+						encontrado = true;
+						cout << endl
+							<< "Se ha encontrado el paciente" << endl
+							<< "Iniciando el borrado..." << endl
+							<< "Borrado completo. Revertiendo listas...";
+						break;
+					}
+					getch();
+					iteracion++;
+				} while(!pilaEntrada.estaVacia()); // Esto se repetirá hasta que la pilaEntrada esté vacía
+
+				cout << endl;
+				cout << "Revertimos el proceso de las pilas" << endl;
+
+				do {
+					// Este es el proceso contrario (rellenar)
+					cout << "Iteracion: " << iteracion << endl;
+					cout << "Pila principal de pacientes" << endl << endl;
+					pilaPacientesTemp.mostrar();
+					cout << endl << "Pila pacientes temporal" << endl << endl;
+					pilaEntrada.mostrar();
+					pacienteActual = pilaPacientesTemp.extraer();
+
+					pilaEntrada.insertar(pacienteActual);
+					cout << "Pila principal de pacientes" << endl << endl;
+					pilaEntrada.mostrar();
+					cout << endl << "Pila pacientes temporal" << endl << endl;
+					pilaPacientesTemp.mostrar();
+
+					cout << endl;
+					getch();
+					iteracion++;
+				} while(!pilaPacientesTemp.estaVacia()); // Esto se repite hasta que la pilaPacientesTemp esté vacía
+
+				if(encontrado) break; // En el momento en que lo encuentra, para de buscar
+
+				try { // Busca en la lista de emergencia Roja
+					if(ArbolRojo->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
+						ArbolRojo->borrar(DNI); // Si lo encuentra, lo borra
+						cout << "Se ha borrado de la lista roja" << endl << endl;
+						break;
+					} else cout << "La lista roja esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
+				} catch(...) {
+					cout << "No se encuentra en la lista roja" << endl; // Si no está en esta lista, salta una excepción y seindica por pantalla
+				}
+				getch();
+
+				try { // Busca en la lista de emergencia Naranaja
+					if(ArbolNaranja->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
+						ArbolNaranja->borrar(DNI); // Si lo encuentra, lo borra
+						cout << "Se ha borrado de la lista naranja" << endl << endl;
+						break;
+					} else cout << "La lista naranja esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
+				} catch(...) cout << "No se encuentra en la lista naranja" << endl; // Si no está en esta lista, salta una excepción y se indica por pantalla
             
-            // cout << "Current local time : " << tm_local->tm_hour << ":" << tm_local->tm_min << ":" <<
-            // tm_local->tm_sec;
-
-            // Hacemos un get de la prioridad del paciente y se le asigna a una lista de emergencia según el caso
-            switch(pacienteActual.getPrioridad()) {
-            case 1:
-                ArbolRojo->insertar(pacienteActual);
-                break;
-            case 2:
-                ArbolNaranja->insertar(pacienteActual);
-                break;
-            case 3:
-                ArbolAmarillo->insertar(pacienteActual);
-                break;
-            case 4:
-                ArbolVerde->insertar(pacienteActual);
-                break;
-            }
-
-            if(pilaEntrada.estaVacia()) {
-                int opcionFinal;
-                bool opcionCorrecta;
-                opcionCorrecta = true;
-                do {
-                    cout << endl;
-                    cout << "La pila de pacientes se ha vaciado, seleccione una de las siguientes opciones: " << endl;
-                    cout << "1 - Resetear del programa" << endl;
-                    cout << "2 - Salir del programa" << endl;
-                    cin >> opcionFinal;
-                    if(!(opcionFinal < 1) || !(opcionFinal > 3))
-                        opcionCorrecta = true;
-                } while(!opcionCorrecta);
-				
-                if(opcionFinal == 1) {
-                    // Volvemos a llenar PilaPacientes
-                    pilaEntrada = PilaPacientes();
-                    pilaEntrada.insertar(p10);
-                    pilaEntrada.insertar(p9);
-                    pilaEntrada.insertar(p8);
-                    pilaEntrada.insertar(p7);
-                    pilaEntrada.insertar(p6);
-                    pilaEntrada.insertar(p5);
-                    pilaEntrada.insertar(p4);
-                    pilaEntrada.insertar(p3);
-                    pilaEntrada.insertar(p2);
-                    pilaEntrada.insertar(p1);
-
-                    // Sobreescribimos las listas de emergencias (las vaciamos)
-                    ArbolRojo = new ArbolUrgencia();
-                    ArbolNaranja = new ArbolUrgencia();
-                    ArbolAmarillo = new ArbolUrgencia();
-                    ArbolVerde = new ArbolUrgencia();
-                } else return 0;
-            }
-            break;
-        case 1:
-            cout << "Indique el DNI del paciente que desea dar de baja: ";
-            cin >> DNI; // El usuario introduce el DNI
-
-            if(DNI.empty()) { // Error si no se introduce nada
-                cout << "El DNI no puede estar vacio" << endl;
-            }
-            if(DNI.length() < 9) { // Error si no introducimos la longitud correcta
-                cout << "La longitud del DNI es incorrecta" << endl;
-            }
-
-            // Comprobar si está en pila
-
-            pilaPacientesTemp = PilaPacientes();
-            int iteracion;
-            bool encontrado;
-            encontrado = false;
-            iteracion = 1;
-            do {
-                // Se va vaciando la pilaEntrada y se vuelca en pilaPacientesTem para ir buscando el paciente del DNI
-                // introducido Se muestran una por una las iteraciones realizadas imprimiendo por pantalla las pilas de
-                // los pacientes(principal y temporal)
-                cout << "Iteracion: " << iteracion << endl;
-                cout << "Pila principal de pacientes" << endl << endl;
-                pilaEntrada.mostrar();
-                cout << endl << "Pila pacientes temporal" << endl << endl;
-                pilaPacientesTemp.mostrar();
-                pacienteActual = pilaEntrada.extraer();
-
-                if(pacienteActual.getDNI() != DNI) { // Si el dni del paciente no coincide con el DNI introducido,se
-                                                     // introduce en una pila temporal
-                    pilaPacientesTemp.insertar(pacienteActual);
-                    cout << "Pila principal de pacientes" << endl << endl;
-                    pilaEntrada.mostrar();
-                    cout << endl << "Pila pacientes temporal" << endl << endl;
-                    pilaPacientesTemp.mostrar();
-
-                    cout << endl;
-                    cout << "El paciente aun no se ha encontrado" << endl;
-                } else { // Si se encuentra, se revierte la pila temporal en la principal y se borra la pila temporal
-                    encontrado = true;
-                    cout << endl
-                         << "Se ha encontrado el paciente" << endl
-                         << "Iniciando el borrado..." << endl
-                         << "Borrado completo. Revertiendo listas...";
-                    break;
-                }
-                getch();
-                iteracion++;
-            } while(!pilaEntrada.estaVacia()); // Esto se repetirá hasta que la pilaEntrada esté vacía
-
-            cout << endl;
-            cout << "Revertimos el proceso de las pilas" << endl;
-
-            do {
-                // Este es el proceso contrario (rellenar)
-                cout << "Iteracion: " << iteracion << endl;
-                cout << "Pila principal de pacientes" << endl << endl;
-                pilaPacientesTemp.mostrar();
-                cout << endl << "Pila pacientes temporal" << endl << endl;
-                pilaEntrada.mostrar();
-                pacienteActual = pilaPacientesTemp.extraer();
-
-                pilaEntrada.insertar(pacienteActual);
-                cout << "Pila principal de pacientes" << endl << endl;
-                pilaEntrada.mostrar();
-                cout << endl << "Pila pacientes temporal" << endl << endl;
-                pilaPacientesTemp.mostrar();
-
-                cout << endl;
-                getch();
-                iteracion++;
-            } while(!pilaPacientesTemp.estaVacia()); // Esto se repite hasta que la pilaPacientesTemp esté vacía
-
-            if(encontrado)
-                break; // En el momento en que lo encuentra, para de buscar
-
-            try {
-                // Busca en la lista de emergencia Roja
-                if(ArbolRojo->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
-                    ArbolRojo->borrar(DNI); // Si lo encuentra, lo borra
-                    cout << "Se ha borrado de la lista roja" << endl << endl;
-                    break;
-                } else
-                    cout << "La lista roja esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
-            } catch(...) {
-                cout << "No se encuentra en la lista roja" << endl; // Si no está en esta lista, salta una excepción y
-                                                                    // seindica por pantalla
-                break;
-            }
-            getch();
-
-            try {
-                // Busca en la lista de emergencia Naranaja
-                if(ArbolNaranja->size != 0) {  // Si la lista contiene algo, comienza a buscar en ella
-                    ArbolNaranja->borrar(DNI); // Si lo encuentra, lo borra
-                    cout << "Se ha borrado de la lista naranja" << endl << endl;
-                    break;
-                } else
-                    cout << "La lista naranja esta vacia" << endl; // Si la lista está vacía, lo indica por pantalla
-            } catch(...) {
-                cout << "No se encuentra en la lista naranja" << endl; // Si no está en esta lista, salta una excepción
-                                                                       // y se indica por pantalla
-            }
             getch();
 
             try {
