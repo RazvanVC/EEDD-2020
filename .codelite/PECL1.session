@@ -5,15 +5,15 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\ArbolUrgencia.cpp" Name="FileName"/>
-      <int Value="72" Name="FirstVisibleLine"/>
+      <int Value="21" Name="FirstVisibleLine"/>
       <int Value="22" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\marin\OneDrive\Documentos\GitHub\EEDD-2020\PECL1\main.cpp" Name="FileName"/>
-      <int Value="476" Name="FirstVisibleLine"/>
-      <int Value="422" Name="CurrentLine"/>
+      <int Value="759" Name="FirstVisibleLine"/>
+      <int Value="767" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
