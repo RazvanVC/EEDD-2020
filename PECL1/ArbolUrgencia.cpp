@@ -61,32 +61,34 @@ void ArbolUrgencia::borrarA(string DNI)
     size = size - 1;
     actual = raiz;
     while(!esVacio(actual)) {
+        cout << actual->paciente.getDNI() << endl;
+        cout << DNI << endl;
         if(DNI == actual->paciente.getDNI()) { // Si el valor está en el nodo actual
-            if(esHoja(actual)) {
-                if(padre) // Si tiene padre (no es el nodo raiz)
-                    if(padre->siguiente == actual)
-                        padre->siguiente = NULL;
-                if(padre->anterior == actual)
+            if(padre) {
+                if(padre->siguiente == actual)
+                    padre->siguiente = NULL;
+                else if(padre->anterior == actual)
                     padre->anterior = NULL;
-                delete actual; // Borrar el nodo
-                actual = NULL;
-                return;
-            } else {
-                padre = actual;
-                if(actual->siguiente) {
-                    nodoaux = actual->siguiente;
-                    while(nodoaux->anterior) {
-                        padre = nodoaux;
-                        nodoaux = nodoaux->anterior;
-                    }
-                } else {
-                    nodoaux = actual->anterior;
-                    while(nodoaux->siguiente) {
-                        padre = nodoaux;
-                        nodoaux = nodoaux->siguiente;
-                    }
+            }
+            delete actual;
+            actual = NULL;
+            return;
+
+            padre = actual;
+            if(actual->siguiente) {
+                nodoaux = actual->siguiente;
+                while(nodoaux->anterior) {
+                    padre = nodoaux;
+                    nodoaux = nodoaux->anterior;
                 }
-                DNIaux = actual->paciente.getDNI();
+
+                nodoaux = actual->anterior;
+                while(nodoaux->siguiente) {
+                    padre = nodoaux;
+                    nodoaux = nodoaux->siguiente;
+                }
+
+                DNIaux = actual->paciente.getDNI(); /* (3-b-ii) */
                 actual->paciente.getDNI() = nodoaux->paciente.getDNI();
                 nodoaux->paciente.getDNI() = DNIaux;
                 actual = nodoaux;
