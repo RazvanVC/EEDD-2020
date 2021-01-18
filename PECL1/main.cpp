@@ -162,12 +162,6 @@ int main()
 				}
 				if (opcionSeleccionTiempo == 1) {
 					pacienteActual = setTimePaciente(pacienteActual);
-					cout << endl << endl << "Anno: " << pacienteActual.getAnno() << endl;
-					cout << "Mes: " << pacienteActual.getMes() << endl;
-					cout << "Dia: " << pacienteActual.getDia() << endl;
-					cout << "Hora: " << pacienteActual.getHora() << endl;
-					cout << "Minuto: " << pacienteActual.getMinuto() << endl;
-					cout << "Segundo " << pacienteActual.getSegundo() << endl;
 				} else {
 					int anno, mes, dia, hora, minuto, seg;
 					bool valoresCorrectos;
@@ -209,7 +203,6 @@ int main()
 				switch(pacienteActual.getPrioridad()) {
 					case 1:
 						ArbolRojo->insertar(pacienteActual);
-						cout << ArbolRojo->buscar(1).getDNI();
 						break;
 					case 2:
 						ArbolNaranja->insertar(pacienteActual);
@@ -633,7 +626,6 @@ int main()
 							} catch (...) {  }
 							i++;
 						}
-						break;
 						
 						cout << endl << "Lista de urgencias Amarilla" << endl << endl;
 
@@ -647,7 +639,6 @@ int main()
 							} catch (...) {  }
 							i++;
 						}
-						break;
 						
 						cout << endl << "Lista de urgencias Verde" << endl << endl;
 
