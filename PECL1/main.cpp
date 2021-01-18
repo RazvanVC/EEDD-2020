@@ -667,11 +667,18 @@ int main()
                     ArbolNaranja->cp.imprimir();
                     ArbolAmarillo->cp.imprimir();
                     ArbolVerde->cp.imprimir();
+                    for (int i = 0; i <= ArbolRojo->getSize(); i++){
                     ArbolRojo->cp.eliminar();
+                    }
+                    for (int i = 0; i <= ArbolNaranja->getSize(); i++){
                     ArbolNaranja->cp.eliminar();
+                    }
+                    for (int i = 0; i <= ArbolAmarillo->getSize(); i++){
                     ArbolAmarillo->cp.eliminar();
+                    }
+                    for (int i = 0; i <= ArbolVerde->getSize(); i++){
                     ArbolVerde->cp.eliminar();
-
+                    }
                 } else {
                     cout << "La opcion seleccionada es erronea" << endl; // Si hay un error,se indica por pantalla
                     cout << "Regresando al menu principal..." << endl;   // Regresamos al menu principal

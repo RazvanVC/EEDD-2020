@@ -15,6 +15,7 @@ class ArbolUrgencia
     public:
         ArbolUrgencia();
         ~ArbolUrgencia();
+        int getSize();
         void mostrar();
         Paciente buscar(int CodNumerico);
         void insertar(Paciente p);

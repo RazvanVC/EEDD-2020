@@ -151,6 +151,9 @@ void ArbolUrgencia::mostrar()
     cout << endl;
     preOrden(raiz);
 }
+int ArbolUrgencia::getSize(){
+    return size;
+}
 ArbolUrgencia::~ArbolUrgencia()
 {
     podar(raiz);
