@@ -614,34 +614,53 @@ int main()
 						while (i < 10){
 							try {
 								pt = ArbolRojo->buscar(i);
-								if (pt.getCodNumerico()==-1) break;
-								pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
+								if (pt.getCodNumerico()!=-1) {
+									pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
+								}
 							} catch (...) {  }
 							i++;
 						}
-/*
-					i = 0;
-		while (i < ArbolNaranja->size){
-			pt = ArbolNaranja -> buscar(ArbolNaranja->cp.eliminar().getCodNumerico());
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, tstruct.tm_hour, 15,0);
-			i++;
-		}
+						
+						cout << endl << "Lista de urgencias Naraja" << endl << endl;
 
-		i = 0;
-		while (i < arbol2->size){
-			pt = arbol2 -> buscar(arbol2->cp.eliminar().getCodNumerico());
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, 1, 0,0);
-			i++;
-		}
+						i = 1;
+						while (i < 10){
+							try {
+								pt = ArbolNaranja->buscar(i);
+								if (pt.getCodNumerico()!=-1) {
+									pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, tstruct.tm_hour, 15,0);
+								}
+							} catch (...) {  }
+							i++;
+						}
+						break;
+						
+						cout << endl << "Lista de urgencias Amarilla" << endl << endl;
 
-		i = 0;
-		while (i < arbol3->size){
-			pt = arbol3 -> buscar(arbol3->cp.eliminar().getCodNumerico());
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, 2, 0,0);
-			i++;
-		}
-						mostrarListas(ArbolRojo, ArbolNaranja, ArbolAmarillo, ArbolVerde); //Muestra la lista de emergencia Roja
-						*/
+						i = 1;
+						while (i < 10){
+							try {
+								pt = ArbolAmarillo->buscar(i);
+								if (pt.getCodNumerico()!=-1) {
+									pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, 1, 0,0);
+								}
+							} catch (...) {  }
+							i++;
+						}
+						break;
+						
+						cout << endl << "Lista de urgencias Verde" << endl << endl;
+
+						i = 1;
+						while (i < 10){
+							try {
+								pt = ArbolVerde->buscar(i);
+								if (pt.getCodNumerico()!=-1) {
+									pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, 2, 0,0);
+								}
+							} catch (...) {  }
+							i++;
+						}
 						break;
 				}
 				break;
