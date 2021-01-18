@@ -68,19 +68,19 @@ void Paciente::imprimeC3(int annoActual, int mesActual, int diaActual, int horaA
 	int segundoResultado = 0;
 	
 	if (segundoActual > getSegundo()){
-		segundoResultado = 60+segundoActual-getSegundo();
 		minutoResultado --;
-	} else minutoResultado = segundoResultado + (segundoActual-getSegundo());
+		segundoResultado = 60 + segundoActual - getSegundo();
+	} else segundoResultado = segundoResultado + (segundoActual-getSegundo());
 	
 	if (minutoActual > getMinuto()){
-		minutoResultado = 60+minutoActual-getMinuto();
 		horaResultado--;
-	} else minutoResultado = minutoResultado + minutoActual-getMinuto();
+		minutoResultado = 60 + minutoActual - getMinuto();
+	} else minutoResultado = minutoResultado + (minutoActual-getMinuto());
 	
 	if (horaActual > getHora()){
 		horaResultado = 24+horaActual-getHora();
 		diaResultado--;
-	} else horaResultado = horaResultado + horaActual - getHora();
+	} else horaResultado = horaResultado + (horaActual - getHora());
 	
 	if (diaActual > getDia()) {
 		diaResultado = 30+diaActual-getDia();
@@ -92,10 +92,19 @@ void Paciente::imprimeC3(int annoActual, int mesActual, int diaActual, int horaA
 		annoResultado--;
 	} else mesResultado = mesResultado + mesActual - getMes();
 	
-	annoResultado = annoResultado + annoActual - getAnno() - 2000;
+	annoResultado = annoActual - getAnno();
 	
-	cout << "Prioridad: "<< getPrioridad() << " Codigo Numerico: " << CodNumerico << " Tiempo: " << getAnno()-2000<<getMes()<<getDia()<<getHora()<<getMinuto()<<getSegundo() 
-	<< " Tiempo Excedido: " << annoResultado << mesResultado << diaResultado << horaResultado << minutoResultado << segundoResultado << endl;
+	if (segundoResultado>60) {
+		segundoResultado-=60;
+		minutoResultado++;
+	}
+	if (minutoResultado>60) {
+		minutoResultado-=60;
+		horaResultado++;
+	}
+	cout << "Prioridad: "<< getPrioridad() << " Codigo Numerico: " << CodNumerico << " Fecha de alta:" << endl << endl <<
+	"Anno: " << getAnno() << " - Mes: " << getMes() << " - Dia: " << getDia() << " - Hora: " << getHora() << " - Minuto: " << getMinuto() << " - Segundo: " << getSegundo() << endl << endl <<
+	"Tiempo Excedido: " << endl << annoResultado << " Annos " << mesResultado << " Meses " << diaResultado << " Dias " << horaResultado << " Horas " << minutoResultado << " Minutos " << segundoResultado << " Segundos "<< endl;
 }
 /* GETS */
 

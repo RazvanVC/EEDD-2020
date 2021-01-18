@@ -24,16 +24,6 @@ const std::string currentDateTime() {
     return buf;
 }
 
-/*const ColaPacientes cargarColaPacientes(ColaPacientes colaPacientes, ArbolUrgencia* arbol)
-{
-	int i = 0;
-	while (i < arbol->size){
-		colaPacientes->insertar(arbol->buscar(arbol->elementos[i]));
-		i++;
-	}
-	return colaPacientes;
-}*/
-
 /**
  * @brief Retorna la opción del menu principal seleccionada
  * @return opcion (Integer)
@@ -74,7 +64,7 @@ const Paciente setTimePaciente(Paciente p)
 		tstruct = *localtime(&now);
 		
 		p.setAnno(tstruct.tm_year+1900);
-		p.setMes(tstruct.tm_mon);
+		p.setMes(tstruct.tm_mon+1);
 		p.setDia(tstruct.tm_mday);
 		p.setHora(tstruct.tm_hour);
 		p.setMinuto(tstruct.tm_min);
@@ -86,35 +76,7 @@ const Paciente setTimePaciente(Paciente p)
 //Mostramos la lista de emergencia roja ordenada por tiempo de espera
 const void mostrarListas(ArbolUrgencia* arbol, ArbolUrgencia* arbol1, ArbolUrgencia* arbol2, ArbolUrgencia* arbol3)
 {
-		time_t now = time(0);
-		struct tm tstruct;
-		tstruct = *localtime(&now);
-		Paciente pt;
-		int i = 0;
-		cout << endl << "Lista de urgencias roja" << endl << endl;
-		/*
-		while (i < arbol->size){
-			pt = arbol -> buscar(arbol->elementos[i]);
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
-		}
-
-		i = 0;
-		while (i < arbol1->size){
-			pt = arbol1 -> buscar(arbol1->elementos[i]);
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, 15,0);
-		}
-
-		i = 0;
-		while (i < arbol2->size){
-			pt = arbol2 -> buscar(arbol2->elementos[i]);
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, 1, 0,0);
-		}
-
-		i = 0;
-		while (i < arbol3->size){
-			pt = arbol3 -> buscar(arbol3->elementos[i]);
-			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, 2, 0,0);
-		}*/
+		
 }
 
 int main()
@@ -200,6 +162,12 @@ int main()
 				}
 				if (opcionSeleccionTiempo == 1) {
 					pacienteActual = setTimePaciente(pacienteActual);
+					cout << endl << endl << "Anno: " << pacienteActual.getAnno() << endl;
+					cout << "Mes: " << pacienteActual.getMes() << endl;
+					cout << "Dia: " << pacienteActual.getDia() << endl;
+					cout << "Hora: " << pacienteActual.getHora() << endl;
+					cout << "Minuto: " << pacienteActual.getMinuto() << endl;
+					cout << "Segundo " << pacienteActual.getSegundo() << endl;
 				} else {
 					int anno, mes, dia, hora, minuto, seg;
 					bool valoresCorrectos;
@@ -241,6 +209,7 @@ int main()
 				switch(pacienteActual.getPrioridad()) {
 					case 1:
 						ArbolRojo->insertar(pacienteActual);
+						cout << ArbolRojo->buscar(1).getDNI();
 						break;
 					case 2:
 						ArbolNaranja->insertar(pacienteActual);
@@ -634,8 +603,45 @@ int main()
 						}
 						break;
 					case 3:
-						mostrarListas(ArbolRojo, ArbolNaranja, ArbolAmarillo, ArbolVerde); //Muestra la lista de emergencia Roja
+						time_t now = time(0);
+						struct tm tstruct;
+						tstruct = *localtime(&now);
+						Paciente pt;
 						
+						int i = 1;
+						cout << endl << "Lista de urgencias roja" << endl << endl;
+
+						while (i < 10){
+							try {
+								pt = ArbolRojo->buscar(i);
+								if (pt.getCodNumerico()==-1) break;
+								pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
+							} catch (...) {  }
+							i++;
+						}
+/*
+					i = 0;
+		while (i < ArbolNaranja->size){
+			pt = ArbolNaranja -> buscar(ArbolNaranja->cp.eliminar().getCodNumerico());
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, tstruct.tm_hour, 15,0);
+			i++;
+		}
+
+		i = 0;
+		while (i < arbol2->size){
+			pt = arbol2 -> buscar(arbol2->cp.eliminar().getCodNumerico());
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, 1, 0,0);
+			i++;
+		}
+
+		i = 0;
+		while (i < arbol3->size){
+			pt = arbol3 -> buscar(arbol3->cp.eliminar().getCodNumerico());
+			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon+1, tstruct.tm_mday, 2, 0,0);
+			i++;
+		}
+						mostrarListas(ArbolRojo, ArbolNaranja, ArbolAmarillo, ArbolVerde); //Muestra la lista de emergencia Roja
+						*/
 						break;
 				}
 				break;

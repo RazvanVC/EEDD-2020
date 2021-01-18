@@ -21,11 +21,10 @@ void ArbolUrgencia::podar(Anodo& nodo)
 }
 Paciente ArbolUrgencia::buscar(int CodNumerico)
 {
-    Anodo aux;
     actual = raiz;
     while(!esVacio(actual)) {
         if(CodNumerico == actual->paciente.getCodNumerico())
-            return aux->paciente;
+            return actual->paciente;
         else if(CodNumerico > actual->paciente.getCodNumerico())
             actual = actual->siguiente;
         else if(CodNumerico < actual->paciente.getCodNumerico())
