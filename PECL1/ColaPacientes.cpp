@@ -36,10 +36,10 @@ void ColaPacientes::imprimir()
 {
     cnodo aux = primero;
     cnodo imp =aux;
-    cout << "-------------------------COLA URGENCIA-----------------------" << endl;
     while (aux){
-        imp->paciente.getCodNumerico();
-        cout << imp << "|" ;
+		int i = 0;
+        i = imp->paciente.getCodNumerico();
+        cout << i << "|" ;
         aux=aux->siguiente;
         imp = aux;
     }

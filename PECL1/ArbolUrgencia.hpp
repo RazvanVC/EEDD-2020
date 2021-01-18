@@ -1,10 +1,11 @@
 #ifndef ARBOLURGENCIA_HPP
 #define ARBOLURGENCIA_HPP
 #include "NodoArbol.hpp"
+#include "ColaPacientes.hpp"
 
 class ArbolUrgencia
 {
-private:
+	private:
         Anodo raiz;
         Anodo actual = NULL;
         void podar(Anodo& nodo);
@@ -22,6 +23,7 @@ private:
         bool esVacio(Anodo nodo) {return nodo == NULL;} 
         bool esHoja(Anodo nodo) {return !nodo->siguiente && !nodo->anterior ;} 
         int size;
+		ColaPacientes cp;
         int getAlturaArbol();
         Paciente getValorActual() {return actual->paciente;}
         void esRaiz() {actual = raiz;}

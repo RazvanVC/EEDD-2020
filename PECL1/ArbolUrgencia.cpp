@@ -8,7 +8,6 @@ ArbolUrgencia::ArbolUrgencia()
     raiz = NULL;
     actual = NULL;
     size = 0;
-    int array[10];
 }
 
 void ArbolUrgencia::podar(Anodo& nodo)
@@ -125,6 +124,7 @@ void ArbolUrgencia::preOrden(Anodo nodo)
 {
     if(nodo != NULL) {
         nodo->paciente.getCodNumerico();
+		cp.insertar(nodo->paciente);
         cout << nodo->paciente.getCodNumerico() << " ";
         preOrden(nodo->anterior);
         preOrden(nodo->siguiente);

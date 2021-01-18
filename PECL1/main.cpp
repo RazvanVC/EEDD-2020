@@ -24,7 +24,7 @@ const std::string currentDateTime() {
     return buf;
 }
 
-const ColaPacientes cargarColaPacientes(ColaPacientes colaPacientes, ArbolUrgencia* arbol)
+/*const ColaPacientes cargarColaPacientes(ColaPacientes colaPacientes, ArbolUrgencia* arbol)
 {
 	int i = 0;
 	while (i < arbol->size){
@@ -32,7 +32,7 @@ const ColaPacientes cargarColaPacientes(ColaPacientes colaPacientes, ArbolUrgenc
 		i++;
 	}
 	return colaPacientes;
-}
+}*/
 
 /**
  * @brief Retorna la opción del menu principal seleccionada
@@ -92,7 +92,7 @@ const void mostrarListas(ArbolUrgencia* arbol, ArbolUrgencia* arbol1, ArbolUrgen
 		Paciente pt;
 		int i = 0;
 		cout << endl << "Lista de urgencias roja" << endl << endl;
-
+		/*
 		while (i < arbol->size){
 			pt = arbol -> buscar(arbol->elementos[i]);
 			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, tstruct.tm_hour, tstruct.tm_min,tstruct.tm_sec);
@@ -114,7 +114,7 @@ const void mostrarListas(ArbolUrgencia* arbol, ArbolUrgencia* arbol1, ArbolUrgen
 		while (i < arbol3->size){
 			pt = arbol3 -> buscar(arbol3->elementos[i]);
 			pt.imprimeC3(tstruct.tm_year+1900, tstruct.tm_mon, tstruct.tm_mday, 2, 0,0);
-		}
+		}*/
 }
 
 int main()
@@ -622,14 +622,11 @@ int main()
 							cout << endl << "ArbolV" << endl;
 							ArbolVerde->mostrar();
 							
-							ColaPacientes cp;
-							cp = ColaPacientes();
-							cp = cargarColaPacientes(cp, ArbolVerde);
-							cp = cargarColaPacientes(cp, ArbolAmarillo);
-							cp = cargarColaPacientes(cp, ArbolNaranja);
-							cp = cargarColaPacientes(cp, ArbolRojo);
-							
-							cp.imprimir();
+							cout << endl << endl;
+							ArbolRojo->cp.imprimir();
+							ArbolNaranja->cp.imprimir();
+							ArbolAmarillo->cp.imprimir();
+							ArbolVerde->cp.imprimir();
 							
 						} else {
 							cout << "La opcion seleccionada es erronea" << endl; // Si hay un error,se indica por pantalla
